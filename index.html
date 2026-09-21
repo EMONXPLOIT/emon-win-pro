@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMON WIN PRO - Ultimate Gaming & Earning Hub</title>
+    <title>EMON WIN PRO - Ultimate Betting & Gaming Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 10px; }
-        .glass-panel { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(20px); border: 1px solid rgba(245, 158, 11, 0.5); }
+        .glass-panel { background: rgba(10, 15, 30, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(245, 158, 11, 0.5); }
         .emon-signature {
             text-shadow: 0 0 12px #f59e0b, 0 0 25px #ef4444, 0 0 35px #ec4899;
             animation: pulse-glow 1.5s infinite alternate;
@@ -20,12 +20,12 @@
         .tab-btn.active { background: linear-gradient(to right, #f59e0b, #ef4444); color: #000; font-weight: bold; box-shadow: 0 0 25px rgba(245,158,11,0.6); }
     </style>
 </head>
-<body class="bg-[#070a14] text-gray-100 min-h-screen p-3 md:p-8 flex flex-col items-center justify-center font-sans">
+<body class="bg-[#04060b] text-gray-100 min-h-screen p-3 md:p-8 flex flex-col items-center justify-center font-sans">
 
-    <!-- 1. AUTH CONTAINER (Pro Login / Signup / OTP) -->
+    <!-- 1. AUTH CONTAINER (Login / Signup / OTP) -->
     <div id="authContainer" class="max-w-md w-full glass-panel p-6 md:p-8 rounded-3xl shadow-[0_0_90px_rgba(245,158,11,0.3)] space-y-6 relative overflow-hidden">
         <div class="text-center border-b border-slate-700/80 pb-4">
-            <h2 class="text-xs text-amber-400 font-bold uppercase tracking-[0.3em] mb-1">PRO SECURED PORTAL</h2>
+            <h2 class="text-xs text-amber-400 font-bold uppercase tracking-[0.3em] mb-1">PRO BETTING & GAMING HUB</h2>
             <h1 class="text-xl md:text-2xl font-extrabold text-white emon-signature mb-2">EMON WIN PRO</h1>
             <p id="authSubTitle" class="text-xs text-gray-400">আপনার প্রো একাউন্টে প্রবেশ করুন</p>
         </div>
@@ -74,11 +74,11 @@
         <div id="otpForm" class="space-y-4 hidden text-center">
             <div class="bg-amber-500/10 border border-amber-500/30 p-3.5 rounded-xl">
                 <p class="text-xs text-amber-300">ওটিপি ভেরিফিকেশন কোড:</p>
-                <p class="text-2xl font-extrabold text-white mt-1"><span id="displayOtpCode" class="text-amber-400 font-mono">5678</span></p>
+                <p class="text-2xl font-extrabold text-white mt-1"><span id="displayOtpCode" class="text-amber-400 font-mono">8899</span></p>
             </div>
             <div>
                 <label class="text-xs font-bold text-gray-300 uppercase block mb-1">৪ ডিজিটের কোডটি লিখুন:</label>
-                <input type="number" id="enteredOtp" placeholder="5678" maxlength="4" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-center text-xl tracking-widest text-white focus:outline-none">
+                <input type="number" id="enteredOtp" placeholder="8899" maxlength="4" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-center text-xl tracking-widest text-white focus:outline-none">
             </div>
             <button onclick="verifyOtp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">
                 ভেরিফাই করুন ✅
@@ -101,7 +101,7 @@
         <div class="text-center border-b border-slate-700/80 pb-4 relative z-10 flex justify-between items-center">
             <div>
                 <h2 id="welcomeUser" class="text-xs text-amber-400 font-bold uppercase tracking-wider">Welcome, Pro User</h2>
-                <h1 class="text-xl md:text-2xl font-extrabold text-white emon-signature tracking-wider">EMON WIN PRO 🚀</h1>
+                <h1 class="text-xl md:text-2xl font-extrabold text-white emon-signature tracking-wider">EMON WIN PRO 🏆</h1>
             </div>
             <button onclick="handleLogout()" class="bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 border border-rose-500/40 px-3 py-1.5 rounded-xl text-xs font-bold transition">
                 লগআউট 🚪
@@ -112,72 +112,72 @@
         <div class="bg-gradient-to-r from-amber-500/20 via-rose-500/20 to-purple-500/20 border border-amber-500/40 p-4 rounded-2xl flex justify-between items-center relative z-10 shadow-inner">
             <div>
                 <p class="text-[11px] text-gray-400 uppercase font-bold">মেইন ব্যালেন্স:</p>
-                <h3 id="userCoins" class="text-2xl font-extrabold text-amber-400">🪙 200 Coins</h3>
+                <h3 id="userCoins" class="text-2xl font-extrabold text-amber-400">🪙 500 Coins</h3>
             </div>
             <div class="text-right">
                 <p class="text-[11px] text-gray-400 uppercase font-bold">টাকার পরিমাণ:</p>
-                <h3 id="userTaka" class="text-xl font-bold text-emerald-400">৳ 20.00 BDT</h3>
+                <h3 id="userTaka" class="text-xl font-bold text-emerald-400">৳ 50.00 BDT</h3>
             </div>
         </div>
 
         <!-- Navigation Tabs -->
         <div class="grid grid-cols-4 gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-700 relative z-10 text-xs">
-            <button onclick="switchTab('games')" id="tab-games" class="tab-btn active py-2 rounded-lg transition uppercase tracking-wider font-bold">🎮 গেমস হাব</button>
+            <button onclick="switchTab('games')" id="tab-games" class="tab-btn active py-2 rounded-lg transition uppercase tracking-wider font-bold">🎮 গেমস ও বেটিং</button>
             <button onclick="switchTab('deposit')" id="tab-deposit" class="tab-btn py-2 rounded-lg transition uppercase tracking-wider text-gray-300 font-bold">📥 ডিপোজিট</button>
             <button onclick="switchTab('withdraw')" id="tab-withdraw" class="tab-btn py-2 rounded-lg transition uppercase tracking-wider text-gray-300 font-bold">📤 উইথড্র</button>
             <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn py-2 rounded-lg transition uppercase tracking-wider text-gray-300 font-bold">👑 অ্যাডমিন</button>
         </div>
 
-        <!-- TAB 1: 1000+ Games API Hub -->
+        <!-- TAB 1: Games & Betting Hub -->
         <div id="content-games" class="space-y-4 relative z-10">
             <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-3 shadow-md">
-                <h3 class="text-sm font-bold text-amber-300">🎡 লাকি স্পিন হুইল & ডেইলি বোনাস</h3>
-                <p class="text-xs text-gray-400">স্পিন করে সরাসরি ফ্রি কয়েন জিতে নিন!</p>
+                <h3 class="text-sm font-bold text-amber-300">🎡 লাকি স্পিন হুইল & বেটিং আর্ন</h3>
+                <p class="text-xs text-gray-400">স্পিন করে লাইভ কয়েন বাড়িয়ে নিন!</p>
                 <div id="spinResult" class="text-base font-extrabold text-amber-400 py-1">স্পিন করতে নিচে ক্লিক করুন 👇</div>
                 <button onclick="spinWheel()" class="w-full bg-gradient-to-r from-amber-500 to-rose-500 text-slate-950 font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">
                     🎯 স্পিন করুন (Spin & Win)
                 </button>
             </div>
 
-            <!-- Games Grid -->
+            <!-- Pro Games & Betting API Grid -->
             <div class="space-y-3">
-                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🕹️ ১০০০+ প্রিমিয়াম গেমস ক্যাটাগরি:</h3>
+                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🕹️ লাইভ প্রিমিয়াম গেমস ও বেটিং অপশন:</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                     
-                    <div onclick="playGame('Subway Runner', 'https://html5.gamedistribution.com/rvvASMiM/a1811e569e12457fb7d1d2b3898f9fb8/index.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
+                    <div onclick="playGame('Subway Surfers Pro', 'https://www.kiloo.com/subway-surfers/')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
                         <div class="text-2xl">🏃‍♂️</div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Subway Runner</h4>
-                        <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Instant Play</span>
+                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Subway Surfers</h4>
+                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full inline-block">Play Live</span>
                     </div>
 
-                    <div onclick="playGame('Ludo Classic', 'https://html5.gamedistribution.com/rvvASMiM/c932f9958cfb4009a063bdfb3260c608/index.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
+                    <div onclick="playGame('Ludo King', 'https://www.ludo.com/')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
                         <div class="text-2xl">🎲</div>
                         <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Ludo Master</h4>
-                        <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Instant Play</span>
+                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full inline-block">Play Live</span>
                     </div>
 
-                    <div onclick="playGame('Speed Car Racing', 'https://html5.gamedistribution.com/rvvASMiM/cc97c9b2d07a4c7e8e5621fb2f6cdb42/index.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
-                        <div class="text-2xl">🏎️</div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Car Racing</h4>
-                        <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Instant Play</span>
-                    </div>
-
-                    <div onclick="playGame('Candy Smash', 'https://html5.gamedistribution.com/rvvASMiM/2a6b2c2b62d348f98a2bb5bc4db158a1/index.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
-                        <div class="text-2xl">🍬</div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Candy Match</h4>
-                        <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Instant Play</span>
-                    </div>
-
-                    <div onclick="playGame('Temple Jungle', 'https://html5.gamedistribution.com/rvvASMiM/8c3258c735d448138be6e8db3a8ed963/index.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
+                    <div onclick="playGame('Temple Run Live', 'https://imagy.app/temple-run-play/')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
                         <div class="text-2xl">🐒</div>
                         <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Temple Run</h4>
-                        <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Instant Play</span>
+                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full inline-block">Play Live</span>
                     </div>
 
-                    <div onclick="playGame('Bubble Shooter', 'https://html5.gamedistribution.com/rvvASMiM/c072c49c18d94b05a766c888d2d6bfd4/index.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
+                    <div onclick="playGame('Classic Pacman', 'https://www.google.com/logos/2010/pacman10-i.html')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
+                        <div class="text-2xl">🟡</div>
+                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Pacman Arcade</h4>
+                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full inline-block">Play Live</span>
+                    </div>
+
+                    <div onclick="playGame('Chess Arena', 'https://www.chess.com/play/computer')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
+                        <div class="text-2xl">♟️</div>
+                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Chess Master</h4>
+                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full inline-block">Play Live</span>
+                    </div>
+
+                    <div onclick="playGame('Bubble Shooter Pro', 'https://www.bubbleshooter.net/')" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer text-center space-y-1 transition group">
                         <div class="text-2xl">🔮</div>
                         <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Bubble Shooter</h4>
-                        <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Instant Play</span>
+                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full inline-block">Play Live</span>
                     </div>
 
                 </div>
@@ -186,10 +186,13 @@
             <!-- Game Player Box -->
             <div id="gamePlayerBox" class="bg-slate-950 p-3 rounded-2xl border border-amber-500/50 space-y-2 hidden">
                 <div class="flex justify-between items-center">
-                    <h4 id="activeGameTitle" class="text-xs font-bold text-amber-400">🎮 Game Playing</h4>
-                    <button onclick="closeGame()" class="bg-rose-600 text-white px-3 py-1 rounded-lg text-[10px] font-bold">বন্ধ করুন ❌</button>
+                    <h4 id="activeGameTitle" class="text-xs font-bold text-amber-400">🎮 Live Gaming Arena</h4>
+                    <div class="space-x-2">
+                        <a id="externalGameLink" href="#" target="_blank" class="bg-amber-500 text-slate-950 px-2.5 py-1 rounded-lg text-[10px] font-bold">নতুন ট্যাবে খেলুন ↗</a>
+                        <button onclick="closeGame()" class="bg-rose-600 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">বন্ধ করুন ❌</button>
+                    </div>
                 </div>
-                <iframe id="gameIframe" src="" class="w-full h-[380px] rounded-xl border border-slate-800 bg-black"></iframe>
+                <iframe id="gameIframe" src="" class="w-full h-[400px] rounded-xl border border-slate-800 bg-black"></iframe>
             </div>
         </div>
 
@@ -293,7 +296,7 @@
     <!-- Script Engine -->
     <script>
         let currentUser = localStorage.getItem('emon_pro_logged');
-        let coins = localStorage.getItem('emon_pro_coins') ? parseInt(localStorage.getItem('emon_pro_coins')) : 200;
+        let coins = localStorage.getItem('emon_pro_coins') ? parseInt(localStorage.getItem('emon_pro_coins')) : 500;
         let generatedOtp = "";
 
         if (currentUser) {
@@ -400,16 +403,17 @@
         }
 
         function spinWheel() {
-            const rewards = [20, 50, 100, 200, 300, 500, 0, 50];
+            const rewards = [50, 100, 200, 500, 1000, 0, 100];
             const win = rewards[Math.floor(Math.random() * rewards.length)];
             coins += win;
             updateWallet();
-            document.getElementById('spinResult').innerText = win > 0 ? `🎉 অভিনন্দন! আপনি স্পিনে ${win} কয়েন জিতেছেন!` : `😢 দুঃখিত! এই স্পিনে কিছু পাননি।`;
+            document.getElementById('spinResult').innerText = win > 0 ? `🎉 অভিনন্দন! স্পিন করে ${win} কয়েন জিতেছেন!` : `😢 দুঃখিত! এই স্পিনে কিছু পাননি।`;
         }
 
         function playGame(title, url) {
-            document.getElementById('activeGameTitle').innerText = "🎮 Playing: " + title;
+            document.getElementById('activeGameTitle').innerText = "🎮 Arena: " + title;
             document.getElementById('gameIframe').src = url;
+            document.getElementById('externalGameLink.href', url);
             document.getElementById('gamePlayerBox').classList.remove('hidden');
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
