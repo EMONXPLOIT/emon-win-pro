@@ -3,163 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMON WIN PRO - Official Pro Betting Platform</title>
+    <title>TK999 Pro - Official Betting & Gaming Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .glass-panel { background: rgba(8, 12, 22, 0.98); backdrop-filter: blur(25px); border: 1px solid rgba(245, 158, 11, 0.4); }
-        .emon-glow { text-shadow: 0 0 15px #f59e0b, 0 0 30px #ef4444; }
-        .tab-btn.active { background: linear-gradient(to right, #f59e0b, #ef4444); color: #020617; font-weight: 800; box-shadow: 0 0 20px rgba(245,158,11,0.5); }
+        body { background-color: #07261e; color: #e2e8f0; font-family: sans-serif; }
+        .tk-card { background: rgba(5, 35, 27, 0.95); border: 1px solid rgba(212, 175, 55, 0.3); backdrop-filter: blur(10px); }
+        .tk-gold { color: #d4af37; }
+        .tk-btn { background: linear-gradient(to bottom, #d4af37, #aa7c11); color: #07261e; font-weight: 800; }
+        .tab-item.active { color: #d4af37; border-top: 2px solid #d4af37; }
     </style>
 </head>
-<body class="bg-[#02040a] text-gray-100 min-h-screen p-3 md:p-6 flex flex-col items-center justify-center font-sans select-none">
+<body class="min-h-screen pb-24 select-none">
 
-    <!-- 1. AUTH & OTP CONTAINER -->
-    <div id="authContainer" class="max-w-md w-full glass-panel p-6 md:p-8 rounded-3xl shadow-[0_0_100px_rgba(245,158,11,0.25)] space-y-6">
-        <div class="text-center border-b border-slate-800 pb-4">
-            <h2 class="text-xs text-amber-400 font-extrabold uppercase tracking-[0.3em] mb-1">PRO BETTING PORTAL</h2>
-            <h1 class="text-2xl font-black text-white emon-glow mb-1">EMON WIN PRO</h1>
-            <p id="authSubTitle" class="text-xs text-gray-400">আপনার বেটিং একাউন্টে প্রবেশ করুন</p>
+    <!-- TOP HEADER -->
+    <header class="max-w-md mx-auto p-3 flex justify-between items-center bg-[#051c15] border-b border-[#0d3b2e] sticky top-0 z-40">
+        <div class="flex items-center space-x-2">
+            <h1 class="text-lg font-black tracking-wider text-emerald-400">TK999<span class="text-amber-400 font-normal">|wintk</span></h1>
         </div>
-
-        <!-- Login Form -->
-        <div id="loginForm" class="space-y-4">
-            <div>
-                <label class="text-xs font-bold text-gray-300 uppercase block mb-1">মোবাইল নম্বর:</label>
-                <input type="number" id="loginPhone" placeholder="017xxxxxxxx" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-            </div>
-            <div>
-                <label class="text-xs font-bold text-gray-300 uppercase block mb-1">পাসওয়ার্ড:</label>
-                <input type="password" id="loginPass" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-            </div>
-            <button onclick="handleLogin()" class="w-full bg-gradient-to-r from-amber-500 to-rose-500 text-slate-950 font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">
-                লগইন করুন (Login)
-            </button>
-            <p class="text-center text-xs text-gray-400 pt-2">
-                নতুন একাউন্ট নেই? <span onclick="showRegister()" class="text-amber-400 font-bold cursor-pointer underline">রেজিস্ট্রেশন করুন</span>
-            </p>
+        <div class="flex items-center space-x-2">
+            <button onclick="addDemo()" class="bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2 py-1 rounded-lg text-[10px] font-bold">ডেমো +১০,০০০</button>
+            <button onclick="location.reload()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-2.5 py-1 rounded-lg text-[10px] font-bold">লগআউট</button>
         </div>
+    </header>
 
-        <!-- Register Form -->
-        <div id="registerForm" class="space-y-4 hidden">
-            <div>
-                <label class="text-xs font-bold text-gray-300 uppercase block mb-1">আপনার নাম:</label>
-                <input type="text" id="regName" placeholder="Emon Khan" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none">
-            </div>
-            <div>
-                <label class="text-xs font-bold text-gray-300 uppercase block mb-1">মোবাইল নম্বর:</label>
-                <input type="number" id="regPhone" placeholder="017xxxxxxxx" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none">
-            </div>
-            <div>
-                <label class="text-xs font-bold text-gray-300 uppercase block mb-1">পাসওয়ার্ড:</label>
-                <input type="password" id="regPass" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none">
-            </div>
-            <button onclick="handleRegister()" class="w-full bg-gradient-to-r from-amber-500 to-rose-500 text-slate-950 font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">
-                সাইন আপ ও ওটিপি পাঠান 🚀
-            </button>
-            <p class="text-center text-xs text-gray-400 pt-2">
-                আগেই একাউন্ট আছে? <span onclick="showLogin()" class="text-amber-400 font-bold cursor-pointer underline">লগইন করুন</span>
-            </p>
-        </div>
+    <main class="max-w-md mx-auto p-3 space-y-3">
 
-        <!-- OTP Form -->
-        <div id="otpForm" class="space-y-4 hidden text-center">
-            <div class="bg-amber-500/10 border border-amber-500/30 p-3.5 rounded-xl">
-                <p class="text-xs text-amber-300">আপনার ওটিপি কোড:</p>
-                <p class="text-2xl font-black text-amber-400 font-mono mt-1"><span id="displayOtp">7788</span></p>
-            </div>
+        <!-- WALLET & USER BANNER -->
+        <div class="tk-card p-4 rounded-2xl flex justify-between items-center shadow-lg">
             <div>
-                <label class="text-xs font-bold text-gray-300 uppercase block mb-1">৪ ডিজিটের কোডটি লিখুন:</label>
-                <input type="number" id="enteredOtp" placeholder="7788" maxlength="4" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-center text-xl tracking-widest text-white focus:outline-none">
+                <p class="text-[10px] text-gray-400 uppercase font-bold">মেইন ব্যালেন্স</p>
+                <h2 id="mainBalance" class="text-2xl font-black text-amber-400">৳1000.00</h2>
             </div>
-            <button onclick="verifyOtp()" class="w-full bg-emerald-600 text-slate-950 font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">
-                ভেরিফাই করুন ✅
-            </button>
-        </div>
-    </div>
-
-
-    <!-- 2. MAIN APP DASHBOARD -->
-    <div id="appContainer" class="max-w-md w-full glass-panel p-4 md:p-6 rounded-3xl shadow-2xl space-y-4 hidden relative pb-20">
-        
-        <!-- Header -->
-        <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-            <div class="flex items-center space-x-2">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-600 flex items-center justify-center font-black text-slate-950">👑</div>
-                <div>
-                    <h3 id="profileName" class="text-xs font-bold text-amber-400">Emon Khan</h3>
-                    <p class="text-[10px] text-emerald-400 font-bold">Balance: <span id="topTaka">৳1000.00</span></p>
-                </div>
-            </div>
-            <div class="flex gap-1">
-                <button onclick="addDemoBalance()" class="bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2.5 py-1.5 rounded-xl text-[10px] font-bold">ডেমো +১০,০০০ 🪙</button>
-                <button onclick="handleLogout()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-2.5 py-1.5 rounded-xl text-[10px] font-bold">লগআউট 🚪</button>
+            <div class="space-x-1">
+                <button onclick="switchTab('deposit')" class="tk-btn px-4 py-2 rounded-xl text-xs shadow-md">ডিপোজিট</button>
+                <button onclick="switchTab('withdraw')" class="bg-emerald-600 text-slate-950 font-bold px-3 py-2 rounded-xl text-xs">উইথড্র</button>
             </div>
         </div>
 
-        <!-- Wallet Card -->
-        <div class="glass-panel p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 text-center space-y-1">
-            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">রিয়েল ও ডেমো বেটিং ব্যালেন্স</p>
-            <h1 id="mainBalance" class="text-3xl font-black text-amber-400 emon-glow">৳1000.00</h1>
-            <p class="text-[11px] text-gray-300">VIP Level: <b class="text-emerald-400">Platinum Pro</b></p>
-        </div>
-
-        <!-- TAB 1: GAMES & AVIATOR CRASH -->
-        <div id="tab-content-home" class="space-y-4">
-            
-            <!-- Aviator Crash Game Box -->
-            <div class="glass-panel p-4 rounded-2xl text-center space-y-3 bg-gradient-to-br from-slate-900 to-indigo-950 border-amber-500/50">
-                <div class="flex justify-between items-center text-xs">
-                    <span class="text-amber-400 font-bold">✈️ AVIATOR CRASH BETTING</span>
-                    <span class="text-emerald-400 animate-pulse font-mono text-sm" id="aviatorMultiplier">1.00x</span>
-                </div>
-                <div class="py-5 bg-slate-950 rounded-xl border border-slate-800">
-                    <h2 id="aviatorStatus" class="text-3xl font-black text-amber-400 font-mono">✈️ READY</h2>
-                    <p class="text-[10px] text-gray-400 mt-1">প্লেন উড়ার সময় ক্যাশআউট করুন!</p>
-                </div>
-                <button onclick="playAviator()" id="aviatorBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition">
-                    🚀 বেট শুরু করুন (৳১০০)
-                </button>
+        <!-- 1. HOME TAB -->
+        <div id="tab-home" class="space-y-3">
+            <!-- Banner Slider Box -->
+            <div class="tk-card p-4 rounded-2xl bg-gradient-to-r from-amber-600/20 to-red-600/20 border-amber-500/50 text-center space-y-2">
+                <h3 class="text-sm font-extrabold text-amber-300">🔥 DOWNLOAD THE APP NOW 🔥</h3>
+                <p class="text-[11px] text-gray-300">ইনস্ট্যান্ট ক্লাইম করুন সর্বোচ্চ ৯৯৯ টাকা বোনাস!</p>
+                <div class="text-xs bg-amber-500 text-slate-950 font-black py-2 rounded-xl uppercase tracking-wider">APP UP TO ৳999 FREE</div>
             </div>
 
-            <!-- Lucky Spin -->
-            <div class="glass-panel p-4 rounded-2xl text-center space-y-2">
-                <h3 class="text-xs font-bold text-amber-400">🎡 লাকি স্পিন হুইল</h3>
-                <div id="spinMsg" class="text-xs font-bold text-white">স্পিন করে ক্যাশ জিতুন!</div>
-                <button onclick="doSpin()" class="w-full bg-gradient-to-r from-amber-500 to-rose-500 text-slate-950 font-black py-2.5 rounded-xl text-xs uppercase">স্পিন করুন 🎯</button>
-            </div>
-
-            <!-- External Games Grid -->
+            <!-- HOT GAMES SECTION -->
             <div class="space-y-2">
-                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🕹️ অন্যান্য প্রিমিয়াম গেমস</h3>
-                <div class="grid grid-cols-2 gap-2.5">
-                    <a href="https://poki.com/en/g/subway-surfers" target="_blank" class="glass-panel p-3 rounded-xl text-center block group">
-                        <div class="text-xl">🏃‍♂️</div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Subway Surfers</h4>
-                        <span class="text-[9px] text-amber-400">খেলুন ↗</span>
+                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🔥 HOT GAMES</h3>
+                
+                <div class="grid grid-cols-3 gap-2">
+                    
+                    <!-- Aviator -->
+                    <div onclick="playAviatorGame()" class="tk-card p-3 rounded-xl text-center cursor-pointer hover:border-amber-400 transition group">
+                        <div class="text-2xl">✈️</div>
+                        <h4 class="text-[11px] font-bold text-white group-hover:text-amber-400 mt-1">Aviator</h4>
+                        <span class="text-[9px] text-emerald-400">Live Bet</span>
+                    </div>
+
+                    <!-- Super Ace -->
+                    <a href="https://poki.com/en/g/subway-surfers" target="_blank" class="tk-card p-3 rounded-xl text-center block group">
+                        <div class="text-2xl">🃏</div>
+                        <h4 class="text-[11px] font-bold text-white group-hover:text-amber-400 mt-1">Super Ace</h4>
+                        <span class="text-[9px] text-amber-400">Hot Slot</span>
                     </a>
-                    <a href="https://poki.com/en/g/ludo-hero" target="_blank" class="glass-panel p-3 rounded-xl text-center block group">
-                        <div class="text-xl">🎲</div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-amber-400">Ludo Hero</h4>
-                        <span class="text-[9px] text-amber-400">খেলুন ↗</span>
+
+                    <!-- Ludo Hero -->
+                    <a href="https://poki.com/en/g/ludo-hero" target="_blank" class="tk-card p-3 rounded-xl text-center block group">
+                        <div class="text-2xl">🎲</div>
+                        <h4 class="text-[11px] font-bold text-white group-hover:text-amber-400 mt-1">Ludo Hero</h4>
+                        <span class="text-[9px] text-amber-400">Classic</span>
                     </a>
+
                 </div>
+            </div>
+
+            <!-- Aviator Live Box -->
+            <div id="aviatorBox" class="tk-card p-4 rounded-2xl text-center space-y-3 hidden border-amber-500">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-amber-400 font-bold">✈️ AVIATOR CRASH</span>
+                    <span class="text-emerald-400 font-mono text-sm" id="aviatorMult">1.00x</span>
+                </div>
+                <div class="py-6 bg-[#031510] rounded-xl border border-emerald-900">
+                    <h2 id="aviatorStat" class="text-3xl font-black text-amber-400 font-mono">READY</h2>
+                </div>
+                <button onclick="startAviatorBet()" id="aviatorActionBtn" class="tk-btn w-full py-3 rounded-xl text-xs uppercase">বেট শুরু করুন (৳১০০)</button>
+                <button onclick="closeAviator()" class="text-xs text-gray-400 underline">বন্ধ করুন</button>
             </div>
         </div>
 
-        <!-- TAB 2: DEPOSIT (Interactive Amount Buttons + Official Number) -->
-        <div id="tab-content-deposit" class="space-y-3 hidden">
-            <div class="glass-panel p-4 rounded-2xl space-y-3">
+        <!-- 2. DEPOSIT TAB -->
+        <div id="tab-deposit" class="space-y-3 hidden">
+            <div class="tk-card p-4 rounded-2xl space-y-3">
                 <h3 class="text-sm font-bold text-amber-400">📥 বিকাশ, নগদ ও রকেট ডিপোজিট</h3>
                 
-                <div class="bg-slate-950 p-3 rounded-xl border border-amber-500/30 text-xs space-y-1">
+                <div class="bg-[#031510] p-3 rounded-xl border border-amber-500/30 text-xs space-y-1">
                     <p class="text-gray-400">অফিশিয়াল পার্সোনাল নম্বর:</p>
                     <p class="text-amber-400 font-black text-sm font-mono">01401637316 (Personal)</p>
-                    <p class="text-[10px] text-gray-400">আগে এই নাম্বারে ক্যাশআউট/সেন্ড মনি করুন।</p>
                 </div>
 
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">পেমেন্ট মাধ্যম:</label>
-                    <select id="depMethod" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-amber-400">
+                    <select id="depMethod" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-amber-400">
                         <option value="bKash">bKash</option>
                         <option value="Nagad">Nagad</option>
                         <option value="Rocket">Rocket</option>
@@ -167,37 +113,37 @@
                 </div>
 
                 <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ সিলেক্ট করুন বা লিখুন:</label>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ সিলেক্ট করুন:</label>
                     <div class="grid grid-cols-4 gap-2 mb-2">
-                        <button onclick="setDepAmount(200)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳২০০</button>
-                        <button onclick="setDepAmount(500)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০</button>
-                        <button onclick="setDepAmount(1000)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳১০০০</button>
-                        <button onclick="setDepAmount(5000)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০০</button>
+                        <button onclick="setDep(200)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳২০০</button>
+                        <button onclick="setDep(500)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০</button>
+                        <button onclick="setDep(1000)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳১০০০</button>
+                        <button onclick="setDep(5000)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০০</button>
                     </div>
-                    <input type="number" id="depAmount" placeholder="অথবা টাকার পরিমাণ লিখুন" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
+                    <input type="number" id="depAmount" placeholder="অথবা পরিমাণ লিখুন" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
                 </div>
 
                 <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">আপনার প্রেরক নম্বর:</label>
-                    <input type="number" id="depSender" placeholder="017xxxxxxxx" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
+                    <label class="text-xs text-gray-300 font-bold block mb-1">প্রেরক নম্বর:</label>
+                    <input type="number" id="depSender" placeholder="017xxxxxxxx" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
                 </div>
 
                 <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">ট্রানজ্যাকশন আইডি (TrxID):</label>
-                    <input type="text" id="depTrx" placeholder="9L7A..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white uppercase">
+                    <label class="text-xs text-gray-300 font-bold block mb-1">TrxID:</label>
+                    <input type="text" id="depTrx" placeholder="9L7A..." class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white uppercase">
                 </div>
 
-                <button onclick="requestDeposit()" class="w-full bg-amber-500 text-slate-950 font-black py-3 rounded-xl text-xs uppercase shadow-lg">ডিপোজিট রিকোয়েস্ট পাঠান 📥</button>
+                <button onclick="submitDeposit()" class="tk-btn w-full py-3 rounded-xl text-xs uppercase shadow-lg">ডিপোজিট রিকোয়েস্ট পাঠান 📥</button>
             </div>
         </div>
 
-        <!-- TAB 3: WITHDRAW -->
-        <div id="tab-content-withdraw" class="space-y-3 hidden">
-            <div class="glass-panel p-4 rounded-2xl space-y-3">
+        <!-- 3. WITHDRAW TAB -->
+        <div id="tab-withdraw" class="space-y-3 hidden">
+            <div class="tk-card p-4 rounded-2xl space-y-3">
                 <h3 class="text-sm font-bold text-emerald-400">📤 টাকা উত্তোলন (Withdraw)</h3>
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">মাধ্যম:</label>
-                    <select id="wMethod" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-emerald-400">
+                    <select id="wMethod" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-emerald-400">
                         <option value="bKash">BKash</option>
                         <option value="Nagad">Nagad</option>
                         <option value="Rocket">Rocket</option>
@@ -205,238 +151,176 @@
                 </div>
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">রিসিভ নম্বর:</label>
-                    <input type="number" id="wNumber" placeholder="017xxxxxxxx" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
+                    <input type="number" id="wNumber" placeholder="017xxxxxxxx" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
                 </div>
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ (মিনিমাম ২০০):</label>
-                    <input type="number" id="wAmount" placeholder="200" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
+                    <input type="number" id="wAmount" placeholder="200" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
                 </div>
-                <button onclick="requestWithdraw()" class="w-full bg-emerald-600 text-slate-950 font-black py-3 rounded-xl text-xs uppercase">উইথড্র রিকোয়েস্ট 💸</button>
+                <button onclick="submitWithdraw()" class="bg-emerald-600 text-slate-950 font-bold w-full py-3 rounded-xl text-xs uppercase">উইথড্র রিকোয়েস্ট 💸</button>
             </div>
         </div>
 
-        <!-- TAB 4: ADMIN -->
-        <div id="tab-content-admin" class="space-y-3 hidden">
-            <div class="glass-panel p-4 rounded-2xl space-y-3">
-                <h3 class="text-sm font-bold text-rose-400">👑 অ্যাডমিন প্যানেল (Emon Khan)</h3>
+        <!-- 4. ADMIN TAB -->
+        <div id="tab-admin" class="space-y-3 hidden">
+            <div class="tk-card p-4 rounded-2xl space-y-3">
+                <h3 class="text-sm font-bold text-rose-400">👑 অ্যাডমিন প্যানেল</h3>
                 <div class="space-y-1">
-                    <p class="text-xs text-amber-400 font-bold">📥 ডিপোজিট রিকোয়েস্ট লিস্ট:</p>
-                    <div id="adminDeposits" class="bg-slate-950 p-2 rounded-xl text-xs text-gray-300 min-h-[50px]">কোনো রিকোয়েস্ট নেই।</div>
+                    <p class="text-xs text-amber-400 font-bold">📥 ডিপোজিট রিকোয়েস্ট:</p>
+                    <div id="adminDeps" class="bg-[#031510] p-2 rounded-xl text-xs text-gray-300 min-h-[40px]">কোনো রিকোয়েস্ট নেই।</div>
                 </div>
-                <div class="space-y-1 pt-2 border-t border-slate-800">
-                    <p class="text-xs text-emerald-400 font-bold">📤 উইথড্র রিকোয়েস্ট লিস্ট:</p>
-                    <div id="adminWithdraws" class="bg-slate-950 p-2 rounded-xl text-xs text-gray-300 min-h-[50px]">কোনো রিকোয়েস্ট নেই।</div>
+                <div class="space-y-1 pt-2 border-t border-emerald-900">
+                    <p class="text-xs text-emerald-400 font-bold">📤 উইথড্র রিকোয়েস্ট:</p>
+                    <div id="adminWits" class="bg-[#031510] p-2 rounded-xl text-xs text-gray-300 min-h-[40px]">কোনো রিকোয়েস্ট নেই।</div>
                 </div>
             </div>
         </div>
 
-        <!-- BOTTOM NAV BAR -->
-        <nav class="absolute bottom-0 left-0 right-0 bg-[#080c16] border-t border-slate-800 p-2 flex justify-around items-center rounded-b-3xl">
-            <button onclick="switchTab('home')" id="nav-home" class="tab-btn active px-3 py-1.5 rounded-xl text-[11px] font-bold text-gray-400">🏠 গেমস</button>
-            <button onclick="switchTab('deposit')" id="nav-deposit" class="tab-btn px-3 py-1.5 rounded-xl text-[11px] font-bold text-gray-400">📥 ডিপোজিট</button>
-            <button onclick="switchTab('withdraw')" id="nav-withdraw" class="tab-btn px-3 py-1.5 rounded-xl text-[11px] font-bold text-gray-400">📤 উইথড্র</button>
-            <button onclick="switchTab('admin')" id="nav-admin" class="tab-btn px-3 py-1.5 rounded-xl text-[11px] font-bold text-gray-400">👑 অ্যাডমিন</button>
-        </nav>
-    </div>
+    </main>
+
+    <!-- BOTTOM NAVIGATION BAR (TK999 Style) -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#051c15] border-t border-emerald-900 p-2 flex justify-around items-center z-40 rounded-t-2xl">
+        <button onclick="switchTab('home')" id="nav-home" class="tab-item active flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">🏠</span> Home
+        </button>
+        <button onclick="switchTab('deposit')" id="nav-deposit" class="tab-item flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">📥</span> Deposit
+        </button>
+        <button onclick="switchTab('withdraw')" id="nav-withdraw" class="tab-item flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">📤</span> Withdraw
+        </button>
+        <button onclick="switchTab('admin')" id="nav-admin" class="tab-item flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">👑</span> Admin
+        </button>
+    </nav>
 
     <!-- SCRIPT ENGINE -->
     <script>
-        let balance = localStorage.getItem('emon_bal') ? parseFloat(localStorage.getItem('emon_bal')) : 1000.00;
-        let tempReg = {};
-        let generatedOtp = "7788";
+        let balance = localStorage.getItem('tk_bal') ? parseFloat(localStorage.getItem('tk_bal')) : 1000.00;
+        updateBal();
 
-        if(localStorage.getItem('emon_logged')) {
-            startApp(localStorage.getItem('emon_logged'));
-        }
-
-        function showRegister() {
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('registerForm').classList.remove('hidden');
-        }
-        function showLogin() {
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('loginForm').classList.remove('hidden');
-        }
-
-        function handleRegister() {
-            const name = document.getElementById('regName').value;
-            const phone = document.getElementById('regPhone').value;
-            const pass = document.getElementById('regPass').value;
-            if(!name || !phone || !pass) { alert("সব ফিল্ড পূরণ করুন!"); return; }
-            tempReg = {name, phone, pass};
-            generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
-            document.getElementById('displayOtp').innerText = generatedOtp;
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('otpForm').classList.remove('hidden');
-        }
-
-        function verifyOtp() {
-            const code = document.getElementById('enteredOtp').value;
-            if(code === generatedOtp) {
-                localStorage.setItem('emon_phone', tempReg.phone);
-                localStorage.setItem('emon_pass', tempReg.pass);
-                localStorage.setItem('emon_name', tempReg.name);
-                alert("রেজিস্ট্রেশন ও ওটিপি ভেরিফিকেশন সফল! 🎉");
-                startApp(tempReg.name);
-            } else {
-                alert("ভুল ওটিপি কোড!");
-            }
-        }
-
-        function handleLogin() {
-            const phone = document.getElementById('loginPhone').value;
-            const pass = document.getElementById('loginPass').value;
-            const sPhone = localStorage.getItem('emon_phone');
-            const sPass = localStorage.getItem('emon_pass');
-            const sName = localStorage.getItem('emon_name') || "Emon Player";
-
-            if((phone === sPhone && pass === sPass) || (phone === "01700000000" && pass === "1234")) {
-                startApp(sName);
-            } else {
-                alert("নম্বর বা পাসওয়ার্ড ভুল হয়েছে!");
-            }
-        }
-
-        function startApp(name) {
-            localStorage.setItem('emon_logged', name);
-            document.getElementById('authContainer').classList.add('hidden');
-            document.getElementById('appContainer').classList.remove('hidden');
-            document.getElementById('profileName').innerText = name;
-            updateWallet();
-        }
-
-        function handleLogout() {
-            localStorage.removeItem('emon_logged');
-            location.reload();
-        }
-
-        function updateWallet() {
+        function updateBal() {
             document.getElementById('mainBalance').innerText = `৳${balance.toFixed(2)}`;
-            document.getElementById('topTaka').innerText = `৳${balance.toFixed(2)}`;
-            localStorage.setItem('emon_bal', balance);
+            localStorage.setItem('tk_bal', balance);
         }
 
-        function addDemoBalance() {
+        function addDemo() {
             balance += 10000;
-            updateWallet();
-            alert("সফলভাবে ১০,০০০ টাকা ডেমো ব্যালেন্স যোগ হয়েছে! 🪙");
-        }
-
-        function setDepAmount(amt) {
-            document.getElementById('depAmount').value = amt;
+            updateBal();
+            alert("১০,০০০ টাকা ডেমো ব্যালেন্স যোগ হয়েছে! 🪙");
         }
 
         function switchTab(tab) {
             ['home', 'deposit', 'withdraw', 'admin'].forEach(t => {
-                document.getElementById('tab-content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.add('hidden');
                 document.getElementById('nav-' + t).classList.remove('active');
             });
-            document.getElementById('tab-content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.remove('hidden');
             document.getElementById('nav-' + tab).classList.add('active');
-            if(tab === 'admin') loadAdmin();
+            if(tab === 'admin') loadAdminData();
+        }
+
+        function setDep(amt) {
+            document.getElementById('depAmount').value = amt;
         }
 
         // Aviator Game Logic
-        let aviatorActive = false;
-        function playAviator() {
+        function playAviatorGame() {
+            document.getElementById('aviatorBox').classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        function closeAviator() {
+            document.getElementById('aviatorBox').classList.add('hidden');
+        }
+
+        let aviatorRunning = false;
+        function startAviatorBet() {
             if(balance < 100) { alert("পর্যাপ্ত ব্যালেন্স নেই! ন্যূনতম ১০০ টাকা লাগবে।"); return; }
             balance -= 100;
-            updateWallet();
+            updateBal();
 
             let mult = 1.00;
-            let btn = document.getElementById('aviatorBtn');
-            let stat = document.getElementById('aviatorStatus');
-            let multText = document.getElementById('aviatorMultiplier');
+            let btn = document.getElementById('aviatorActionBtn');
+            let stat = document.getElementById('aviatorStat');
+            let multTxt = document.getElementById('aviatorMult');
 
-            btn.innerText = "🚁 উড়ছে... ক্যাশআউট করুন!";
+            btn.innerText = "🚁 ক্যাশআউট করুন!";
             btn.onclick = cashOutAviator;
-            aviatorActive = true;
+            aviatorRunning = true;
 
-            window.aviatorTimer = setInterval(() => {
-                if(!aviatorActive) return;
-                mult += 0.07;
-                multText.innerText = mult.toFixed(2) + "x";
+            window.aviTimer = setInterval(() => {
+                if(!aviatorRunning) return;
+                mult += 0.08;
+                multTxt.innerText = mult.toFixed(2) + "x";
                 stat.innerText = mult.toFixed(2) + "x";
 
-                if(Math.random() < 0.06 && mult > 1.3) {
-                    clearInterval(window.aviatorTimer);
-                    aviatorActive = false;
-                    stat.innerText = "💥 CRASHED!";
-                    btn.innerText = "🚀 বেট শুরু করুন (৳১০০)";
-                    btn.onclick = playAviator;
-                    alert("প্লেন ক্র্যাশ করেছে! আপনি হেরে গেছেন। 😢");
+                if(Math.random() < 0.05 && mult > 1.3) {
+                    clearInterval(window.aviTimer);
+                    aviatorRunning = false;
+                    stat.innerText = "💥 CRASHED";
+                    btn.innerText = "বেট শুরু করুন (৳১০০)";
+                    btn.onclick = startAviatorBet;
+                    alert("প্লেন ক্র্যাশ করেছে! 😢");
                 }
             }, 200);
         }
 
         function cashOutAviator() {
-            if(!aviatorActive) return;
-            clearInterval(window.aviatorTimer);
-            aviatorActive = false;
-            let currentMult = parseFloat(document.getElementById('aviatorMultiplier').innerText);
-            let winAmt = Math.floor(100 * currentMult);
-            balance += winAmt;
-            updateWallet();
+            if(!aviatorRunning) return;
+            clearInterval(window.aviTimer);
+            aviatorRunning = false;
+            let mult = parseFloat(document.getElementById('aviatorMult').innerText);
+            let win = Math.floor(100 * mult);
+            balance += win;
+            updateBal();
 
-            document.getElementById('aviatorStatus').innerText = `🎉 WON ৳${winAmt}`;
-            let btn = document.getElementById('aviatorBtn');
-            btn.innerText = "🚀 বেট শুরু করুন (৳১০০)";
-            btn.onclick = playAviator;
-            alert(`সফলভাবে ক্যাশআউট হয়েছে! আপনি জিতেছেন ৳${winAmt} 🎉`);
+            document.getElementById('aviatorStat').innerText = `WON ৳${win}`;
+            let btn = document.getElementById('aviatorActionBtn');
+            btn.innerText = "বেট শুরু করুন (৳১০০)";
+            btn.onclick = startAviatorBet;
+            alert(`সফলভাবে ক্যাশআউট হয়েছে! জিতেছেন ৳${win} 🎉`);
         }
 
-        function doSpin() {
-            const wins = [50, 100, 200, 500, 0];
-            const w = wins[Math.floor(Math.random() * wins.length)];
-            if(w > 0) {
-                balance += w;
-                updateWallet();
-                document.getElementById('spinMsg').innerText = `🎉 স্পিনে ৳${w} জিতেছেন!`;
-            } else {
-                document.getElementById('spinMsg').innerText = `😢 এই স্পিনে কিছু পাননি।`;
-            }
-        }
-
-        function requestDeposit() {
+        function submitDeposit() {
             const method = document.getElementById('depMethod').value;
             const sender = document.getElementById('depSender').value;
             const amount = parseFloat(document.getElementById('depAmount').value);
             const trx = document.getElementById('depTrx').value;
-            if(!sender || !amount || !trx) { alert("সব তথ্য পূরণ করুন!"); return; }
+            if(!sender || !amount || !trx) { alert("সব ফিল্ড পূরণ করুন!"); return; }
 
-            let list = JSON.parse(localStorage.getItem('emon_deps') || '[]');
+            let list = JSON.parse(localStorage.getItem('tk_deps') || '[]');
             list.push({method, sender, amount, trx});
-            localStorage.setItem('emon_deps', JSON.stringify(list));
+            localStorage.setItem('tk_deps', JSON.stringify(list));
             alert("ডিপোজিট রিকোয়েস্ট জমা হয়েছে! ✅");
         }
 
-        function requestWithdraw() {
+        function submitWithdraw() {
             const num = document.getElementById('wNumber').value;
             const amt = parseFloat(document.getElementById('wAmount').value);
-            if(!num || !amt) { alert("সব তথ্য পূরণ করুন!"); return; }
-            if(amt < 200) { alert("ন্যূনতম উইথড্র ২০০ টাকা!"); return; }
+            if(!num || !amt) { alert("সব ফিল্ড পূরণ করুন!"); return; }
+            if(amt < 200) { alert("মিনিমাম উইথড্র ২০০ টাকা!"); return; }
             if(amt > balance) { alert("পর্যাপ্ত ব্যালেন্স নেই!"); return; }
 
             balance -= amt;
-            updateWallet();
-            let list = JSON.parse(localStorage.getItem('emon_wits') || '[]');
+            updateBal();
+            let list = JSON.parse(localStorage.getItem('tk_wits') || '[]');
             list.push({num, amt});
-            localStorage.setItem('emon_wits', JSON.stringify(list));
+            localStorage.setItem('tk_wits', JSON.stringify(list));
             alert("উইথড্র রিকোয়েস্ট জমা হয়েছে! 💸");
         }
 
-        function loadAdmin() {
-            let deps = JSON.parse(localStorage.getItem('emon_deps') || '[]');
-            document.getElementById('adminDeposits').innerHTML = deps.length === 0 ? "কোনো ডিপোজিট নেই।" : deps.map((d, i) => `
-                <div class="bg-slate-900 p-2 rounded flex justify-between items-center text-xs mt-1">
+        function loadAdminData() {
+            let deps = JSON.parse(localStorage.getItem('tk_deps') || '[]');
+            document.getElementById('adminDeps').innerHTML = deps.length === 0 ? "কোনো ডিপোজিট নেই।" : deps.map((d, i) => `
+                <div class="bg-[#07261e] p-2 rounded flex justify-between items-center text-xs mt-1">
                     <div><b>${d.method}</b> (${d.sender}) - ৳${d.amount}</div>
                     <button onclick="approveDep(${i}, ${d.amount})" class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded font-bold">অ্যাপ্রুভ ✅</button>
                 </div>
             `).join('');
 
-            let wits = JSON.parse(localStorage.getItem('emon_wits') || '[]');
-            document.getElementById('adminWithdraws').innerHTML = wits.length === 0 ? "কোনো উইথড্র নেই।" : wits.map((w, i) => `
-                <div class="bg-slate-900 p-2 rounded flex justify-between items-center text-xs mt-1">
+            let wits = JSON.parse(localStorage.getItem('tk_wits') || '[]');
+            document.getElementById('adminWits').innerHTML = wits.length === 0 ? "কোনো উইথড্র নেই।" : wits.map((w, i) => `
+                <div class="bg-[#07261e] p-2 rounded flex justify-between items-center text-xs mt-1">
                     <div><b>${w.num}</b> - ৳${w.amt}</div>
                     <button onclick="removeWit(${i})" class="bg-emerald-600 text-slate-950 px-2 py-0.5 rounded font-bold">পেইড ✅</button>
                 </div>
@@ -444,20 +328,20 @@
         }
 
         function approveDep(i, amt) {
-            let deps = JSON.parse(localStorage.getItem('emon_deps') || '[]');
+            let deps = JSON.parse(localStorage.getItem('tk_deps') || '[]');
             balance += amt;
-            updateWallet();
+            updateBal();
             deps.splice(i, 1);
-            localStorage.setItem('emon_deps', JSON.stringify(deps));
-            loadAdmin();
+            localStorage.setItem('tk_deps', JSON.stringify(deps));
+            loadAdminData();
             alert("ডিপোজিট অ্যাপ্রুভ হয়েছে!");
         }
 
         function removeWit(i) {
-            let wits = JSON.parse(localStorage.getItem('emon_wits') || '[]');
+            let wits = JSON.parse(localStorage.getItem('tk_wits') || '[]');
             wits.splice(i, 1);
-            localStorage.setItem('emon_wits', JSON.stringify(wits));
-            loadAdmin();
+            localStorage.setItem('tk_wits', JSON.stringify(wits));
+            loadAdminData();
             alert("পেমেন্ট সম্পন্ন হয়েছে!");
         }
     </script>
