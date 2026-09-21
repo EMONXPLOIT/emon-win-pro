@@ -45,7 +45,7 @@
         <div id="tab-home" class="space-y-3">
             <div class="tk-card p-4 rounded-2xl bg-gradient-to-r from-amber-600/20 to-red-600/20 border-amber-500/50 text-center space-y-2">
                 <h3 class="text-sm font-extrabold text-amber-300">🔥 EMON WIN PRO CASINO 🔥</h3>
-                <p class="text-[11px] text-gray-300">লাইভ এভিয়েটর গেম খেলে ইনস্ট্যান্ট ক্যাশ জিতুন!</p>
+                <p class="text-[11px] text-gray-300">নিজের মতো বেট অ্যামাউন্ট সেট করে এভিয়েটর খেলুন!</p>
             </div>
 
             <!-- HOT GAMES -->
@@ -73,20 +73,34 @@
                 </div>
             </div>
 
-            <!-- Professional Aviator Game Panel (Red/Green Live UI) -->
-            <div id="aviatorBox" class="tk-card p-4 rounded-2xl text-center space-y-3 hidden border-amber-500 aviator-box">
+            <!-- Professional Aviator Game Panel with Custom Bet Input & Live Winning Display -->
+            <div id="aviatorBox" class="tk-card p-4 rounded-2xl space-y-3 hidden border-amber-500 aviator-box">
                 <div class="flex justify-between items-center text-xs">
                     <span class="text-amber-400 font-bold">✈️ AVIATOR CRASH</span>
                     <span class="text-emerald-400 font-mono text-sm" id="liveMultiplierTop">1.00x</span>
                 </div>
                 
-                <div id="aviatorScreen" class="py-8 bg-[#031510] rounded-xl border border-emerald-900 transition-all duration-300">
-                    <h2 id="aviatorStat" class="text-4xl font-black text-amber-400 font-mono tracking-wider">1.00x</h2>
-                    <p id="aviatorSubText" class="text-[11px] text-gray-400 mt-1">বেট শুরু করতে নিচের বাটনে ক্লিক করুন</p>
+                <div id="aviatorScreen" class="py-6 bg-[#031510] rounded-xl border border-emerald-900 text-center transition-all duration-300">
+                    <h2 id="aviatorStat" class="text-3xl font-black text-amber-400 font-mono tracking-wider">1.00x</h2>
+                    <p id="aviatorSubText" class="text-[11px] text-gray-400 mt-1">বেট বসিয়ে স্টার্ট করুন</p>
+                    <div id="livePotentialWin" class="text-sm font-bold text-emerald-400 mt-2 font-mono"></div>
                 </div>
 
-                <button onclick="startAviatorBet()" id="aviatorActionBtn" class="tk-btn w-full py-3.5 rounded-xl text-xs uppercase shadow-lg">🚀 বেট শুরু করুন (৳১০০)</button>
-                <button onclick="closeAviator()" class="text-xs text-gray-400 underline pt-1">গেম বন্ধ করুন ❌</button>
+                <!-- Bet Input & Quick Buttons -->
+                <div class="space-y-2">
+                    <label class="text-[11px] text-gray-300 font-bold block">বেট অ্যামাউন্ট সেট করুন (BDT):</label>
+                    <div class="flex gap-2">
+                        <input type="number" id="customBetInput" value="100" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-2.5 text-sm text-amber-400 font-bold focus:outline-none">
+                        <button onclick="setBet(50)" class="bg-slate-800 px-2 py-1 rounded-lg text-xs font-bold text-amber-300">৳৫০</button>
+                        <button onclick="setBet(100)" class="bg-slate-800 px-2 py-1 rounded-lg text-xs font-bold text-amber-300">৳১০০</button>
+                        <button onclick="setBet(500)" class="bg-slate-800 px-2 py-1 rounded-lg text-xs font-bold text-amber-300">৳৫০০</button>
+                    </div>
+                </div>
+
+                <button onclick="startAviatorBet()" id="aviatorActionBtn" class="tk-btn w-full py-3.5 rounded-xl text-xs uppercase shadow-lg">🚀 বেট শুরু করুন</button>
+                <div class="text-center">
+                    <button onclick="closeAviator()" class="text-xs text-gray-400 underline pt-1">গেম বন্ধ করুন ❌</button>
+                </div>
             </div>
         </div>
 
@@ -215,6 +229,10 @@
             document.getElementById('depAmount').value = amt;
         }
 
+        function setBet(amt) {
+            document.getElementById('customBetInput').value = amt;
+        }
+
         function playAviatorGame() {
             document.getElementById('aviatorBox').classList.remove('hidden');
             window.scrollTo({top: 0, behavior: 'smooth'});
@@ -225,10 +243,12 @@
 
         let aviatorRunning = false;
         let currentMultiplier = 1.00;
+        let activeBetAmount = 100;
 
         function startAviatorBet() {
-            if(balance < 100) { alert("পর্যাপ্ত ব্যালেন্স নেই! ন্যূনতম ১০০ টাকা লাগবে।"); return; }
-            balance -= 100;
+            activeBetAmount = parseFloat(document.getElementById('customBetInput').value) || 100;
+            if(balance < activeBetAmount) { alert("পর্যাপ্ত ব্যালেন্স নেই! আপনার ব্যালেন্স চেক করুন।"); return; }
+            balance -= activeBetAmount;
             updateBal();
 
             currentMultiplier = 1.00;
@@ -236,10 +256,11 @@
             let stat = document.getElementById('aviatorStat');
             let screen = document.getElementById('aviatorScreen');
             let subText = document.getElementById('aviatorSubText');
+            let potentialWinDiv = document.getElementById('livePotentialWin');
 
             screen.style.background = "#031510";
             screen.style.borderColor = "#065f46";
-            stat.className = "text-4xl font-black text-amber-400 font-mono tracking-wider";
+            stat.className = "text-3xl font-black text-amber-400 font-mono tracking-wider";
             subText.innerText = "🚁 প্লেন উড়ছে... সময়মতো ক্যাশআউট করুন!";
 
             btn.innerText = "🎯 ক্যাশআউট করুন!";
@@ -248,24 +269,27 @@
 
             window.aviTimer = setInterval(() => {
                 if(!aviatorRunning) return;
-                currentMultiplier += 0.09;
+                currentMultiplier += 0.08;
                 let formatted = currentMultiplier.toFixed(2) + "x";
                 stat.innerText = formatted;
                 document.getElementById('liveMultiplierTop').innerText = formatted;
 
-                // Crash trigger logic
+                let currentWin = Math.floor(activeBetAmount * currentMultiplier);
+                potentialWinDiv.innerText = `🔥 সম্ভাব্য প্রফিট: ৳${currentWin}`;
+
+                // Crash logic
                 if(Math.random() < 0.05 && currentMultiplier > 1.3) {
                     clearInterval(window.aviTimer);
                     aviatorRunning = false;
                     
-                    // CRASHED STATE (Red Background)
                     screen.style.background = "linear-gradient(to bottom, #450a0a, #7f1d1d)";
                     screen.style.borderColor = "#ef4444";
-                    stat.className = "text-3xl font-black text-red-400 font-mono tracking-wider animate-pulse";
+                    stat.className = "text-2xl font-black text-red-400 font-mono tracking-wider animate-pulse";
                     stat.innerText = "💥 CRASHED (" + formatted + ")";
                     subText.innerText = "প্লেন ক্র্যাশ করেছে! আপনি হেরে গেছেন। 😢";
+                    potentialWinDiv.innerText = `লস: -৳${activeBetAmount}`;
 
-                    btn.innerText = "🚀 বেট শুরু করুন (৳১০০)";
+                    btn.innerText = "🚀 বেট শুরু করুন";
                     btn.onclick = startAviatorBet;
                 }
             }, 200);
@@ -276,23 +300,24 @@
             clearInterval(window.aviTimer);
             aviatorRunning = false;
 
-            let winAmt = Math.floor(100 * currentMultiplier);
+            let winAmt = Math.floor(activeBetAmount * currentMultiplier);
             balance += winAmt;
             updateBal();
 
             let screen = document.getElementById('aviatorScreen');
             let stat = document.getElementById('aviatorStat');
             let subText = document.getElementById('aviatorSubText');
+            let potentialWinDiv = document.getElementById('livePotentialWin');
             let btn = document.getElementById('aviatorActionBtn');
 
-            // WIN STATE (Green Background)
             screen.style.background = "linear-gradient(to bottom, #064e3b, #022c22)";
             screen.style.borderColor = "#10b981";
-            stat.className = "text-3xl font-black text-emerald-300 font-mono tracking-wider";
+            stat.className = "text-2xl font-black text-emerald-300 font-mono tracking-wider";
             stat.innerText = `🎉 WON ৳${winAmt}`;
-            subText.innerText = `সফল ক্যাশআউট! একাউন্টে যোগ হয়েছে ৳${winAmt}`;
+            subText.innerText = `সফল ক্যাশআউট!`;
+            potentialWinDiv.innerText = `প্লাস: +৳${winAmt - activeBetAmount}`;
 
-            btn.innerText = "🚀 বেট শুরু করুন (৳১০০)";
+            btn.innerText = "🚀 বেট শুরু করুন";
             btn.onclick = startAviatorBet;
         }
 
