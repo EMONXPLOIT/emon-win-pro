@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TK999 Pro - Official Betting & Gaming Platform</title>
+    <title>EMON WIN PRO - Official Casino Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #07261e; color: #e2e8f0; font-family: sans-serif; }
@@ -15,20 +15,20 @@
 </head>
 <body class="min-h-screen pb-24 select-none">
 
-    <!-- TOP HEADER -->
+    <!-- TOP HEADER (Emon Branded) -->
     <header class="max-w-md mx-auto p-3 flex justify-between items-center bg-[#051c15] border-b border-[#0d3b2e] sticky top-0 z-40">
         <div class="flex items-center space-x-2">
-            <h1 class="text-lg font-black tracking-wider text-emerald-400">TK999<span class="text-amber-400 font-normal">|wintk</span></h1>
+            <h1 class="text-base font-black tracking-wider text-emerald-400">EMON<span class="text-amber-400 font-bold">|WIN PRO</span></h1>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-1.5">
             <button onclick="addDemo()" class="bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2 py-1 rounded-lg text-[10px] font-bold">ডেমো +১০,০০০</button>
-            <button onclick="location.reload()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-2.5 py-1 rounded-lg text-[10px] font-bold">লগআউট</button>
+            <button onclick="location.reload()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-2 py-1 rounded-lg text-[10px] font-bold">রিলোড</button>
         </div>
     </header>
 
     <main class="max-w-md mx-auto p-3 space-y-3">
 
-        <!-- WALLET & USER BANNER -->
+        <!-- WALLET & ACTION BUTTONS -->
         <div class="tk-card p-4 rounded-2xl flex justify-between items-center shadow-lg">
             <div>
                 <p class="text-[10px] text-gray-400 uppercase font-bold">মেইন ব্যালেন্স</p>
@@ -42,44 +42,37 @@
 
         <!-- 1. HOME TAB -->
         <div id="tab-home" class="space-y-3">
-            <!-- Banner Slider Box -->
             <div class="tk-card p-4 rounded-2xl bg-gradient-to-r from-amber-600/20 to-red-600/20 border-amber-500/50 text-center space-y-2">
-                <h3 class="text-sm font-extrabold text-amber-300">🔥 DOWNLOAD THE APP NOW 🔥</h3>
-                <p class="text-[11px] text-gray-300">ইনস্ট্যান্ট ক্লাইম করুন সর্বোচ্চ ৯৯৯ টাকা বোনাস!</p>
-                <div class="text-xs bg-amber-500 text-slate-950 font-black py-2 rounded-xl uppercase tracking-wider">APP UP TO ৳999 FREE</div>
+                <h3 class="text-sm font-extrabold text-amber-300">🔥 EMON WIN PRO CASINO 🔥</h3>
+                <p class="text-[11px] text-gray-300">লাইভ গেম খেলুন এবং ইনস্ট্যান্ট উইন করুন!</p>
             </div>
 
-            <!-- HOT GAMES SECTION -->
+            <!-- HOT GAMES -->
             <div class="space-y-2">
-                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🔥 HOT GAMES</h3>
+                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🔥 CASINO HOT GAMES</h3>
                 
                 <div class="grid grid-cols-3 gap-2">
-                    
-                    <!-- Aviator -->
-                    <div onclick="playAviatorGame()" class="tk-card p-3 rounded-xl text-center cursor-pointer hover:border-amber-400 transition group">
+                    <div onclick="playAviatorGame()" class="tk-card p-3 rounded-xl text-center cursor-pointer hover:border-amber-400 transition">
                         <div class="text-2xl">✈️</div>
-                        <h4 class="text-[11px] font-bold text-white group-hover:text-amber-400 mt-1">Aviator</h4>
-                        <span class="text-[9px] text-emerald-400">Live Bet</span>
+                        <h4 class="text-[11px] font-bold text-white mt-1">Aviator</h4>
+                        <span class="text-[9px] text-emerald-400">Crash Bet</span>
                     </div>
 
-                    <!-- Super Ace -->
-                    <a href="https://poki.com/en/g/subway-surfers" target="_blank" class="tk-card p-3 rounded-xl text-center block group">
+                    <a href="https://poki.com/en/g/subway-surfers" target="_blank" class="tk-card p-3 rounded-xl text-center block">
                         <div class="text-2xl">🃏</div>
-                        <h4 class="text-[11px] font-bold text-white group-hover:text-amber-400 mt-1">Super Ace</h4>
+                        <h4 class="text-[11px] font-bold text-white mt-1">Super Ace</h4>
                         <span class="text-[9px] text-amber-400">Hot Slot</span>
                     </a>
 
-                    <!-- Ludo Hero -->
-                    <a href="https://poki.com/en/g/ludo-hero" target="_blank" class="tk-card p-3 rounded-xl text-center block group">
+                    <a href="https://poki.com/en/g/ludo-hero" target="_blank" class="tk-card p-3 rounded-xl text-center block">
                         <div class="text-2xl">🎲</div>
-                        <h4 class="text-[11px] font-bold text-white group-hover:text-amber-400 mt-1">Ludo Hero</h4>
+                        <h4 class="text-[11px] font-bold text-white mt-1">Ludo Hero</h4>
                         <span class="text-[9px] text-amber-400">Classic</span>
                     </a>
-
                 </div>
             </div>
 
-            <!-- Aviator Live Box -->
+            <!-- Aviator Game Panel -->
             <div id="aviatorBox" class="tk-card p-4 rounded-2xl text-center space-y-3 hidden border-amber-500">
                 <div class="flex justify-between items-center text-xs">
                     <span class="text-amber-400 font-bold">✈️ AVIATOR CRASH</span>
@@ -97,12 +90,10 @@
         <div id="tab-deposit" class="space-y-3 hidden">
             <div class="tk-card p-4 rounded-2xl space-y-3">
                 <h3 class="text-sm font-bold text-amber-400">📥 বিকাশ, নগদ ও রকেট ডিপোজিট</h3>
-                
                 <div class="bg-[#031510] p-3 rounded-xl border border-amber-500/30 text-xs space-y-1">
                     <p class="text-gray-400">অফিশিয়াল পার্সোনাল নম্বর:</p>
                     <p class="text-amber-400 font-black text-sm font-mono">01401637316 (Personal)</p>
                 </div>
-
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">পেমেন্ট মাধ্যম:</label>
                     <select id="depMethod" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-amber-400">
@@ -111,7 +102,6 @@
                         <option value="Rocket">Rocket</option>
                     </select>
                 </div>
-
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ সিলেক্ট করুন:</label>
                     <div class="grid grid-cols-4 gap-2 mb-2">
@@ -122,17 +112,14 @@
                     </div>
                     <input type="number" id="depAmount" placeholder="অথবা পরিমাণ লিখুন" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
                 </div>
-
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">প্রেরক নম্বর:</label>
                     <input type="number" id="depSender" placeholder="017xxxxxxxx" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
                 </div>
-
                 <div>
                     <label class="text-xs text-gray-300 font-bold block mb-1">TrxID:</label>
                     <input type="text" id="depTrx" placeholder="9L7A..." class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white uppercase">
                 </div>
-
                 <button onclick="submitDeposit()" class="tk-btn w-full py-3 rounded-xl text-xs uppercase shadow-lg">ডিপোজিট রিকোয়েস্ট পাঠান 📥</button>
             </div>
         </div>
@@ -178,7 +165,7 @@
 
     </main>
 
-    <!-- BOTTOM NAVIGATION BAR (TK999 Style) -->
+    <!-- BOTTOM NAVIGATION BAR -->
     <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#051c15] border-t border-emerald-900 p-2 flex justify-around items-center z-40 rounded-t-2xl">
         <button onclick="switchTab('home')" id="nav-home" class="tab-item active flex flex-col items-center text-[10px] font-bold text-gray-400">
             <span class="text-lg">🏠</span> Home
@@ -224,7 +211,6 @@
             document.getElementById('depAmount').value = amt;
         }
 
-        // Aviator Game Logic
         function playAviatorGame() {
             document.getElementById('aviatorBox').classList.remove('hidden');
             window.scrollTo({top: 0, behavior: 'smooth'});
