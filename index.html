@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMON WIN PRO - Official Betting & Gaming Platform</title>
+    <title>EMON WIN PRO - Official Pro Betting Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .glass-panel { background: rgba(8, 12, 22, 0.98); backdrop-filter: blur(25px); border: 1px solid rgba(245, 158, 11, 0.4); }
@@ -16,7 +16,7 @@
     <!-- 1. AUTH & OTP CONTAINER -->
     <div id="authContainer" class="max-w-md w-full glass-panel p-6 md:p-8 rounded-3xl shadow-[0_0_100px_rgba(245,158,11,0.25)] space-y-6">
         <div class="text-center border-b border-slate-800 pb-4">
-            <h2 class="text-xs text-amber-400 font-extrabold uppercase tracking-[0.3em] mb-1">ORIGINAL BETTING PORTAL</h2>
+            <h2 class="text-xs text-amber-400 font-extrabold uppercase tracking-[0.3em] mb-1">PRO BETTING PORTAL</h2>
             <h1 class="text-2xl font-black text-white emon-glow mb-1">EMON WIN PRO</h1>
             <p id="authSubTitle" class="text-xs text-gray-400">আপনার বেটিং একাউন্টে প্রবেশ করুন</p>
         </div>
@@ -78,7 +78,7 @@
     </div>
 
 
-    <!-- 2. MAIN APP DASHBOARD (Hidden initially) -->
+    <!-- 2. MAIN APP DASHBOARD -->
     <div id="appContainer" class="max-w-md w-full glass-panel p-4 md:p-6 rounded-3xl shadow-2xl space-y-4 hidden relative pb-20">
         
         <!-- Header -->
@@ -87,15 +87,18 @@
                 <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-600 flex items-center justify-center font-black text-slate-950">👑</div>
                 <div>
                     <h3 id="profileName" class="text-xs font-bold text-amber-400">Emon Khan</h3>
-                    <p class="text-[10px] text-emerald-400 font-bold">Main Balance: <span id="topTaka">৳1000.00</span></p>
+                    <p class="text-[10px] text-emerald-400 font-bold">Balance: <span id="topTaka">৳1000.00</span></p>
                 </div>
             </div>
-            <button onclick="handleLogout()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-3 py-1.5 rounded-xl text-[10px] font-bold">লগআউট 🚪</button>
+            <div class="flex gap-1">
+                <button onclick="addDemoBalance()" class="bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2.5 py-1.5 rounded-xl text-[10px] font-bold">ডেমো +১০,০০০ 🪙</button>
+                <button onclick="handleLogout()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-2.5 py-1.5 rounded-xl text-[10px] font-bold">লগআউট 🚪</button>
+            </div>
         </div>
 
         <!-- Wallet Card -->
         <div class="glass-panel p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 text-center space-y-1">
-            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">রিয়েল বেটিং ব্যালেন্স</p>
+            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">রিয়েল ও ডেমো বেটিং ব্যালেন্স</p>
             <h1 id="mainBalance" class="text-3xl font-black text-amber-400 emon-glow">৳1000.00</h1>
             <p class="text-[11px] text-gray-300">VIP Level: <b class="text-emerald-400">Platinum Pro</b></p>
         </div>
@@ -111,7 +114,7 @@
                 </div>
                 <div class="py-5 bg-slate-950 rounded-xl border border-slate-800">
                     <h2 id="aviatorStatus" class="text-3xl font-black text-amber-400 font-mono">✈️ READY</h2>
-                    <p class="text-[10px] text-gray-400 mt-1">বেট ধরে সময়মতো ক্যাশআউট করুন!</p>
+                    <p class="text-[10px] text-gray-400 mt-1">প্লেন উড়ার সময় ক্যাশআউট করুন!</p>
                 </div>
                 <button onclick="playAviator()" id="aviatorBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition">
                     🚀 বেট শুরু করুন (৳১০০)
@@ -143,35 +146,48 @@
             </div>
         </div>
 
-        <!-- TAB 2: DEPOSIT -->
+        <!-- TAB 2: DEPOSIT (Interactive Amount Buttons + Official Number) -->
         <div id="tab-content-deposit" class="space-y-3 hidden">
             <div class="glass-panel p-4 rounded-2xl space-y-3">
                 <h3 class="text-sm font-bold text-amber-400">📥 বিকাশ, নগদ ও রকেট ডিপোজিট</h3>
+                
                 <div class="bg-slate-950 p-3 rounded-xl border border-amber-500/30 text-xs space-y-1">
                     <p class="text-gray-400">অফিশিয়াল পার্সোনাল নম্বর:</p>
                     <p class="text-amber-400 font-black text-sm font-mono">01401637316 (Personal)</p>
+                    <p class="text-[10px] text-gray-400">আগে এই নাম্বারে ক্যাশআউট/সেন্ড মনি করুন।</p>
                 </div>
+
                 <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">মাধ্যম:</label>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">পেমেন্ট মাধ্যম:</label>
                     <select id="depMethod" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-amber-400">
                         <option value="bKash">bKash</option>
                         <option value="Nagad">Nagad</option>
                         <option value="Rocket">Rocket</option>
                     </select>
                 </div>
+
                 <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">আপনার নম্বর:</label>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ সিলেক্ট করুন বা লিখুন:</label>
+                    <div class="grid grid-cols-4 gap-2 mb-2">
+                        <button onclick="setDepAmount(200)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳২০০</button>
+                        <button onclick="setDepAmount(500)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০</button>
+                        <button onclick="setDepAmount(1000)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳১০০০</button>
+                        <button onclick="setDepAmount(5000)" class="bg-slate-900 border border-slate-700 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০০</button>
+                    </div>
+                    <input type="number" id="depAmount" placeholder="অথবা টাকার পরিমাণ লিখুন" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
+                </div>
+
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">আপনার প্রেরক নম্বর:</label>
                     <input type="number" id="depSender" placeholder="017xxxxxxxx" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
                 </div>
+
                 <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ (BDT):</label>
-                    <input type="number" id="depAmount" placeholder="500" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-xs text-gray-300 font-bold block mb-1">TrxID:</label>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">ট্রানজ্যাকশন আইডি (TrxID):</label>
                     <input type="text" id="depTrx" placeholder="9L7A..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white uppercase">
                 </div>
-                <button onclick="requestDeposit()" class="w-full bg-amber-500 text-slate-950 font-black py-3 rounded-xl text-xs uppercase">ডিপোজিট রিকোয়েস্ট পাঠান 📥</button>
+
+                <button onclick="requestDeposit()" class="w-full bg-amber-500 text-slate-950 font-black py-3 rounded-xl text-xs uppercase shadow-lg">ডিপোজিট রিকোয়েস্ট পাঠান 📥</button>
             </div>
         </div>
 
@@ -204,11 +220,11 @@
             <div class="glass-panel p-4 rounded-2xl space-y-3">
                 <h3 class="text-sm font-bold text-rose-400">👑 অ্যাডমিন প্যানেল (Emon Khan)</h3>
                 <div class="space-y-1">
-                    <p class="text-xs text-amber-400 font-bold">📥 ডিপোজিট লিস্ট:</p>
+                    <p class="text-xs text-amber-400 font-bold">📥 ডিপোজিট রিকোয়েস্ট লিস্ট:</p>
                     <div id="adminDeposits" class="bg-slate-950 p-2 rounded-xl text-xs text-gray-300 min-h-[50px]">কোনো রিকোয়েস্ট নেই।</div>
                 </div>
                 <div class="space-y-1 pt-2 border-t border-slate-800">
-                    <p class="text-xs text-emerald-400 font-bold">📤 উইথড্র লিস্ট:</p>
+                    <p class="text-xs text-emerald-400 font-bold">📤 উইথড্র রিকোয়েস্ট লিস্ট:</p>
                     <div id="adminWithdraws" class="bg-slate-950 p-2 rounded-xl text-xs text-gray-300 min-h-[50px]">কোনো রিকোয়েস্ট নেই।</div>
                 </div>
             </div>
@@ -298,6 +314,16 @@
             document.getElementById('mainBalance').innerText = `৳${balance.toFixed(2)}`;
             document.getElementById('topTaka').innerText = `৳${balance.toFixed(2)}`;
             localStorage.setItem('emon_bal', balance);
+        }
+
+        function addDemoBalance() {
+            balance += 10000;
+            updateWallet();
+            alert("সফলভাবে ১০,০০০ টাকা ডেমো ব্যালেন্স যোগ হয়েছে! 🪙");
+        }
+
+        function setDepAmount(amt) {
+            document.getElementById('depAmount').value = amt;
         }
 
         function switchTab(tab) {
