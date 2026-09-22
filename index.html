@@ -3,628 +3,536 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>EMON X-ARCADE | Developed by Emon Khan</title>
-  
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <title>Gemini Arcade | Developer Emon Khan</title>
+  <!-- Google Font & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+  
   <style>
-    :root {
-      --primary: #00f2fe;
-      --secondary: #4facfe;
-      --accent: #ff007f;
-      --bg: #030712;
-      --card-bg: rgba(15, 23, 42, 0.75);
-      --border: rgba(0, 242, 254, 0.2);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Rajdhani', sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background-color: var(--bg);
+      background-color: #0b0f19;
       color: #fff;
       overflow-x: hidden;
-      min-height: 100vh;
     }
 
-    /* 3D Particle Canvas Background */
-    #canvas3d {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .app-wrapper {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Top Developer Branding Header */
+    /* Navbar */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 5%;
-      background: rgba(3, 7, 18, 0.85);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid var(--border);
+      padding: 16px 6%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .brand-group {
+    .brand-box {
       display: flex;
       flex-direction: column;
     }
 
-    .brand-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, var(--primary), #a855f7, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .dev-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #94a3b8;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .logo span {
+      color: #a855f7;
     }
 
     .dev-badge {
-      background: linear-gradient(90deg, rgba(0, 242, 254, 0.15), rgba(255, 0, 127, 0.15));
-      border: 1px solid var(--primary);
-      padding: 2px 8px;
-      border-radius: 4px;
-      color: var(--primary);
-      box-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 2px;
+      font-weight: 600;
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
+    .dev-badge span {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 1px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
       background: #22c55e;
       border-radius: 50%;
-      box-shadow: 0 0 10px #22c55e;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.3); }
+      box-shadow: 0 0 6px #22c55e;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 35px 20px 20px;
+      padding: 45px 20px 25px;
+      background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 70%);
     }
 
     .hero-badge {
       display: inline-block;
-      padding: 5px 16px;
-      border-radius: 30px;
-      background: rgba(255, 0, 127, 0.15);
-      border: 1px solid var(--accent);
-      color: #ff77ba;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
+      padding: 5px 15px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 20px;
+      color: #d8b4fe;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
 
     .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.1rem;
-      font-weight: 900;
-      line-height: 1.2;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-      text-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+      font-size: 2.2rem;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
     }
 
     .hero p {
       color: #94a3b8;
-      font-size: 1rem;
-      font-weight: 500;
-      max-width: 520px;
+      max-width: 580px;
       margin: 0 auto 25px;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /* Pro Search Bar */
-    .search-wrapper {
-      max-width: 500px;
+    /* Search & Filter */
+    .search-box {
+      max-width: 480px;
       margin: 0 auto 20px;
       position: relative;
     }
 
-    .search-wrapper input {
+    .search-box input {
       width: 100%;
-      padding: 14px 20px 14px 45px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      padding: 12px 20px 12px 45px;
+      border-radius: 30px;
+      border: 1px solid #334155;
+      background: #1e293b;
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.95rem;
       outline: none;
-      backdrop-filter: blur(10px);
       transition: 0.3s;
     }
 
-    .search-wrapper input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    .search-box input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
     }
 
-    .search-wrapper i {
+    .search-box i {
       position: absolute;
-      left: 16px;
+      left: 18px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--primary);
-      font-size: 1.1rem;
+      color: #64748b;
     }
 
-    /* Container & Grids */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .cat-btn {
+      padding: 7px 16px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      background: #38bdf8;
+      color: #0b0f19;
+      font-weight: 600;
+      border-color: #38bdf8;
+    }
+
+    /* Games Grid */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 10px 18px 80px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 22px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 10px;
+      padding: 0 20px 60px;
     }
 
     .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.25rem;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      border-left: 4px solid #a855f7;
+      padding-left: 12px;
+      font-weight: 700;
     }
 
-    .section-title i {
-      color: var(--accent);
-    }
-
-    .games-grid {
+    .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 22px;
     }
 
-    /* 3D Glassmorphism Cards */
     .game-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      backdrop-filter: blur(12px);
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      position: relative;
+      background: #1e293b;
+      border-radius: 14px;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
 
     .game-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: var(--primary);
-      box-shadow: 0 15px 35px rgba(0, 242, 254, 0.25), 0 0 15px rgba(0, 242, 254, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.4);
     }
 
-    .card-top {
+    .game-thumb {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+    }
+
+    .game-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .game-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .game-meta {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .card-icon {
-      font-size: 2.2rem;
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .badge-3d {
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(0, 242, 254, 0.15);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      letter-spacing: 1px;
-    }
-
-    .game-card h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .game-card p {
       color: #94a3b8;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      margin-bottom: 20px;
+      font-size: 0.85rem;
     }
 
     .play-btn {
+      margin-top: 14px;
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 11px;
       border: none;
-      background: linear-gradient(90deg, #00f2fe, #4facfe);
-      color: #030712;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 800;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: 0.3s;
-      letter-spacing: 1px;
+      gap: 8px;
+      transition: 0.2s;
     }
 
     .play-btn:hover {
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
-      transform: translateY(-2px);
+      opacity: 0.92;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
 
-    /* Embedded In-App Player Modal */
-    .player-modal {
+    /* DIRECT FULLSCREEN GAME PLAYER (NO MODAL LOOK) */
+    #fullGameScreen {
       display: none;
       position: fixed;
       inset: 0;
+      width: 100vw;
+      height: 100vh;
       background: #000;
-      z-index: 9999;
+      z-index: 99999;
       flex-direction: column;
     }
 
-    .modal-nav {
+    /* Floating control bar on top of the game */
+    .game-top-bar {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      right: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
-      background: #090d16;
-      border-bottom: 1px solid rgba(0, 242, 254, 0.3);
+      z-index: 10;
+      pointer-events: none;
     }
 
-    .game-status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1rem;
-      color: var(--primary);
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .action-btn {
-      padding: 7px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: #1e293b;
-      color: #fff;
-      font-weight: 600;
+    .screen-game-title {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
       font-size: 0.85rem;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .back-btn {
+      pointer-events: auto;
+      background: rgba(220, 38, 38, 0.9);
+      border: none;
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
+      box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+      transition: 0.2s;
     }
 
-    .action-btn.danger {
+    .back-btn:hover {
       background: #ef4444;
-      border-color: #dc2626;
+      transform: scale(1.05);
     }
 
-    .iframe-box {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-
-    .iframe-box iframe {
+    .direct-iframe {
       width: 100%;
       height: 100%;
       border: none;
+      background: #000;
     }
 
     /* Footer */
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(3, 7, 18, 0.95);
-      padding: 25px;
       text-align: center;
-      font-size: 0.95rem;
+      padding: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       color: #64748b;
+      font-size: 0.88rem;
     }
 
     footer strong {
-      color: var(--primary);
-      letter-spacing: 1px;
+      color: #38bdf8;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background 3D Particle Canvas -->
-  <canvas id="canvas3d"></canvas>
-
-  <div class="app-wrapper">
+  <!-- Main Website Interface -->
+  <div id="mainWebsite">
     <!-- Header -->
     <header>
-      <div class="brand-group">
-        <div class="brand-title">EMON ARCADE</div>
-        <div class="dev-tag">
-          <div class="pulse-dot"></div>
-          BY <span class="dev-badge">DEVELOPER EMON KHAN</span>
+      <div class="brand-box">
+        <div class="logo">GEMINI <span>ARCADE</span></div>
+        <div class="dev-badge">
+          <div class="status-dot"></div>
+          Developer: <span>Emon Khan</span>
         </div>
       </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">⚡ NEXT-GEN 3D BROWSER GAMES</div>
-      <h1>ULTIMATE <span>3D GAMING</span> PORTAL</h1>
-      <p>জিরো ল্যাগ ও হাই-গ্রাফিক্স গেম কোনো ইনস্টলেশন ছাড়াই এক ক্লিকে খেলুন সরাসরি আপনার স্ক্রিনে।</p>
+      <div class="hero-badge">🔥 আনলিমিটেড ফ্রি গেমিং এক্সপেরিয়েন্স</div>
+      <h1>হাজারো ফ্রি গেম <br>এক ক্লিকে</h1>
+      <p>অ্যাকশন, রেসিং, পাজল কিংবা রেট্রো — কোনো ইনস্টলেশন ছাড়াই ব্রাউজারে খেলুন সরাসরি!</p>
       
-      <div class="search-wrapper">
-        <i class="fa-solid fa-crosshairs"></i>
-        <input type="text" id="gameSearch" placeholder="গেম সার্চ করুন (যেমন: 3D, Drift, Slope)..." onkeyup="searchGame()" />
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="যেকোনো গেম সার্চ করুন..." onkeyup="filterGames()" />
+      </div>
+
+      <div class="categories">
+        <button class="cat-btn active" onclick="filterCategory('all', event)">All</button>
+        <button class="cat-btn" onclick="filterCategory('action', event)">Action</button>
+        <button class="cat-btn" onclick="filterCategory('arcade', event)">Arcade</button>
+        <button class="cat-btn" onclick="filterCategory('puzzle', event)">Puzzle</button>
+        <button class="cat-btn" onclick="filterCategory('racing', event)">Racing</button>
       </div>
     </section>
 
-    <!-- Games Hub Grid -->
+    <!-- Games Section -->
     <div class="container">
-      <div class="section-head">
-        <h2 class="section-title"><i class="fa-solid fa-gamepad"></i> ভেরিফাইড ৩ডি ও ইনস্ট্যান্ট গেমস</h2>
-      </div>
+      <h2 class="section-title">পপুলার গেমস</h2>
+      <div class="game-grid" id="gameGrid">
 
-      <div class="games-grid" id="grid">
-        
-        <!-- Game 1: 3D Slope -->
-        <div class="game-card" data-title="Slope 3D Runner">
-          <div class="card-top">
-            <div class="card-icon" style="color: #22c55e;"><i class="fa-solid fa-bowling-ball"></i></div>
-            <span class="badge-3d">3D SPEED</span>
+        <!-- Game 1: 3D City Racer -->
+        <div class="game-card" data-category="racing" data-title="City Car Racer 3D">
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80" alt="Racing" class="game-thumb" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">City Car Racer 3D</div>
+              <div class="game-meta"><span>Racing / 3D</span><span>⭐ 4.9</span></div>
+            </div>
+            <button class="play-btn" onclick="playGameDirect('https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com', 'City Car Racer 3D')">
+              <i class="fa-solid fa-play"></i> খেলুন
+            </button>
           </div>
-          <h3>Slope 3D</h3>
-          <p>হাই-স্পিড ৩ডি নিয়ন ট্র্যাকে বল কন্ট্রোল করার বিশ্বসেরা অ্যাড্রেনালিন রাশ গেম।</p>
-          <button class="play-btn" onclick="launchGame('https://kbhgames.com/game/slope', 'Slope 3D')">
-            <i class="fa-solid fa-play"></i> ইনস্ট্যান্ট খেলুন
-          </button>
         </div>
 
-        <!-- Game 2: 3D City Drift Racer -->
-        <div class="game-card" data-title="City Drift 3D Car Racing">
-          <div class="card-top">
-            <div class="card-icon" style="color: #38bdf8;"><i class="fa-solid fa-car-burst"></i></div>
-            <span class="badge-3d">3D RACING</span>
+        <!-- Game 2: 2048 Classic -->
+        <div class="game-card" data-category="puzzle" data-title="2048 Classic">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80" alt="2048" class="game-thumb" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">2048 Classic</div>
+              <div class="game-meta"><span>Puzzle</span><span>⭐ 4.8</span></div>
+            </div>
+            <button class="play-btn" onclick="playGameDirect('https://play2048.co/', '2048 Classic')">
+              <i class="fa-solid fa-play"></i> খেলুন
+            </button>
           </div>
-          <h3>City Drift 3D</h3>
-          <p>বাস্তবসম্মত ড্রিফটিং ফিজিক্স এবং রিয়েল ৩ডি শহরের রাস্তায় আনলিমিটেড কার রেসিং।</p>
-          <button class="play-btn" onclick="launchGame('https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com', 'City Drift 3D')">
-            <i class="fa-solid fa-play"></i> ইনস্ট্যান্ট খেলুন
-          </button>
         </div>
 
-        <!-- Game 3: Smash Karts 3D -->
-        <div class="game-card" data-title="Smash Karts 3D Battle">
-          <div class="card-top">
-            <div class="card-icon" style="color: #ff007f;"><i class="fa-solid fa-trophy"></i></div>
-            <span class="badge-3d">3D BATTLE</span>
+        <!-- Game 3: Moto X3M Bike -->
+        <div class="game-card" data-category="action" data-title="Moto X3M Bike Stunt">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500&q=80" alt="Moto" class="game-thumb" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">Moto X3M Stunt</div>
+              <div class="game-meta"><span>Action</span><span>⭐ 4.9</span></div>
+            </div>
+            <button class="play-btn" onclick="playGameDirect('https://motox3m.co/', 'Moto X3M Stunt')">
+              <i class="fa-solid fa-play"></i> খেলুন
+            </button>
           </div>
-          <h3>Smash Karts 3D</h3>
-          <p>অনলাইন মাল্টিপ্লেয়ার ৩ডি কার ব্যাটল! রকেট ও বোমা দিয়ে প্রতিপক্ষকে ধ্বংস করুন।</p>
-          <button class="play-btn" onclick="launchGame('https://smashkarts.io/', 'Smash Karts 3D')">
-            <i class="fa-solid fa-play"></i> ইনস্ট্যান্ট খেলুন
-          </button>
         </div>
 
-        <!-- Game 4: Subway Surfers Classic Runner -->
-        <div class="game-card" data-title="Subway Runner 3D">
-          <div class="card-top">
-            <div class="card-icon" style="color: #eab308;"><i class="fa-solid fa-person-running"></i></div>
-            <span class="badge-3d">ACTION 3D</span>
+        <!-- Game 4: Pac-Man Classic -->
+        <div class="game-card" data-category="arcade" data-title="Pac-Man Retro">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80" alt="Pacman" class="game-thumb" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">Pac-Man Retro</div>
+              <div class="game-meta"><span>Arcade</span><span>⭐ 4.7</span></div>
+            </div>
+            <button class="play-btn" onclick="playGameDirect('https://freepacman.org/', 'Pac-Man Retro')">
+              <i class="fa-solid fa-play"></i> খেলুন
+            </button>
           </div>
-          <h3>Subway Runner 3D</h3>
-          <p>ট্রেন লাইনের উপর দিয়ে পুলিশকে ফাঁকি দিয়ে দৌড়ান এবং কয়েন সংগ্রহ করুন।</p>
-          <button class="play-btn" onclick="launchGame('https://html5.gamedistribution.com/64b5840d41eb4e95904d6e902b9e6e89/', 'Subway Runner 3D')">
-            <i class="fa-solid fa-play"></i> ইনস্ট্যান্ট খেলুন
-          </button>
         </div>
 
-        <!-- Game 5: 3D Moto X3M -->
-        <div class="game-card" data-title="Moto X3M Bike Stunt">
-          <div class="card-top">
-            <div class="card-icon" style="color: #ec4899;"><i class="fa-solid fa-motorcycle"></i></div>
-            <span class="badge-3d">BIKE STUNT</span>
+        <!-- Game 5: Flappy Bird -->
+        <div class="game-card" data-category="arcade" data-title="Flappy Bird Original">
+          <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&q=80" alt="Flappy Bird" class="game-thumb" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">Flappy Bird</div>
+              <div class="game-meta"><span>Arcade</span><span>⭐ 4.6</span></div>
+            </div>
+            <button class="play-btn" onclick="playGameDirect('https://flappybird.io/', 'Flappy Bird')">
+              <i class="fa-solid fa-play"></i> খেলুন
+            </button>
           </div>
-          <h3>Moto X3M Stunt</h3>
-          <p>অসম্ভব সব বাধা পার হয়ে স্পিডি বাইক স্টান্ট করুন এবং সব লেভেল পার করুন।</p>
-          <button class="play-btn" onclick="launchGame('https://motox3m.co/', 'Moto X3M Stunt')">
-            <i class="fa-solid fa-play"></i> ইনস্ট্যান্ট খেলুন
-          </button>
         </div>
 
-        <!-- Game 6: 2048 Master -->
-        <div class="game-card" data-title="2048 Puzzle Classic">
-          <div class="card-top">
-            <div class="card-icon" style="color: #a855f7;"><i class="fa-solid fa-brain"></i></div>
-            <span class="badge-3d">LOGIC PUZZLE</span>
+        <!-- Game 6: Tic Tac Toe AI -->
+        <div class="game-card" data-category="puzzle" data-title="Tic Tac Toe AI">
+          <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=500&q=80" alt="Tic Tac Toe" class="game-thumb" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">Tic Tac Toe AI</div>
+              <div class="game-meta"><span>Puzzle</span><span>⭐ 4.5</span></div>
+            </div>
+            <button class="play-btn" onclick="playGameDirect('https://playtictactoe.org/', 'Tic Tac Toe AI')">
+              <i class="fa-solid fa-play"></i> খেলুন
+            </button>
           </div>
-          <h3>2048 Master</h3>
-          <p>বিশ্ববিখ্যাত মাইন্ড রিফ্রেশিং ও ব্রেন শার্পিং নাম্বার পাজল চ্যালেঞ্জ।</p>
-          <button class="play-btn" onclick="launchGame('https://play2048.co/', '2048 Master')">
-            <i class="fa-solid fa-play"></i> ইনস্ট্যান্ট খেলুন
-          </button>
         </div>
 
-      </div>
-    </div>
-
-    <!-- Pro Fullscreen Game Player -->
-    <div class="player-modal" id="gameModal">
-      <div class="modal-nav">
-        <div class="game-status" id="currentGameTitle">
-          <i class="fa-solid fa-gamepad"></i> Game Player
-        </div>
-        <div class="modal-actions">
-          <button class="action-btn" onclick="fullscreen()"><i class="fa-solid fa-expand"></i> ফুলস্ক্রিন</button>
-          <button class="action-btn danger" onclick="exitGame()"><i class="fa-solid fa-xmark"></i> গেম বন্ধ করুন</button>
-        </div>
-      </div>
-      <div class="iframe-box">
-        <iframe id="gameViewer" src="" allow="accelerometer; autoplay; fullscreen; camera; gyroscope; payment" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"></iframe>
       </div>
     </div>
 
     <!-- Footer -->
     <footer>
-      <p>Developed with Passion by <strong>Emon Khan</strong> | All Rights Reserved &copy; 2026</p>
+      <p>Developed with passion by <strong>Developer Emon Khan</strong> &copy; 2026</p>
     </footer>
   </div>
 
-  <!-- 3D Particle System Script -->
+  <!-- DIRECT FULLSCREEN GAME PLAYER SCREEN -->
+  <div id="fullGameScreen">
+    <div class="game-top-bar">
+      <div class="screen-game-title" id="activeGameName">
+        <i class="fa-solid fa-gamepad"></i> Game
+      </div>
+      <button class="back-btn" onclick="exitGameScreen()">
+        <i class="fa-solid fa-arrow-left"></i> গেম বন্ধ করুন
+      </button>
+    </div>
+    <iframe id="activeGameFrame" class="direct-iframe" src="" allowfullscreen="true" allow="autoplay; fullscreen; accelerometer; gyroscope" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"></iframe>
+  </div>
+
+  <!-- Scripts -->
   <script>
-    const canvas = document.getElementById('canvas3d');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
+    function playGameDirect(gameUrl, gameTitle) {
+      const fullScreen = document.getElementById('fullGameScreen');
+      const iframe = document.getElementById('activeGameFrame');
+      const title = document.getElementById('activeGameName');
 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.speedY = (Math.random() - 0.5) * 0.8;
-        this.color = Math.random() > 0.5 ? '#00f2fe' : '#ff007f';
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      }
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < 45; i++) {
-      particles.push(new Particle());
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    /* Game Controls */
-    function launchGame(url, name) {
-      const modal = document.getElementById('gameModal');
-      const iframe = document.getElementById('gameViewer');
-      const title = document.getElementById('currentGameTitle');
-
-      title.innerHTML = `<i class="fa-solid fa-circle-play"></i> ${name}`;
-      iframe.src = url;
-      modal.style.display = 'flex';
+      title.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${gameTitle}`;
+      iframe.src = gameUrl;
+      fullScreen.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
 
-    function exitGame() {
-      const modal = document.getElementById('gameModal');
-      const iframe = document.getElementById('gameViewer');
+    function exitGameScreen() {
+      const fullScreen = document.getElementById('fullGameScreen');
+      const iframe = document.getElementById('activeGameFrame');
+
       iframe.src = '';
-      modal.style.display = 'none';
+      fullScreen.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
 
-    function fullscreen() {
-      const elem = document.getElementById('gameModal');
-      if (!document.fullscreenElement) {
-        elem.requestFullscreen().catch(err => alert("Fullscreen error: " + err.message));
-      } else {
-        document.exitFullscreen();
-      }
+    function filterCategory(cat, event) {
+      const cards = document.querySelectorAll('.game-card');
+      const buttons = document.querySelectorAll('.cat-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
 
-    function searchGame() {
-      const input = document.getElementById('gameSearch').value.toLowerCase();
+    function filterGames() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
       const cards = document.querySelectorAll('.game-card');
 
       cards.forEach(card => {
         const title = card.getAttribute('data-title').toLowerCase();
-        if (title.includes(input)) {
+        if (title.includes(query)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
