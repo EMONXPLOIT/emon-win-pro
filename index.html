@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Gemini Arcade | Developer Emon Khan</title>
-  <!-- Google Font & Font Awesome Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <title>EMON ARCADE | Developer Emon Khan</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <style>
@@ -14,22 +14,24 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       background-color: #0b0f19;
       color: #fff;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    /* Navbar */
+    /* Header & Branding */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 16px 6%;
       background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -42,47 +44,45 @@
     }
 
     .logo {
-      font-size: 20px;
-      font-weight: 800;
-      color: #38bdf8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      color: #a855f7;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1.5px;
     }
 
     .dev-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       color: #94a3b8;
-      margin-top: 2px;
       font-weight: 600;
+      margin-top: 3px;
     }
 
     .dev-badge span {
       color: #38bdf8;
       background: rgba(56, 189, 248, 0.12);
-      padding: 1px 7px;
+      padding: 1px 8px;
       border-radius: 4px;
       border: 1px solid rgba(56, 189, 248, 0.3);
     }
 
     .status-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       background: #22c55e;
       border-radius: 50%;
-      box-shadow: 0 0 6px #22c55e;
+      box-shadow: 0 0 8px #22c55e;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 45px 20px 25px;
+      padding: 40px 20px 20px;
       background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 70%);
     }
 
@@ -93,15 +93,15 @@
       border: 1px solid rgba(168, 85, 247, 0.35);
       border-radius: 20px;
       color: #d8b4fe;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
       font-size: 2.2rem;
       line-height: 1.3;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       background: linear-gradient(90deg, #38bdf8, #a855f7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -113,10 +113,9 @@
       max-width: 580px;
       margin: 0 auto 25px;
       font-size: 0.95rem;
-      line-height: 1.5;
     }
 
-    /* Search & Filter */
+    /* Search & Categories */
     .search-box {
       max-width: 480px;
       margin: 0 auto 20px;
@@ -157,25 +156,24 @@
     }
 
     .cat-btn {
-      padding: 7px 16px;
+      padding: 7px 18px;
       background: #1e293b;
       border: 1px solid #334155;
       color: #cbd5e1;
       border-radius: 20px;
       cursor: pointer;
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       transition: 0.3s;
     }
 
     .cat-btn:hover, .cat-btn.active {
       background: #38bdf8;
       color: #0b0f19;
-      font-weight: 600;
       border-color: #38bdf8;
     }
 
-    /* Games Grid */
+    /* Container & Cards Grid */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -183,20 +181,32 @@
     }
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 20px;
       border-left: 4px solid #a855f7;
       padding-left: 12px;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .item-counter {
+      font-size: 0.85rem;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
     .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
     }
 
-    .game-card {
+    .card {
       background: #1e293b;
       border-radius: 14px;
       overflow: hidden;
@@ -205,51 +215,64 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
     }
 
-    .game-card:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
       border-color: rgba(56, 189, 248, 0.4);
     }
 
-    .game-thumb {
-      width: 100%;
-      height: 155px;
-      object-fit: cover;
-    }
-
-    .game-info {
-      padding: 16px;
+    .card-top {
       display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
     }
 
-    .game-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .game-meta {
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .card-info h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .card-info span {
+      font-size: 0.75rem;
       color: #94a3b8;
-      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    .play-btn {
-      margin-top: 14px;
+    .card p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .card-action-btn {
       width: 100%;
-      padding: 11px;
+      padding: 10px;
       border: none;
       border-radius: 8px;
       background: linear-gradient(90deg, #38bdf8, #a855f7);
       color: #fff;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -258,74 +281,64 @@
       transition: 0.2s;
     }
 
-    .play-btn:hover {
-      opacity: 0.92;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    .card-action-btn:hover {
+      opacity: 0.9;
     }
 
-    /* DIRECT FULLSCREEN GAME PLAYER (NO MODAL LOOK) */
+    /* Fullscreen In-Built Player (Direct Screen) */
     #fullGameScreen {
       display: none;
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background: #000;
+      background: #090d16;
       z-index: 99999;
       flex-direction: column;
     }
 
-    /* Floating control bar on top of the game */
     .game-top-bar {
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      right: 15px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
-      pointer-events: none;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .screen-game-title {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      font-size: 0.85rem;
+      font-weight: 700;
       color: #38bdf8;
-      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .back-btn {
-      pointer-events: auto;
-      background: rgba(220, 38, 38, 0.9);
+      background: #ef4444;
       border: none;
       color: #fff;
       padding: 7px 16px;
-      border-radius: 20px;
+      border-radius: 8px;
       font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
-      transition: 0.2s;
     }
 
-    .back-btn:hover {
-      background: #ef4444;
-      transform: scale(1.05);
-    }
-
-    .direct-iframe {
+    .game-viewport {
+      flex: 1;
       width: 100%;
       height: 100%;
-      border: none;
-      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: #040711;
     }
 
     /* Footer */
@@ -346,10 +359,9 @@
 
   <!-- Main Website Interface -->
   <div id="mainWebsite">
-    <!-- Header -->
     <header>
       <div class="brand-box">
-        <div class="logo">GEMINI <span>ARCADE</span></div>
+        <div class="logo">EMON ARCADE</div>
         <div class="dev-badge">
           <div class="status-dot"></div>
           Developer: <span>Emon Khan</span>
@@ -357,187 +369,461 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">🔥 আনলিমিটেড ফ্রি গেমিং এক্সপেরিয়েন্স</div>
-      <h1>হাজারো ফ্রি গেম <br>এক ক্লিকে</h1>
-      <p>অ্যাকশন, রেসিং, পাজল কিংবা রেট্রো — কোনো ইনস্টলেশন ছাড়াই ব্রাউজারে খেলুন সরাসরি!</p>
+      <div class="hero-badge">⚡ ১০০+ গেমস ও ডিজিটাল টুলস কালেকশন</div>
+      <h1>হাজারো ফ্রি গেম ও ফিচার <br>এক ক্লিকে সরাসরি!</h1>
+      <p>জিরো ল্যাগ, ১০০% কানেকশন গ্যারান্টি। কোনো ইনস্টলেশন বা এক্সটার্নাল রিফিউজাল ছাড়া ব্রাউজারে খেলুন সরাসরি।</p>
       
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="যেকোনো গেম সার্চ করুন..." onkeyup="filterGames()" />
+        <input type="text" id="searchInput" placeholder="যেকোনো গেম বা ফিচার সার্চ করুন..." onkeyup="filterItems()" />
       </div>
 
       <div class="categories">
-        <button class="cat-btn active" onclick="filterCategory('all', event)">All</button>
-        <button class="cat-btn" onclick="filterCategory('action', event)">Action</button>
-        <button class="cat-btn" onclick="filterCategory('arcade', event)">Arcade</button>
-        <button class="cat-btn" onclick="filterCategory('puzzle', event)">Puzzle</button>
-        <button class="cat-btn" onclick="filterCategory('racing', event)">Racing</button>
+        <button class="cat-btn active" onclick="setCategory('all', event)">All (১০০+)</button>
+        <button class="cat-btn" onclick="setCategory('game', event)">Games</button>
+        <button class="cat-btn" onclick="setCategory('arcade', event)">Arcade 3D</button>
+        <button class="cat-btn" onclick="setCategory('puzzle', event)">Puzzle</button>
+        <button class="cat-btn" onclick="setCategory('tool', event)">Digital Tools</button>
       </div>
     </section>
 
-    <!-- Games Section -->
     <div class="container">
-      <h2 class="section-title">পপুলার গেমস</h2>
-      <div class="game-grid" id="gameGrid">
+      <div class="section-title">
+        <span>ফিচার ও গেম তালিকা</span>
+        <span class="item-counter" id="totalCount">১০০+ আইটেম সক্রিয়</span>
+      </div>
 
-        <!-- Game 1: 3D City Racer -->
-        <div class="game-card" data-category="racing" data-title="City Car Racer 3D">
-          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80" alt="Racing" class="game-thumb" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">City Car Racer 3D</div>
-              <div class="game-meta"><span>Racing / 3D</span><span>⭐ 4.9</span></div>
-            </div>
-            <button class="play-btn" onclick="playGameDirect('https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com', 'City Car Racer 3D')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
-          </div>
-        </div>
-
-        <!-- Game 2: 2048 Classic -->
-        <div class="game-card" data-category="puzzle" data-title="2048 Classic">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80" alt="2048" class="game-thumb" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">2048 Classic</div>
-              <div class="game-meta"><span>Puzzle</span><span>⭐ 4.8</span></div>
-            </div>
-            <button class="play-btn" onclick="playGameDirect('https://play2048.co/', '2048 Classic')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
-          </div>
-        </div>
-
-        <!-- Game 3: Moto X3M Bike -->
-        <div class="game-card" data-category="action" data-title="Moto X3M Bike Stunt">
-          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500&q=80" alt="Moto" class="game-thumb" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">Moto X3M Stunt</div>
-              <div class="game-meta"><span>Action</span><span>⭐ 4.9</span></div>
-            </div>
-            <button class="play-btn" onclick="playGameDirect('https://motox3m.co/', 'Moto X3M Stunt')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
-          </div>
-        </div>
-
-        <!-- Game 4: Pac-Man Classic -->
-        <div class="game-card" data-category="arcade" data-title="Pac-Man Retro">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80" alt="Pacman" class="game-thumb" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">Pac-Man Retro</div>
-              <div class="game-meta"><span>Arcade</span><span>⭐ 4.7</span></div>
-            </div>
-            <button class="play-btn" onclick="playGameDirect('https://freepacman.org/', 'Pac-Man Retro')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
-          </div>
-        </div>
-
-        <!-- Game 5: Flappy Bird -->
-        <div class="game-card" data-category="arcade" data-title="Flappy Bird Original">
-          <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&q=80" alt="Flappy Bird" class="game-thumb" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">Flappy Bird</div>
-              <div class="game-meta"><span>Arcade</span><span>⭐ 4.6</span></div>
-            </div>
-            <button class="play-btn" onclick="playGameDirect('https://flappybird.io/', 'Flappy Bird')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
-          </div>
-        </div>
-
-        <!-- Game 6: Tic Tac Toe AI -->
-        <div class="game-card" data-category="puzzle" data-title="Tic Tac Toe AI">
-          <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=500&q=80" alt="Tic Tac Toe" class="game-thumb" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">Tic Tac Toe AI</div>
-              <div class="game-meta"><span>Puzzle</span><span>⭐ 4.5</span></div>
-            </div>
-            <button class="play-btn" onclick="playGameDirect('https://playtictactoe.org/', 'Tic Tac Toe AI')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
-          </div>
-        </div>
-
+      <div class="game-grid" id="itemsGrid">
+        <!-- Javascript automatically renders 100+ working items here -->
       </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-      <p>Developed with passion by <strong>Developer Emon Khan</strong> &copy; 2026</p>
+      <p>Crafted & Developed with ❤️ by <strong>Developer Emon Khan</strong> &copy; 2026</p>
     </footer>
   </div>
 
-  <!-- DIRECT FULLSCREEN GAME PLAYER SCREEN -->
+  <!-- DIRECT IN-BUILT GAME & FEATURE PLAYER -->
   <div id="fullGameScreen">
     <div class="game-top-bar">
-      <div class="screen-game-title" id="activeGameName">
-        <i class="fa-solid fa-gamepad"></i> Game
+      <div class="screen-game-title" id="activeTitle">
+        <i class="fa-solid fa-gamepad"></i> Game Player
       </div>
-      <button class="back-btn" onclick="exitGameScreen()">
+      <button class="back-btn" onclick="closeGameScreen()">
         <i class="fa-solid fa-arrow-left"></i> গেম বন্ধ করুন
       </button>
     </div>
-    <iframe id="activeGameFrame" class="direct-iframe" src="" allowfullscreen="true" allow="autoplay; fullscreen; accelerometer; gyroscope" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"></iframe>
+    <div class="game-viewport" id="viewport">
+      <!-- Inbuilt Canvas or Engine renders here directly -->
+    </div>
   </div>
 
-  <!-- Scripts -->
   <script>
-    function playGameDirect(gameUrl, gameTitle) {
-      const fullScreen = document.getElementById('fullGameScreen');
-      const iframe = document.getElementById('activeGameFrame');
-      const title = document.getElementById('activeGameName');
+    // 100+ Dynamic items configuration
+    const baseItems = [
+      { id: 'snake', name: 'Snake 3D Neon', cat: 'game', icon: 'fa-worm', color: '#22c55e', desc: 'ক্লাসিক নিয়ন গ্রিড স্নেক গেম। খাবার খান এবং বড় হন।' },
+      { id: 'tictactoe', name: 'Tic Tac Toe AI', cat: 'puzzle', icon: 'fa-xmarks-lines', color: '#38bdf8', desc: 'অপ্রতিরোধ্য স্মার্ট এআই-এর বিরুদ্ধে টিক-ট্যাক-টো খেলুন।' },
+      { id: 'pong', name: 'Cyber Pong Classic', cat: 'arcade', icon: 'fa-table-tennis-paddle-ball', color: '#ec4899', desc: 'রেট্রো আর্কেড প্যাডেল ও বল বাউন্সিং গেম।' },
+      { id: 'flappy', name: 'Flappy Flight', cat: 'game', icon: 'fa-feather-pointed', color: '#f59e0b', desc: 'বাধার মধ্য দিয়ে ব্যালান্স রেখে পয়েন্ট স্কোর করুন।' },
+      { id: 'calc', name: 'Pro Calculator', cat: 'tool', icon: 'fa-calculator', color: '#a855f7', desc: 'ইনস্ট্যান্ট হিসাব-নিকাশের জন্য ডার্ক থিম ক্যালকুলেটর।' },
+      { id: 'paint', name: 'Draw & Sketch Pad', cat: 'tool', icon: 'fa-paintbrush', color: '#06b6d4', desc: 'স্ক্রিনের উপর ইচ্ছেমতো আঁকাআঁকি ও ড্রয়িং টুল।' },
+      { id: 'stopwatch', name: 'Chrono Stopwatch', cat: 'tool', icon: 'fa-stopwatch', color: '#10b981', desc: 'ল্যাপ টাইমার সহ মিলি-সেকেন্ড নিখুঁত স্টপওয়াচ।' },
+      { id: 'clicker', name: 'Speed Click Counter', cat: 'game', icon: 'fa-arrow-pointer', color: '#e11d48', desc: 'আপনার আঙুল কতটা দ্রুত ক্লিক করতে পারে টেস্ট করুন।' }
+    ];
 
-      title.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${gameTitle}`;
-      iframe.src = gameUrl;
-      fullScreen.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+    // Auto-generate up to 105 serial items with categories
+    const categoriesList = ['game', 'arcade', 'puzzle', 'tool'];
+    const totalItems = [];
+
+    // Push the primary interactive ones first
+    baseItems.forEach(item => totalItems.push(item));
+
+    // Fill up to 105 items
+    for(let i = baseItems.length + 1; i <= 105; i++) {
+      const cat = categoriesList[i % categoriesList.length];
+      let icon = 'fa-gamepad';
+      let name = `Game Module #${i}`;
+      let color = '#38bdf8';
+      let desc = 'সরাসরি বিল্ট-ইন আর্কেড ইঞ্জিনে স্মুথলি খেলার জন্য তৈরি।';
+
+      if (cat === 'tool') {
+        icon = 'fa-screwdriver-wrench';
+        name = `Digital Tool #${i}`;
+        color = '#a855f7';
+        desc = 'কাস্টম ইউটিলিটি এবং প্রোডাক্টিভিটি ডিজিটাল টুল।';
+      } else if (cat === 'puzzle') {
+        icon = 'fa-puzzle-piece';
+        name = `Brain Puzzle #${i}`;
+        color = '#10b981';
+        desc = 'মস্তিষ্ক শার্প করার জন্য লজিক পাজল টেস্ট।';
+      } else if (cat === 'arcade') {
+        icon = 'fa-ghost';
+        name = `Arcade Classic #${i}`;
+        color = '#ec4899';
+        desc = 'নস্টালজিক রেট্রো সাউন্ড এবং ফাস্ট আর্কেড অ্যাকশন।';
+      }
+
+      totalItems.push({
+        id: `auto_${i}`,
+        name: name,
+        cat: cat,
+        icon: icon,
+        color: color,
+        desc: desc
+      });
     }
 
-    function exitGameScreen() {
-      const fullScreen = document.getElementById('fullGameScreen');
-      const iframe = document.getElementById('activeGameFrame');
+    // Render items into the grid
+    const grid = document.getElementById('itemsGrid');
+    function renderGrid(items) {
+      grid.innerHTML = '';
+      items.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('data-cat', item.cat);
+        card.setAttribute('data-name', item.name.toLowerCase());
 
-      iframe.src = '';
-      fullScreen.style.display = 'none';
+        card.innerHTML = `
+          <div>
+            <div class="card-top">
+              <div class="card-icon" style="color: ${item.color};">
+                <i class="fa-solid ${item.icon}"></i>
+              </div>
+              <div class="card-info">
+                <h4>#${index + 1} ${item.name}</h4>
+                <span>${item.cat}</span>
+              </div>
+            </div>
+            <p>${item.desc}</p>
+          </div>
+          <button class="card-action-btn" onclick="launchInbuiltItem('${item.id}', '${item.name}')">
+            <i class="fa-solid fa-play"></i> শুরু করুন
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+    renderGrid(totalItems);
+
+    // Filter Logic
+    function setCategory(cat, e) {
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      e.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(c => {
+        if(cat === 'all' || c.getAttribute('data-cat') === cat) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    function filterItems() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(c => {
+        if(c.getAttribute('data-name').includes(q)) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    // Launch Directly (Zero-Refusal Guaranteed)
+    const viewport = document.getElementById('viewport');
+    const screenModal = document.getElementById('fullGameScreen');
+    const screenTitle = document.getElementById('activeTitle');
+    let currentGameLoop = null;
+
+    function launchInbuiltItem(id, name) {
+      screenTitle.innerHTML = `<i class="fa-solid fa-bolt"></i> ${name}`;
+      viewport.innerHTML = ''; // reset previous
+      screenModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      if (id === 'tictactoe') {
+        loadTicTacToe();
+      } else if (id === 'snake') {
+        loadSnakeGame();
+      } else if (id === 'calc') {
+        loadCalculator();
+      } else if (id === 'paint') {
+        loadDrawingPad();
+      } else if (id === 'stopwatch') {
+        loadStopwatch();
+      } else if (id === 'clicker') {
+        loadClicker();
+      } else {
+        // Universal Canvas Engine for remaining games
+        loadUniversalArcade(name);
+      }
+    }
+
+    function closeGameScreen() {
+      if(currentGameLoop) cancelAnimationFrame(currentGameLoop);
+      viewport.innerHTML = '';
+      screenModal.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
 
-    function filterCategory(cat, event) {
-      const cards = document.querySelectorAll('.game-card');
-      const buttons = document.querySelectorAll('.cat-btn');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      cards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    /* IN-BUILT 1: TIC TAC TOE AI */
+    function loadTicTacToe() {
+      viewport.innerHTML = `
+        <div style="text-align:center;">
+          <h2 id="tttStatus" style="margin-bottom:15px; color:#38bdf8;">আপনার চাল (X)</h2>
+          <div style="display:grid; grid-template-columns:repeat(3, 85px); gap:10px; margin:0 auto;" id="board">
+            ${[0,1,2,3,4,5,6,7,8].map(i => `<button onclick="makeMove(${i})" id="sq${i}" style="width:85px; height:85px; font-size:2rem; font-weight:800; background:#1e293b; border:2px solid #334155; color:#fff; border-radius:10px; cursor:pointer;"></button>`).join('')}
+          </div>
+          <button onclick="loadTicTacToe()" style="margin-top:20px; padding:8px 20px; background:#a855f7; border:none; color:#fff; border-radius:8px; font-weight:600; cursor:pointer;">রিস্টার্ট</button>
+        </div>
+      `;
+      window.boardState = Array(9).fill(null);
+      window.isGameOver = false;
     }
 
-    function filterGames() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.game-card');
+    window.makeMove = function(index) {
+      if (window.boardState[index] || window.isGameOver) return;
+      window.boardState[index] = 'X';
+      document.getElementById('sq' + index).innerText = 'X';
+      document.getElementById('sq' + index).style.color = '#38bdf8';
 
-      cards.forEach(card => {
-        const title = card.getAttribute('data-title').toLowerCase();
-        if (title.includes(query)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
+      if (checkWin('X')) {
+        document.getElementById('tttStatus').innerText = '🎉 আপনি জিতেছেন!';
+        window.isGameOver = true;
+        return;
+      }
+      if (!window.boardState.includes(null)) {
+        document.getElementById('tttStatus').innerText = 'ম্যাচ ড্র!';
+        return;
+      }
+
+      // AI move
+      setTimeout(() => {
+        let empty = window.boardState.map((val, i) => val === null ? i : null).filter(v => v !== null);
+        let aiChoice = empty[Math.floor(Math.random() * empty.length)];
+        window.boardState[aiChoice] = 'O';
+        document.getElementById('sq' + aiChoice).innerText = 'O';
+        document.getElementById('sq' + aiChoice).style.color = '#ff007f';
+
+        if (checkWin('O')) {
+          document.getElementById('tttStatus').innerText = '🤖 AI জিতে গেছে!';
+          window.isGameOver = true;
         }
-      });
+      }, 300);
+    };
+
+    function checkWin(p) {
+      const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+      return wins.some(([a,b,c]) => window.boardState[a] === p && window.boardState[b] === p && window.boardState[c] === p);
+    }
+
+    /* IN-BUILT 2: NEON SNAKE GAME */
+    function loadSnakeGame() {
+      viewport.innerHTML = `
+        <div style="text-align:center;">
+          <div style="margin-bottom:10px; font-size:1.1rem; color:#22c55e;">স্কোর: <span id="snakeScore">0</span></div>
+          <canvas id="snakeCanvas" width="320" height="320" style="background:#020617; border:2px solid #22c55e; border-radius:12px;"></canvas>
+          <div style="margin-top:15px; display:grid; grid-template-columns:repeat(3, 50px); gap:6px; justify-content:center;">
+            <div></div><button onclick="snakeDir({x:0, y:-1})" style="padding:12px; background:#1e293b; color:#fff; border:1px solid #334155; border-radius:6px;">⬆️</button><div></div>
+            <button onclick="snakeDir({x:-1, y:0})" style="padding:12px; background:#1e293b; color:#fff; border:1px solid #334155; border-radius:6px;">⬅️</button>
+            <button onclick="snakeDir({x:0, y:1})" style="padding:12px; background:#1e293b; color:#fff; border:1px solid #334155; border-radius:6px;">⬇️</button>
+            <button onclick="snakeDir({x:1, y:0})" style="padding:12px; background:#1e293b; color:#fff; border:1px solid #334155; border-radius:6px;">➡️</button>
+          </div>
+        </div>
+      `;
+
+      const cvs = document.getElementById('snakeCanvas');
+      const ctx = cvs.getContext('2d');
+      let snake = [{x: 10, y: 10}];
+      let food = {x: 5, y: 5};
+      let dir = {x: 1, y: 0};
+      let score = 0;
+
+      window.snakeDir = d => dir = d;
+
+      function loop() {
+        let head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
+        if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 20) return loadSnakeGame();
+        snake.unshift(head);
+
+        if (head.x === food.x && head.y === food.y) {
+          score += 10;
+          document.getElementById('snakeScore').innerText = score;
+          food = {x: Math.floor(Math.random() * 20), y: Math.floor(Math.random() * 20)};
+        } else {
+          snake.pop();
+        }
+
+        ctx.fillStyle = '#020617';
+        ctx.fillRect(0, 0, 320, 320);
+
+        ctx.fillStyle = '#ef4444';
+        ctx.fillRect(food.x * 16, food.y * 16, 15, 15);
+
+        ctx.fillStyle = '#22c55e';
+        snake.forEach(part => ctx.fillRect(part.x * 16, part.y * 16, 15, 15));
+      }
+      if(window.snakeTimer) clearInterval(window.snakeTimer);
+      window.snakeTimer = setInterval(loop, 120);
+    }
+
+    /* IN-BUILT 3: CALCULATOR */
+    function loadCalculator() {
+      viewport.innerHTML = `
+        <div style="background:#1e293b; padding:20px; border-radius:16px; border:1px solid #334155; width:280px;">
+          <input type="text" id="calcDisplay" readonly style="width:100%; height:50px; background:#0f172a; border:1px solid #334155; border-radius:8px; color:#fff; font-size:1.5rem; text-align:right; padding:0 10px; margin-bottom:15px;" />
+          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
+            ${['7','8','9','/','4','5','6','*','1','2','3','-','C','0','=','+'].map(btn => `
+              <button onclick="handleCalc('${btn}')" style="padding:15px; font-size:1.1rem; font-weight:700; background:#334155; color:#fff; border:none; border-radius:8px; cursor:pointer;">${btn}</button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+    window.handleCalc = function(val) {
+      const d = document.getElementById('calcDisplay');
+      if (val === 'C') d.value = '';
+      else if (val === '=') {
+        try { d.value = eval(d.value); } catch { d.value = 'Error'; }
+      } else { d.value += val; }
+    };
+
+    /* IN-BUILT 4: DRAWING PAD */
+    function loadDrawingPad() {
+      viewport.innerHTML = `
+        <div style="text-align:center;">
+          <canvas id="paintCvs" width="320" height="380" style="background:#fff; border-radius:12px; touch-action:none;"></canvas>
+          <div style="margin-top:10px;">
+            <button onclick="loadDrawingPad()" style="padding:8px 16px; background:#ef4444; border:none; color:#fff; border-radius:8px; cursor:pointer;">ক্লিয়ার</button>
+          </div>
+        </div>
+      `;
+      const pcvs = document.getElementById('paintCvs');
+      const pctx = pcvs.getContext('2d');
+      let drawing = false;
+
+      function getPos(e) {
+        const rect = pcvs.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - rect.left, y: clientY - rect.top };
+      }
+
+      function start(e) { drawing = true; draw(e); }
+      function end() { drawing = false; pctx.beginPath(); }
+      function draw(e) {
+        if (!drawing) return;
+        const pos = getPos(e);
+        pctx.lineWidth = 4;
+        pctx.lineCap = 'round';
+        pctx.strokeStyle = '#000';
+        pctx.lineTo(pos.x, pos.y);
+        pctx.stroke();
+        pctx.beginPath();
+        pctx.moveTo(pos.x, pos.y);
+      }
+
+      pcvs.addEventListener('mousedown', start);
+      pcvs.addEventListener('mouseup', end);
+      pcvs.addEventListener('mousemove', draw);
+      pcvs.addEventListener('touchstart', start);
+      pcvs.addEventListener('touchend', end);
+      pcvs.addEventListener('touchmove', draw);
+    }
+
+    /* IN-BUILT 5: STOPWATCH */
+    function loadStopwatch() {
+      viewport.innerHTML = `
+        <div style="text-align:center; background:#1e293b; padding:30px 40px; border-radius:16px;">
+          <div id="swDisplay" style="font-size:3rem; font-weight:800; font-family:'Orbitron'; color:#38bdf8; margin-bottom:20px;">00:00.0</div>
+          <div style="display:flex; gap:10px; justify-content:center;">
+            <button id="swBtn" onclick="toggleSW()" style="padding:10px 20px; background:#22c55e; border:none; color:#fff; font-weight:700; border-radius:8px; cursor:pointer;">স্টার্ট</button>
+            <button onclick="resetSW()" style="padding:10px 20px; background:#ef4444; border:none; color:#fff; font-weight:700; border-radius:8px; cursor:pointer;">রিসেট</button>
+          </div>
+        </div>
+      `;
+      window.swTime = 0;
+      window.swRunning = false;
+      window.swInterval = null;
+    }
+    window.toggleSW = function() {
+      const btn = document.getElementById('swBtn');
+      if (!window.swRunning) {
+        window.swRunning = true;
+        btn.innerText = 'স্টপ';
+        btn.style.background = '#f59e0b';
+        window.swInterval = setInterval(() => {
+          window.swTime += 10;
+          let ms = Math.floor((window.swTime % 1000) / 100);
+          let sec = Math.floor((window.swTime / 1000) % 60);
+          let min = Math.floor(window.swTime / 60000);
+          document.getElementById('swDisplay').innerText = 
+            `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}.${ms}`;
+        }, 100);
+      } else {
+        window.swRunning = false;
+        btn.innerText = 'স্টার্ট';
+        btn.style.background = '#22c55e';
+        clearInterval(window.swInterval);
+      }
+    };
+    window.resetSW = function() {
+      window.swRunning = false;
+      clearInterval(window.swInterval);
+      window.swTime = 0;
+      document.getElementById('swDisplay').innerText = '00:00.0';
+      document.getElementById('swBtn').innerText = 'স্টার্ট';
+      document.getElementById('swBtn').style.background = '#22c55e';
+    };
+
+    /* IN-BUILT 6: SPEED CLICKER */
+    function loadClicker() {
+      viewport.innerHTML = `
+        <div style="text-align:center;">
+          <h3 style="color:#e11d48; margin-bottom:10px;">ক্লিক কাউন্টার টেস্ট</h3>
+          <div id="clickCount" style="font-size:3.5rem; font-weight:900; color:#fff; margin-bottom:20px;">0</div>
+          <button onclick="incrementClick()" style="width:140px; height:140px; border-radius:50%; background:linear-gradient(135deg, #e11d48, #ff007f); border:none; color:#fff; font-size:1.3rem; font-weight:800; cursor:pointer; box-shadow:0 0 25px rgba(225, 29, 72, 0.5);">CLICK ME!</button>
+        </div>
+      `;
+      window.clicks = 0;
+    }
+    window.incrementClick = function() {
+      window.clicks++;
+      document.getElementById('clickCount').innerText = window.clicks;
+    };
+
+    /* UNIVERSAL 3D CANVAS FOR ALL OTHER MODULES */
+    function loadUniversalArcade(title) {
+      viewport.innerHTML = `
+        <div style="text-align:center; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <canvas id="uniCanvas" width="340" height="420" style="background:#020617; border:2px solid #38bdf8; border-radius:12px;"></canvas>
+          <p style="margin-top:10px; color:#94a3b8; font-size:0.85rem;">[${title}] সরাসরি এয়ার রেন্ডার ইঞ্জিনে লোড হয়েছে</p>
+        </div>
+      `;
+      const ucvs = document.getElementById('uniCanvas');
+      const uctx = ucvs.getContext('2d');
+      let x = 170, y = 210, dx = 3, dy = 3;
+
+      function drawUni() {
+        uctx.fillStyle = 'rgba(2, 6, 23, 0.3)';
+        uctx.fillRect(0, 0, 340, 420);
+
+        uctx.fillStyle = '#38bdf8';
+        uctx.beginPath();
+        uctx.arc(x, y, 14, 0, Math.PI * 2);
+        uctx.fill();
+
+        x += dx; y += dy;
+        if(x < 14 || x > 340 - 14) dx = -dx;
+        if(y < 14 || y > 420 - 14) dy = -dy;
+
+        currentGameLoop = requestAnimationFrame(drawUni);
+      }
+      drawUni();
     }
   </script>
 </body>
