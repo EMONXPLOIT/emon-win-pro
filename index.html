@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>EMON ARCADE PRO | Cloud Games</title>
+  <title>EMON ARCADE PRO | Cloud Games & Mega Store</title>
   
   <!-- Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -84,7 +84,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 40px 20px 25px;
+      padding: 38px 20px 20px;
       background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 70%);
     }
 
@@ -99,7 +99,7 @@
       color: #d8b4fe;
       font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
@@ -115,78 +115,38 @@
     .hero p {
       color: #94a3b8;
       max-width: 540px;
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
       font-size: 0.95rem;
     }
 
-    /* Search Bar */
-    .search-box {
-      max-width: 480px;
-      margin: 0 auto 20px;
-      position: relative;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 12px 20px 12px 46px;
-      border-radius: 30px;
-      border: 1px solid #334155;
-      background: #1e293b;
+    .jump-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #f59e0b, #ea580c);
       color: #fff;
-      font-size: 0.95rem;
-      outline: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(234, 88, 12, 0.35);
       transition: 0.3s;
     }
 
-    .search-box input:focus {
-      border-color: #38bdf8;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+    .jump-btn:hover {
+      transform: scale(1.04);
     }
 
-    .search-box i {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #64748b;
-    }
-
-    /* Categories */
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
-
-    .cat-btn {
-      padding: 7px 16px;
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #cbd5e1;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .cat-btn:hover, .cat-btn.active {
-      background: #38bdf8;
-      color: #0b0f19;
-      border-color: #38bdf8;
-    }
-
-    /* Container & Dynamic Grid */
+    /* Container & Dynamic Grids */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px 60px;
+      padding: 30px 20px 40px;
     }
 
     .section-title {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       margin-bottom: 18px;
       border-left: 4px solid #38bdf8;
       padding-left: 12px;
@@ -194,6 +154,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .section-title.store-accent {
+      border-left-color: #f59e0b;
     }
 
     .game-count {
@@ -217,7 +181,6 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
     }
@@ -274,14 +237,75 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
+      text-decoration: none;
       transition: 0.2s;
     }
 
-    .play-btn:hover {
-      opacity: 0.95;
+    .play-btn.store-btn {
+      background: linear-gradient(90deg, #f59e0b, #ea580c);
+      color: #fff;
     }
 
-    /* FULLSCREEN PLAYER OVERLAY */
+    .play-btn:hover {
+      opacity: 0.92;
+    }
+
+    /* MEGA STORE BOX */
+    .mega-store-container {
+      background: #111827;
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .store-controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .store-search {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+
+    .store-search input {
+      width: 100%;
+      padding: 10px 16px 10px 42px;
+      border-radius: 12px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .store-search input:focus {
+      border-color: #f59e0b;
+    }
+
+    .store-search i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+    }
+
+    /* Loader Message */
+    .store-loader {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 0;
+      color: #f59e0b;
+      font-size: 1rem;
+    }
+
+    /* In-App Player Overlay */
     #fullGameScreen {
       display: none;
       position: fixed;
@@ -334,23 +358,15 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      transition: 0.2s;
       text-decoration: none;
     }
 
     .btn-external {
       background: #334155;
     }
-    .btn-external:hover {
-      background: #475569;
-    }
 
     .back-btn {
       background: #dc2626;
-    }
-
-    .back-btn:hover {
-      background: #ef4444;
     }
 
     .iframe-wrapper {
@@ -367,7 +383,6 @@
       display: block;
     }
 
-    /* Iframe Loader Indicator */
     .frame-loader {
       position: absolute;
       inset: 0;
@@ -410,48 +425,61 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge"><i class="fa-solid fa-bolt"></i> আনলিমিটেড HTML5 ক্লাউড আর্কেড</div>
-      <h1>ফ্রি অনলাইন গেম <br>সরাসরি ব্রাউজারে</h1>
-      <p>কোনো ইনস্টলেশন ছাড়াই এক ক্লিকে যেকোনো গেম খেলুন মোবাইল বা পিসিতে!</p>
+      <div class="hero-badge"><i class="fa-solid fa-cloud-bolt"></i> ক্লাউড আর্কেড অ্যান্ড মেগা গেম স্টোর</div>
+      <h1>হাজারো প্রিমিয়াম গেম <br>সরাসরি খেলুন</h1>
+      <p>ব্লকিং বা ক্র্যাশ ছাড়া যেকোনো প্ল্যাটফর্ম থেকে মসৃণভাবে গেম উপভোগ করুন।</p>
       
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="গেমের নাম সার্চ করুন..." onkeyup="filterGames()" />
-      </div>
-
-      <div class="categories">
-        <button class="cat-btn active" onclick="filterCategory('All', event)">All</button>
-        <button class="cat-btn" onclick="filterCategory('Arcade', event)">Arcade</button>
-        <button class="cat-btn" onclick="filterCategory('Puzzle', event)">Puzzle</button>
-        <button class="cat-btn" onclick="filterCategory('Racing', event)">Racing</button>
-        <button class="cat-btn" onclick="filterCategory('Retro', event)">Retro</button>
-      </div>
+      <a href="#megaStore" class="jump-btn">
+        <i class="fa-solid fa-shop"></i> গেম স্টোরে যান (হাজারো গেম)
+      </a>
     </section>
 
-    <!-- Games Section -->
+    <!-- Section 1: In-App Verified Games -->
     <div class="container">
       <div class="section-title">
-        <span>ভেরিফাইড গেমস তালিকা</span>
-        <span class="game-count" id="itemCounter">লোড হচ্ছে...</span>
+        <span>ভেরিফাইড ইনস্ট্যান্ট গেমস</span>
+        <span class="game-count">৬ টি সক্রিয়</span>
       </div>
 
-      <div class="game-grid" id="gameGrid"></div>
+      <div class="game-grid" id="verifiedGrid"></div>
+
+      <!-- Section 2: LIVE MEGA STORE -->
+      <div class="mega-store-container" id="megaStore">
+        <div class="section-title store-accent">
+          <span>গেম স্টোর ডাটাবেজ (সরাসরি প্লে)</span>
+          <span class="game-count" id="storeCount">লোড হচ্ছে...</span>
+        </div>
+
+        <div class="store-controls">
+          <div class="store-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="storeSearchInput" placeholder="স্টোরের যেকোনো গেম খুঁজুন..." onkeyup="filterStoreGames()" />
+          </div>
+        </div>
+
+        <div class="game-grid" id="storeGrid">
+          <div class="store-loader">
+            <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+            <p style="margin-top: 10px;">গেম স্টোর থেকে ডাটা লোড হচ্ছে...</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer>
-      <p>Crafted with ❤️ by <strong>Emon Khan</strong> &copy; 2026</p>
+      <p>Crafted & Maintained with ❤️ by <strong>Emon Khan</strong> &copy; 2026</p>
     </footer>
   </div>
 
-  <!-- INSTANT DUAL-MODE PLAYER SCREEN -->
+  <!-- PLAYER OVERLAY (FOR IN-APP PLAY) -->
   <div id="fullGameScreen">
     <div class="game-top-bar">
       <div class="screen-game-title" id="activeGameName">
-        <i class="fa-solid fa-gamepad"></i> Playing
+        <i class="fa-solid fa-gamepad"></i> Game Player
       </div>
       <div class="game-actions">
-        <a id="externalOpenBtn" href="#" target="_blank" class="action-btn btn-external" title="ব্রাউজারের নতুন ট্যাবে ফুলস্ক্রিনে খেলুন">
+        <a id="externalOpenBtn" href="#" target="_blank" class="action-btn btn-external">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> New Tab
         </a>
         <button class="action-btn back-btn" onclick="exitGameScreen()">
@@ -463,21 +491,14 @@
     <div class="iframe-wrapper">
       <div class="frame-loader" id="frameLoader">
         <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
-        <span>গেম লোড হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</span>
+        <span>গেম লোড হচ্ছে...</span>
       </div>
-      <!-- Note: sandbox attribute removed to prevent security blocking of canvas/audio engines -->
-      <iframe 
-        id="activeGameFrame" 
-        class="direct-iframe" 
-        src="" 
-        allowfullscreen="true" 
-        allow="autoplay; fullscreen; accelerometer; gyroscope; gamepad; payment">
-      </iframe>
+      <iframe id="activeGameFrame" class="direct-iframe" src="" allowfullscreen="true" allow="autoplay; fullscreen; accelerometer; gyroscope"></iframe>
     </div>
   </div>
 
   <script>
-    // Embeddable and CORS-tested games
+    // Verified Games for In-App Frame
     const verifiedGames = [
       {
         title: "2048 Classic Master",
@@ -486,7 +507,7 @@
         url: "https://play2048.co/"
       },
       {
-        title: "Hextris Puzzle Arcade",
+        title: "Hextris Arcade",
         category: "Arcade",
         thumb: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80",
         url: "https://hextris.io/"
@@ -510,44 +531,107 @@
         url: "https://flappybird.io/"
       },
       {
-        title: "Pacman Classic Edition",
+        title: "Pacman Classic",
         category: "Retro",
         thumb: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=500&q=80",
         url: "https://freepacman.org/"
       }
     ];
 
-    function renderGames(games) {
-      const grid = document.getElementById('gameGrid');
+    let storeGamesList = [];
+
+    // Render In-App Verified Games
+    function renderVerifiedGames() {
+      const grid = document.getElementById('verifiedGrid');
       grid.innerHTML = '';
+      verifiedGames.forEach(game => {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.innerHTML = `
+          <img src="${game.thumb}" alt="${game.title}" class="game-thumb" loading="lazy" />
+          <div class="game-info">
+            <div>
+              <div class="game-title">${game.title}</div>
+              <div class="game-meta"><span>${game.category}</span><span>⭐ 4.9</span></div>
+            </div>
+            <button class="play-btn" onclick="launchGame('${game.url}', '${game.title.replace(/'/g, "\\'")}')">
+              <i class="fa-solid fa-play"></i> অ্যাপেই খেলুন
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Fetch and Load Mega Store Games
+    async function loadStoreGames() {
+      const storeGrid = document.getElementById('storeGrid');
+      const storeCount = document.getElementById('storeCount');
+      
+      const API_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://gamemonetize.com/rssfeed.php?format=json&num=100");
+
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+
+        if (Array.isArray(data) && data.length > 0) {
+          storeGamesList = data;
+          renderStoreCards(storeGamesList);
+          storeCount.innerText = `${data.length}+ গেম রেডি`;
+        } else {
+          fallbackStoreGames();
+        }
+      } catch (e) {
+        fallbackStoreGames();
+      }
+    }
+
+    function renderStoreCards(games) {
+      const storeGrid = document.getElementById('storeGrid');
+      storeGrid.innerHTML = '';
 
       games.forEach(game => {
         const card = document.createElement('div');
-        card.className = 'game-card';
-        card.setAttribute('data-category', game.category);
-        card.setAttribute('data-title', game.title.toLowerCase());
+        card.className = 'game-card store-card';
+        card.setAttribute('data-title', (game.title || '').toLowerCase());
 
         card.innerHTML = `
           <img src="${game.thumb}" alt="${game.title}" class="game-thumb" loading="lazy" />
           <div class="game-info">
             <div>
               <div class="game-title">${game.title}</div>
-              <div class="game-meta">
-                <span><i class="fa-solid fa-gamepad"></i> ${game.category}</span>
-                <span>⭐ 4.9</span>
-              </div>
+              <div class="game-meta"><span>${game.category || 'Arcade'}</span><span>⚡ ক্লাউড প্লে</span></div>
             </div>
-            <button class="play-btn" onclick="launchGame('${game.url}', '${game.title.replace(/'/g, "\\'")}')">
-              <i class="fa-solid fa-play"></i> খেলুন
-            </button>
+            <!-- Opens securely in game portal without frame refusal -->
+            <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn store-btn">
+              <i class="fa-solid fa-up-right-from-square"></i> সরাসরি খেলুন
+            </a>
           </div>
         `;
-        grid.appendChild(card);
+        storeGrid.appendChild(card);
       });
-
-      document.getElementById('itemCounter').innerText = `${games.length} টি ভেরিফাইড গেম`;
     }
 
+    function fallbackStoreGames() {
+      const mock = [
+        { title: "Moto X3M Bike Race", category: "Action", thumb: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500&q=80", url: "https://html5.gamedistribution.com/64b5840d41eb4e95904d6e902b9e6e89/" },
+        { title: "Traffic Tom Run", category: "Racing", thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80", url: "https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com" },
+        { title: "Neon Chess Online", category: "Puzzle", thumb: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=500&q=80", url: "https://play2048.co/" },
+        { title: "Cyber Strike Shooter", category: "Shooting", thumb: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&q=80", url: "https://archive.org/embed/arcade_invaders" }
+      ];
+      renderStoreCards(mock);
+      document.getElementById('storeCount').innerText = `${mock.length} টি ক্লাউড গেম`;
+    }
+
+    function filterStoreGames() {
+      const q = document.getElementById('storeSearchInput').value.toLowerCase();
+      document.querySelectorAll('.store-card').forEach(card => {
+        const title = card.getAttribute('data-title');
+        card.style.display = title.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    // In-App Player functions
     function launchGame(url, title) {
       const screen = document.getElementById('fullGameScreen');
       const frame = document.getElementById('activeGameFrame');
@@ -557,15 +641,10 @@
 
       titleTag.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${title}`;
       externalLink.href = url;
-
-      // Loader visibility
       loader.style.display = 'flex';
       frame.src = url;
 
-      frame.onload = () => {
-        loader.style.display = 'none';
-      };
-
+      frame.onload = () => { loader.style.display = 'none'; };
       screen.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
@@ -573,35 +652,15 @@
     function exitGameScreen() {
       const screen = document.getElementById('fullGameScreen');
       const frame = document.getElementById('activeGameFrame');
-
       frame.src = '';
       screen.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
 
-    function filterCategory(cat, event) {
-      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      document.querySelectorAll('.game-card').forEach(card => {
-        const itemCat = card.getAttribute('data-category');
-        if (cat === 'All' || itemCat.toLowerCase() === cat.toLowerCase()) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function filterGames() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      document.querySelectorAll('.game-card').forEach(card => {
-        const title = card.getAttribute('data-title');
-        card.style.display = title.includes(query) ? 'flex' : 'none';
-      });
-    }
-
-    window.onload = () => renderGames(verifiedGames);
+    window.onload = () => {
+      renderVerifiedGames();
+      loadStoreGames();
+    };
   </script>
 </body>
 </html>
