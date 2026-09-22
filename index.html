@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <!-- Referrer পলিসি সেট করা হয়েছে যাতে গেমের সব ছবি শতভাগ লোড হয় -->
-  <meta name="referrer" content="no-referrer" />
   <title>EMON ARCADE | Poki Mega Game Hub</title>
   
-  <!-- Fonts & Font Awesome Icons -->
+  <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
@@ -27,7 +25,7 @@
       padding-bottom: 50px;
     }
 
-    /* Header */
+    /* Navbar */
     header {
       display: flex;
       justify-content: space-between;
@@ -77,43 +75,13 @@
       box-shadow: 0 0 6px #22c55e;
     }
 
-    /* Hero Section */
+    /* Hero Banner */
     .hero {
       text-align: center;
       padding: 35px 20px 20px;
       background: radial-gradient(circle at top, rgba(168, 85, 247, 0.22), transparent 70%);
     }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 5px 15px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      border-radius: 20px;
-      color: #38bdf8;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 {
-      font-size: 2.1rem;
-      line-height: 1.25;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #38bdf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
-
-    .hero p {
-      color: #94a3b8;
-      max-width: 500px;
-      margin: 0 auto 20px;
-      font-size: 0.9rem;
-    }
-
-    /* Main Store Button */
     .mega-main-btn {
       display: inline-flex;
       align-items: center;
@@ -121,7 +89,7 @@
       gap: 10px;
       background: linear-gradient(90deg, #0284c7, #9333ea);
       color: #fff;
-      padding: 14px 30px;
+      padding: 14px 32px;
       border-radius: 30px;
       font-size: 1.05rem;
       font-weight: 800;
@@ -135,18 +103,17 @@
       box-shadow: 0 0 30px rgba(56, 189, 248, 0.65);
     }
 
-    /* Main Container */
+    /* Category Layout */
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 20px 16px;
     }
 
-    /* Category Blocks Header */
     .category-title {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin: 30px 0 15px;
+      margin: 28px 0 15px;
       padding-left: 10px;
       border-left: 4px solid #38bdf8;
       display: flex;
@@ -166,14 +133,14 @@
       color: #94a3b8;
     }
 
-    /* Responsive Grid */
+    /* Grid Display */
     .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 650px) {
       .game-grid {
         grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
         gap: 18px;
@@ -201,12 +168,9 @@
 
     .img-box {
       width: 100%;
-      height: 130px;
-      overflow: hidden;
+      height: 140px;
+      position: relative;
       background: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .game-thumb {
@@ -243,8 +207,8 @@
 
     .play-link {
       width: 100%;
-      padding: 7px 0;
-      border-radius: 6px;
+      padding: 8px 0;
+      border-radius: 8px;
       background: linear-gradient(90deg, #38bdf8, #818cf8);
       color: #0b0f19;
       font-weight: 700;
@@ -256,7 +220,6 @@
       gap: 5px;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -273,7 +236,7 @@
 </head>
 <body>
 
-  <!-- Top Navbar -->
+  <!-- Header -->
   <header>
     <div class="logo">EMON <span>ARCADE</span></div>
     <div class="dev-badge">
@@ -282,29 +245,29 @@
     </div>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-badge"><i class="fa-solid fa-gamepad"></i> আনলিমিটেড লাইভ গেম হাব</div>
-    <h1>ক্লিক করুন এবং খেলুন <br>হাজারো ক্লাউড গেম</h1>
-    <p>সরাসরি যেকোনো গেমের কার্ডে চাপ দিয়ে উপভোগ করুন শতভাগ স্মুথ গেমিং অভিজ্ঞতা।</p>
-    
     <a href="https://poki.com/" target="_blank" rel="noopener noreferrer" class="mega-main-btn">
       <i class="fa-solid fa-fire"></i> সম্পূর্ণ গেম স্টোরে যান
     </a>
   </section>
 
+  <!-- Categories & Games -->
   <div class="container">
 
-    <!-- ক্যাটাগরি ১: ট্রেন্ডিং ও অ্যাকশন (Action & Trending) -->
+    <!-- ক্যাটাগরি ১: অ্যাকশন ও ট্রেন্ডিং -->
     <div class="category-title fire">
       <span><i class="fa-solid fa-fire" style="color: #f97316;"></i> ট্রেন্ডিং ও অ্যাকশন গেমস</span>
       <span class="cat-tag">Poki Hot</span>
     </div>
     <div class="game-grid">
+      
       <!-- Subway Surfers -->
       <a href="https://poki.com/en/g/subway-surfers" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/5da037340b616428c04e2ebffab153ee.png" class="game-thumb" alt="Subway Surfers" />
+          <img src="https://images.crazygames.com/subway-surfers/20231127042511/subway-surfers-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&q=80'" 
+               class="game-thumb" alt="Subway Surfers" />
         </div>
         <div class="game-info">
           <div>
@@ -318,7 +281,9 @@
       <!-- Temple Run 2 -->
       <a href="https://poki.com/en/g/temple-run-2" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/a6edc223c7b80a719c28bf3a0aefd951.png" class="game-thumb" alt="Temple Run 2" />
+          <img src="https://images.crazygames.com/temple-run-2/20210609143657/temple-run-2-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&q=80'" 
+               class="game-thumb" alt="Temple Run 2" />
         </div>
         <div class="game-info">
           <div>
@@ -332,7 +297,9 @@
       <!-- Stickman Hook -->
       <a href="https://poki.com/en/g/stickman-hook" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/9819ee7574b62ff6ebdfd4b706c88ca4.png" class="game-thumb" alt="Stickman Hook" />
+          <img src="https://images.crazygames.com/stickman-hook/20220208151527/stickman-hook-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&q=80'" 
+               class="game-thumb" alt="Stickman Hook" />
         </div>
         <div class="game-info">
           <div>
@@ -342,23 +309,27 @@
           <div class="play-link"><i class="fa-solid fa-play"></i> খেলুন</div>
         </div>
       </a>
+
     </div>
 
-    <!-- ক্যাটাগরি ২: ব্রেন ও বোর্ড গেমস (Brain & Board Games) -->
+    <!-- ক্যাটাগরি ২: ব্রেন ও বোর্ড গেমস -->
     <div class="category-title brain">
       <span><i class="fa-solid fa-brain" style="color: #a855f7;"></i> ব্রেন ও বোর্ড গেমস</span>
       <span class="cat-tag">Strategy</span>
     </div>
     <div class="game-grid">
+      
       <!-- Ludo Hero -->
       <a href="https://poki.com/en/g/ludo-hero" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/f5e3e7f62c079ee71923cb13e89a42be.png" class="game-thumb" alt="Ludo Hero" />
+          <img src="https://images.crazygames.com/ludo-king/20210216164741/ludo-king-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80'" 
+               class="game-thumb" alt="Ludo Hero" />
         </div>
         <div class="game-info">
           <div>
             <div class="game-title">Ludo Hero</div>
-            <div class="game-meta"><span>Board Game</span><span>⭐ 4.8</span></div>
+            <div class="game-meta"><span>Board</span><span>⭐ 4.8</span></div>
           </div>
           <div class="play-link"><i class="fa-solid fa-play"></i> খেলুন</div>
         </div>
@@ -367,65 +338,60 @@
       <!-- Master Chess -->
       <a href="https://poki.com/en/g/master-chess" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/3673cfbd461877ee760b296f86c23c50.png" class="game-thumb" alt="Master Chess" />
+          <img src="https://images.crazygames.com/master-chess/20201124103144/master-chess-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=400&q=80'" 
+               class="game-thumb" alt="Master Chess" />
         </div>
         <div class="game-info">
           <div>
             <div class="game-title">Master Chess</div>
-            <div class="game-meta"><span>Mind & Skill</span><span>⭐ 4.7</span></div>
+            <div class="game-meta"><span>Strategy</span><span>⭐ 4.7</span></div>
           </div>
           <div class="play-link"><i class="fa-solid fa-play"></i> খেলুন</div>
         </div>
       </a>
 
-      <!-- Brain Test: Tricky Puzzles -->
-      <a href="https://poki.com/en/g/brain-test-tricky-puzzles" target="_blank" rel="noopener noreferrer" class="game-card">
-        <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/8df0cbaab99c362157d19760086c8ec0.png" class="game-thumb" alt="Brain Test" />
-        </div>
-        <div class="game-info">
-          <div>
-            <div class="game-title">Brain Test Puzzles</div>
-            <div class="game-meta"><span>Puzzle</span><span>⭐ 4.9</span></div>
-          </div>
-          <div class="play-link"><i class="fa-solid fa-play"></i> খেলুন</div>
-        </div>
-      </a>
     </div>
 
-    <!-- ক্যাটাগরি ৩: রেসিং ও বাইক (Racing & Sports) -->
+    <!-- ক্যাটাগরি ৩: রেসিং ও বাইক গেমস -->
     <div class="category-title racing">
-      <span><i class="fa-solid fa-motorcycle" style="color: #22c55e;"></i> রেসিং ও স্পোর্টস গেমস</span>
+      <span><i class="fa-solid fa-motorcycle" style="color: #22c55e;"></i> রেসিং ও স্টান্ট গেমস</span>
       <span class="cat-tag">Speed</span>
     </div>
     <div class="game-grid">
+      
       <!-- Moto X3M -->
       <a href="https://poki.com/en/g/moto-x3m" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/232490d3e56a4caea9a4e32303c7ea50.png" class="game-thumb" alt="Moto X3M" />
+          <img src="https://images.crazygames.com/moto-x3m/20210609143657/moto-x3m-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=400&q=80'" 
+               class="game-thumb" alt="Moto X3M" />
         </div>
         <div class="game-info">
           <div>
             <div class="game-title">Moto X3M Bike</div>
-            <div class="game-meta"><span>Stunt Racing</span><span>⭐ 4.9</span></div>
+            <div class="game-meta"><span>Racing</span><span>⭐ 4.9</span></div>
           </div>
           <div class="play-link"><i class="fa-solid fa-play"></i> খেলুন</div>
         </div>
       </a>
 
-      <!-- Moto X3M Spooky Land -->
-      <a href="https://poki.com/en/g/moto-x3m-spooky-land" target="_blank" rel="noopener noreferrer" class="game-card">
+      <!-- Traffic Run -->
+      <a href="https://poki.com/en/g/traffic-rush" target="_blank" rel="noopener noreferrer" class="game-card">
         <div class="img-box">
-          <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/295fae2d091e0a2404098528aa29ee62.png" class="game-thumb" alt="Moto X3M Spooky Land" />
+          <img src="https://images.crazygames.com/traffic-rush/20210216164741/traffic-rush-cover?auto=format,compress&q=75&cs=strip" 
+               onerror="this.src='https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400&q=80'" 
+               class="game-thumb" alt="Traffic Rush" />
         </div>
         <div class="game-info">
           <div>
-            <div class="game-title">Moto X3M Spooky</div>
-            <div class="game-meta"><span>Racing</span><span>⭐ 4.8</span></div>
+            <div class="game-title">Traffic Rush</div>
+            <div class="game-meta"><span>Speed</span><span>⭐ 4.8</span></div>
           </div>
           <div class="play-link"><i class="fa-solid fa-play"></i> খেলুন</div>
         </div>
       </a>
+
     </div>
 
   </div>
