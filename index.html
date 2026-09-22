@@ -1,666 +1,389 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>EMON ARCADE PRO | Cloud Games & Mega Store</title>
-  
-  <!-- Fonts & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      background-color: #090d16;
-      color: #f8fafc;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    /* Navbar */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 6%;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .brand-box {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: #38bdf8;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: #a855f7;
-    }
-
-    .dev-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: #94a3b8;
-      font-weight: 600;
-    }
-
-    .dev-badge span {
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.12);
-      padding: 1px 7px;
-      border-radius: 4px;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 38px 20px 20px;
-      background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 70%);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      border-radius: 20px;
-      color: #d8b4fe;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      line-height: 1.25;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #38bdf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
-
-    .hero p {
-      color: #94a3b8;
-      max-width: 540px;
-      margin: 0 auto 18px;
-      font-size: 0.95rem;
-    }
-
-    .jump-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(90deg, #f59e0b, #ea580c);
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(234, 88, 12, 0.35);
-      transition: 0.3s;
-    }
-
-    .jump-btn:hover {
-      transform: scale(1.04);
-    }
-
-    /* Container & Dynamic Grids */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 20px 40px;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      margin-bottom: 18px;
-      border-left: 4px solid #38bdf8;
-      padding-left: 12px;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .section-title.store-accent {
-      border-left-color: #f59e0b;
-    }
-
-    .game-count {
-      font-size: 0.82rem;
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.1);
-      padding: 3px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-    }
-
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .game-card {
-      background: #1e293b;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .game-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.18);
-      border-color: rgba(56, 189, 248, 0.4);
-    }
-
-    .game-thumb {
-      width: 100%;
-      height: 155px;
-      object-fit: cover;
-      background: #0f172a;
-    }
-
-    .game-info {
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
-    }
-
-    .game-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .game-meta {
-      display: flex;
-      justify-content: space-between;
-      color: #94a3b8;
-      font-size: 0.8rem;
-    }
-
-    .play-btn {
-      margin-top: 12px;
-      width: 100%;
-      padding: 9px;
-      border: none;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      color: #0b0f19;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .play-btn.store-btn {
-      background: linear-gradient(90deg, #f59e0b, #ea580c);
-      color: #fff;
-    }
-
-    .play-btn:hover {
-      opacity: 0.92;
-    }
-
-    /* MEGA STORE BOX */
-    .mega-store-container {
-      background: #111827;
-      border-radius: 20px;
-      padding: 24px;
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      margin-top: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .store-controls {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
-    }
-
-    .store-search {
-      flex: 1;
-      min-width: 250px;
-      position: relative;
-    }
-
-    .store-search input {
-      width: 100%;
-      padding: 10px 16px 10px 42px;
-      border-radius: 12px;
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #fff;
-      font-size: 0.9rem;
-      outline: none;
-    }
-
-    .store-search input:focus {
-      border-color: #f59e0b;
-    }
-
-    .store-search i {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #64748b;
-    }
-
-    /* Loader Message */
-    .store-loader {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 40px 0;
-      color: #f59e0b;
-      font-size: 1rem;
-    }
-
-    /* In-App Player Overlay */
-    #fullGameScreen {
-      display: none;
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-      z-index: 99999;
-      flex-direction: column;
-    }
-
-    .game-top-bar {
-      height: 52px;
-      background: #0b0f19;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 16px;
-      border-bottom: 1px solid #1e293b;
-      z-index: 10;
-    }
-
-    .screen-game-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      color: #38bdf8;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 50%;
-    }
-
-    .game-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .action-btn {
-      border: none;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      text-decoration: none;
-    }
-
-    .btn-external {
-      background: #334155;
-    }
-
-    .back-btn {
-      background: #dc2626;
-    }
-
-    .iframe-wrapper {
-      position: relative;
-      width: 100%;
-      height: calc(100vh - 52px);
-      background: #05070c;
-    }
-
-    .direct-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    .frame-loader {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #0b0f19;
-      gap: 12px;
-      color: #38bdf8;
-      z-index: 5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      color: #64748b;
-      font-size: 0.85rem;
-    }
-
-    footer strong {
-      color: #38bdf8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMON WIN PRO - Official Casino Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #07261e; color: #e2e8f0; font-family: sans-serif; }
+        .tk-card { background: rgba(5, 35, 27, 0.95); border: 1px solid rgba(212, 175, 55, 0.3); backdrop-filter: blur(10px); }
+        .tk-gold { color: #d4af37; }
+        .tk-btn { background: linear-gradient(to bottom, #d4af37, #aa7c11); color: #07261e; font-weight: 800; }
+        .tab-item.active { color: #d4af37; border-top: 2px solid #d4af37; }
+        .aviator-box { transition: all 0.3s ease; }
+    </style>
 </head>
-<body>
+<body class="min-h-screen pb-24 select-none">
 
-  <div id="mainWebsite">
-    <!-- Header -->
-    <header>
-      <div class="brand-box">
-        <div class="logo">EMON <span>ARCADE</span></div>
-        <div class="dev-badge">
-          <div class="status-dot"></div>
-          Developer: <span>Emon Khan</span>
+    <!-- TOP HEADER -->
+    <header class="max-w-md mx-auto p-3 flex justify-between items-center bg-[#051c15] border-b border-[#0d3b2e] sticky top-0 z-40">
+        <div class="flex items-center space-x-2">
+            <h1 class="text-base font-black tracking-wider text-emerald-400">EMON<span class="text-amber-400 font-bold">|WIN PRO</span></h1>
         </div>
-      </div>
+        <div class="flex items-center space-x-1.5">
+            <button onclick="addDemo()" class="bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2 py-1 rounded-lg text-[10px] font-bold">ডেমো +১০,০০০</button>
+            <button onclick="location.reload()" class="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-2 py-1 rounded-lg text-[10px] font-bold">রিলোড</button>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-badge"><i class="fa-solid fa-cloud-bolt"></i> ক্লাউড আর্কেড অ্যান্ড মেগা গেম স্টোর</div>
-      <h1>হাজারো প্রিমিয়াম গেম <br>সরাসরি খেলুন</h1>
-      <p>ব্লকিং বা ক্র্যাশ ছাড়া যেকোনো প্ল্যাটফর্ম থেকে মসৃণভাবে গেম উপভোগ করুন।</p>
-      
-      <a href="#megaStore" class="jump-btn">
-        <i class="fa-solid fa-shop"></i> গেম স্টোরে যান (হাজারো গেম)
-      </a>
-    </section>
+    <main class="max-w-md mx-auto p-3 space-y-3">
 
-    <!-- Section 1: In-App Verified Games -->
-    <div class="container">
-      <div class="section-title">
-        <span>ভেরিফাইড ইনস্ট্যান্ট গেমস</span>
-        <span class="game-count">৬ টি সক্রিয়</span>
-      </div>
-
-      <div class="game-grid" id="verifiedGrid"></div>
-
-      <!-- Section 2: LIVE MEGA STORE -->
-      <div class="mega-store-container" id="megaStore">
-        <div class="section-title store-accent">
-          <span>গেম স্টোর ডাটাবেজ (সরাসরি প্লে)</span>
-          <span class="game-count" id="storeCount">লোড হচ্ছে...</span>
+        <!-- WALLET & ACTION BUTTONS -->
+        <div class="tk-card p-4 rounded-2xl flex justify-between items-center shadow-lg">
+            <div>
+                <p class="text-[10px] text-gray-400 uppercase font-bold">মেইন ব্যালেন্স</p>
+                <h2 id="mainBalance" class="text-2xl font-black text-amber-400">৳1000.00</h2>
+            </div>
+            <div class="space-x-1">
+                <button onclick="switchTab('deposit')" class="tk-btn px-4 py-2 rounded-xl text-xs shadow-md">ডিপোজিট</button>
+                <button onclick="switchTab('withdraw')" class="bg-emerald-600 text-slate-950 font-bold px-3 py-2 rounded-xl text-xs">উইথড্র</button>
+            </div>
         </div>
 
-        <div class="store-controls">
-          <div class="store-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="storeSearchInput" placeholder="স্টোরের যেকোনো গেম খুঁজুন..." onkeyup="filterStoreGames()" />
-          </div>
+        <!-- 1. HOME TAB -->
+        <div id="tab-home" class="space-y-3">
+            <div class="tk-card p-4 rounded-2xl bg-gradient-to-r from-amber-600/20 to-red-600/20 border-amber-500/50 text-center space-y-2">
+                <h3 class="text-sm font-extrabold text-amber-300">🔥 EMON WIN PRO CASINO 🔥</h3>
+                <p class="text-[11px] text-gray-300">নিজের মতো বেট অ্যামাউন্ট সেট করে এভিয়েটর খেলুন!</p>
+            </div>
+
+            <!-- HOT GAMES -->
+            <div class="space-y-2">
+                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest">🔥 CASINO HOT GAMES</h3>
+
+                <div class="grid grid-cols-3 gap-2">
+                    <div onclick="playAviatorGame()" class="tk-card p-3 rounded-xl text-center cursor-pointer hover:border-amber-400 transition">
+                        <div class="text-2xl">✈️</div>
+                        <h4 class="text-[11px] font-bold text-white mt-1">Aviator</h4>
+                        <span class="text-[9px] text-emerald-400">Crash Bet</span>
+                    </div>
+
+                    <a href="https://poki.com/en/g/subway-surfers" target="_blank" class="tk-card p-3 rounded-xl text-center block">
+                        <div class="text-2xl">🃏</div>
+                        <h4 class="text-[11px] font-bold text-white mt-1">Super Ace</h4>
+                        <span class="text-[9px] text-amber-400">Hot Slot</span>
+                    </a>
+
+                    <a href="https://poki.com/en/g/ludo-hero" target="_blank" class="tk-card p-3 rounded-xl text-center block">
+                        <div class="text-2xl">🎲</div>
+                        <h4 class="text-[11px] font-bold text-white mt-1">Ludo Hero</h4>
+                        <span class="text-[9px] text-amber-400">Classic</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Professional Aviator Game Panel with Custom Bet Input & Live Winning Display -->
+            <div id="aviatorBox" class="tk-card p-4 rounded-2xl space-y-3 hidden border-amber-500 aviator-box">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-amber-400 font-bold">✈️ AVIATOR CRASH</span>
+                    <span class="text-emerald-400 font-mono text-sm" id="liveMultiplierTop">1.00x</span>
+                </div>
+
+                <div id="aviatorScreen" class="py-6 bg-[#031510] rounded-xl border border-emerald-900 text-center transition-all duration-300">
+                    <h2 id="aviatorStat" class="text-3xl font-black text-amber-400 font-mono tracking-wider">1.00x</h2>
+                    <p id="aviatorSubText" class="text-[11px] text-gray-400 mt-1">বেট বসিয়ে স্টার্ট করুন</p>
+                    <div id="livePotentialWin" class="text-sm font-bold text-emerald-400 mt-2 font-mono"></div>
+                </div>
+
+                <!-- Bet Input & Quick Buttons -->
+                <div class="space-y-2">
+                    <label class="text-[11px] text-gray-300 font-bold block">বেট অ্যামাউন্ট সেট করুন (BDT):</label>
+                    <div class="flex gap-2">
+                        <input type="number" id="customBetInput" value="100" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-2.5 text-sm text-amber-400 font-bold focus:outline-none">
+                        <button onclick="setBet(50)" class="bg-slate-800 px-2 py-1 rounded-lg text-xs font-bold text-amber-300">৳৫০</button>
+                        <button onclick="setBet(100)" class="bg-slate-800 px-2 py-1 rounded-lg text-xs font-bold text-amber-300">৳১০০</button>
+                        <button onclick="setBet(500)" class="bg-slate-800 px-2 py-1 rounded-lg text-xs font-bold text-amber-300">৳৫০০</button>
+                    </div>
+                </div>
+
+                <button onclick="startAviatorBet()" id="aviatorActionBtn" class="tk-btn w-full py-3.5 rounded-xl text-xs uppercase shadow-lg">🚀 বেট শুরু করুন</button>
+                <div class="text-center">
+                    <button onclick="closeAviator()" class="text-xs text-gray-400 underline pt-1">গেম বন্ধ করুন ❌</button>
+                </div>
+            </div>
         </div>
 
-        <div class="game-grid" id="storeGrid">
-          <div class="store-loader">
-            <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
-            <p style="margin-top: 10px;">গেম স্টোর থেকে ডাটা লোড হচ্ছে...</p>
-          </div>
+        <!-- 2. DEPOSIT TAB -->
+        <div id="tab-deposit" class="space-y-3 hidden">
+            <div class="tk-card p-4 rounded-2xl space-y-3">
+                <h3 class="text-sm font-bold text-amber-400">📥 বিকাশ, নগদ ও রকেট ডিপোজিট</h3>
+                <div class="bg-[#031510] p-3 rounded-xl border border-amber-500/30 text-xs space-y-1">
+                    <p class="text-gray-400">অফিশিয়াল পার্সোনাল নম্বর:</p>
+                    <p class="text-amber-400 font-black text-sm font-mono">01401637316 (Personal)</p>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">পেমেন্ট মাধ্যম:</label>
+                    <select id="depMethod" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-amber-400">
+                        <option value="bKash">bKash</option>
+                        <option value="Nagad">Nagad</option>
+                        <option value="Rocket">Rocket</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ সিলেক্ট করুন:</label>
+                    <div class="grid grid-cols-4 gap-2 mb-2">
+                        <button onclick="setDep(200)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳২০০</button>
+                        <button onclick="setDep(500)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০</button>
+                        <button onclick="setDep(1000)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳১০০০</button>
+                        <button onclick="setDep(5000)" class="bg-[#031510] border border-emerald-800 py-1.5 rounded-lg text-xs font-bold text-amber-400">৳৫০০০</button>
+                    </div>
+                    <input type="number" id="depAmount" placeholder="অথবা পরিমাণ লিখুন" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">প্রেরক নম্বর:</label>
+                    <input type="number" id="depSender" placeholder="017xxxxxxxx" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">TrxID:</label>
+                    <input type="text" id="depTrx" placeholder="9L7A..." class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white uppercase">
+                </div>
+                <button onclick="submitDeposit()" class="tk-btn w-full py-3 rounded-xl text-xs uppercase shadow-lg">ডিপোজিট রিকোয়েস্ট পাঠান 📥</button>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>Crafted & Maintained with ❤️ by <strong>Emon Khan</strong> &copy; 2026</p>
-    </footer>
-  </div>
+        <!-- 3. WITHDRAW TAB -->
+        <div id="tab-withdraw" class="space-y-3 hidden">
+            <div class="tk-card p-4 rounded-2xl space-y-3">
+                <h3 class="text-sm font-bold text-emerald-400">📤 টাকা উত্তোলন (Withdraw)</h3>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">মাধ্যম:</label>
+                    <select id="wMethod" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-emerald-400">
+                        <option value="bKash">BKash</option>
+                        <option value="Nagad">Nagad</option>
+                        <option value="Rocket">Rocket</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">রিসিভ নম্বর:</label>
+                    <input type="number" id="wNumber" placeholder="017xxxxxxxx" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-300 font-bold block mb-1">পরিমাণ (মিনিমাম ২০০):</label>
+                    <input type="number" id="wAmount" placeholder="200" class="w-full bg-[#031510] border border-emerald-800 rounded-xl p-3 text-xs text-white">
+                </div>
+                <button onclick="submitWithdraw()" class="bg-emerald-600 text-slate-950 font-bold w-full py-3 rounded-xl text-xs uppercase">উইথড্র রিকোয়েস্ট 💸</button>
+            </div>
+        </div>
 
-  <!-- PLAYER OVERLAY (FOR IN-APP PLAY) -->
-  <div id="fullGameScreen">
-    <div class="game-top-bar">
-      <div class="screen-game-title" id="activeGameName">
-        <i class="fa-solid fa-gamepad"></i> Game Player
-      </div>
-      <div class="game-actions">
-        <a id="externalOpenBtn" href="#" target="_blank" class="action-btn btn-external">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> New Tab
-        </a>
-        <button class="action-btn back-btn" onclick="exitGameScreen()">
-          <i class="fa-solid fa-xmark"></i> বন্ধ করুন
+        <!-- 4. ADMIN TAB -->
+        <div id="tab-admin" class="space-y-3 hidden">
+            <div class="tk-card p-4 rounded-2xl space-y-3">
+                <h3 class="text-sm font-bold text-rose-400">👑 অ্যাডমিন প্যানেল</h3>
+                <div class="space-y-1">
+                    <p class="text-xs text-amber-400 font-bold">📥 ডিপোজিট রিকোয়েস্ট:</p>
+                    <div id="adminDeps" class="bg-[#031510] p-2 rounded-xl text-xs text-gray-300 min-h-[40px]">কোনো রিকোয়েস্ট নেই।</div>
+                </div>
+                <div class="space-y-1 pt-2 border-t border-emerald-900">
+                    <p class="text-xs text-emerald-400 font-bold">📤 উইথড্র রিকোয়েস্ট:</p>
+                    <div id="adminWits" class="bg-[#031510] p-2 rounded-xl text-xs text-gray-300 min-h-[40px]">কোনো রিকোয়েস্ট নেই।</div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#051c15] border-t border-emerald-900 p-2 flex justify-around items-center z-40 rounded-t-2xl">
+        <button onclick="switchTab('home')" id="nav-home" class="tab-item active flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">🏠</span> Home
         </button>
-      </div>
-    </div>
+        <button onclick="switchTab('deposit')" id="nav-deposit" class="tab-item flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">📥</span> Deposit
+        </button>
+        <button onclick="switchTab('withdraw')" id="nav-withdraw" class="tab-item flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">📤</span> Withdraw
+        </button>
+        <button onclick="switchTab('admin')" id="nav-admin" class="tab-item flex flex-col items-center text-[10px] font-bold text-gray-400">
+            <span class="text-lg">👑</span> Admin
+        </button>
+    </nav>
 
-    <div class="iframe-wrapper">
-      <div class="frame-loader" id="frameLoader">
-        <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
-        <span>গেম লোড হচ্ছে...</span>
-      </div>
-      <iframe id="activeGameFrame" class="direct-iframe" src="" allowfullscreen="true" allow="autoplay; fullscreen; accelerometer; gyroscope"></iframe>
-    </div>
-  </div>
+    <!-- SCRIPT ENGINE -->
+    <script>
+        let balance = localStorage.getItem('tk_bal') ? parseFloat(localStorage.getItem('tk_bal')) : 1000.00;
+        updateBal();
 
-  <script>
-    // Verified Games for In-App Frame
-    const verifiedGames = [
-      {
-        title: "2048 Classic Master",
-        category: "Puzzle",
-        thumb: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80",
-        url: "https://play2048.co/"
-      },
-      {
-        title: "Hextris Arcade",
-        category: "Arcade",
-        thumb: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80",
-        url: "https://hextris.io/"
-      },
-      {
-        title: "City Car Driver 3D",
-        category: "Racing",
-        thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80",
-        url: "https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com"
-      },
-      {
-        title: "Retro Space Invaders",
-        category: "Retro",
-        thumb: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&q=80",
-        url: "https://archive.org/embed/arcade_invaders"
-      },
-      {
-        title: "Flappy Bird HTML5",
-        category: "Arcade",
-        thumb: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=500&q=80",
-        url: "https://flappybird.io/"
-      },
-      {
-        title: "Pacman Classic",
-        category: "Retro",
-        thumb: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=500&q=80",
-        url: "https://freepacman.org/"
-      }
-    ];
-
-    let storeGamesList = [];
-
-    // Render In-App Verified Games
-    function renderVerifiedGames() {
-      const grid = document.getElementById('verifiedGrid');
-      grid.innerHTML = '';
-      verifiedGames.forEach(game => {
-        const card = document.createElement('div');
-        card.className = 'game-card';
-        card.innerHTML = `
-          <img src="${game.thumb}" alt="${game.title}" class="game-thumb" loading="lazy" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">${game.title}</div>
-              <div class="game-meta"><span>${game.category}</span><span>⭐ 4.9</span></div>
-            </div>
-            <button class="play-btn" onclick="launchGame('${game.url}', '${game.title.replace(/'/g, "\\'")}')">
-              <i class="fa-solid fa-play"></i> অ্যাপেই খেলুন
-            </button>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    // Fetch and Load Mega Store Games
-    async function loadStoreGames() {
-      const storeGrid = document.getElementById('storeGrid');
-      const storeCount = document.getElementById('storeCount');
-      
-      const API_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://gamemonetize.com/rssfeed.php?format=json&num=100");
-
-      try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
-
-        if (Array.isArray(data) && data.length > 0) {
-          storeGamesList = data;
-          renderStoreCards(storeGamesList);
-          storeCount.innerText = `${data.length}+ গেম রেডি`;
-        } else {
-          fallbackStoreGames();
+        function updateBal() {
+            document.getElementById('mainBalance').innerText = `৳${balance.toFixed(2)}`;
+            localStorage.setItem('tk_bal', balance);
         }
-      } catch (e) {
-        fallbackStoreGames();
-      }
-    }
 
-    function renderStoreCards(games) {
-      const storeGrid = document.getElementById('storeGrid');
-      storeGrid.innerHTML = '';
+        function addDemo() {
+            balance += 10000;
+            updateBal();
+            alert("১০,০০০ টাকা ডেমো ব্যালেন্স যোগ হয়েছে! 🪙");
+        }
 
-      games.forEach(game => {
-        const card = document.createElement('div');
-        card.className = 'game-card store-card';
-        card.setAttribute('data-title', (game.title || '').toLowerCase());
+        function switchTab(tab) {
+            ['home', 'deposit', 'withdraw', 'admin'].forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('nav-' + t).classList.remove('active');
+            });
+            document.getElementById('tab-' + tab).classList.remove('hidden');
+            document.getElementById('nav-' + tab).classList.add('active');
+            if(tab === 'admin') loadAdminData();
+        }
 
-        card.innerHTML = `
-          <img src="${game.thumb}" alt="${game.title}" class="game-thumb" loading="lazy" />
-          <div class="game-info">
-            <div>
-              <div class="game-title">${game.title}</div>
-              <div class="game-meta"><span>${game.category || 'Arcade'}</span><span>⚡ ক্লাউড প্লে</span></div>
-            </div>
-            <!-- Opens securely in game portal without frame refusal -->
-            <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn store-btn">
-              <i class="fa-solid fa-up-right-from-square"></i> সরাসরি খেলুন
-            </a>
-          </div>
-        `;
-        storeGrid.appendChild(card);
-      });
-    }
+        function setDep(amt) {
+            document.getElementById('depAmount').value = amt;
+        }
 
-    function fallbackStoreGames() {
-      const mock = [
-        { title: "Moto X3M Bike Race", category: "Action", thumb: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500&q=80", url: "https://html5.gamedistribution.com/64b5840d41eb4e95904d6e902b9e6e89/" },
-        { title: "Traffic Tom Run", category: "Racing", thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80", url: "https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com" },
-        { title: "Neon Chess Online", category: "Puzzle", thumb: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=500&q=80", url: "https://play2048.co/" },
-        { title: "Cyber Strike Shooter", category: "Shooting", thumb: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&q=80", url: "https://archive.org/embed/arcade_invaders" }
-      ];
-      renderStoreCards(mock);
-      document.getElementById('storeCount').innerText = `${mock.length} টি ক্লাউড গেম`;
-    }
+        function setBet(amt) {
+            document.getElementById('customBetInput').value = amt;
+        }
 
-    function filterStoreGames() {
-      const q = document.getElementById('storeSearchInput').value.toLowerCase();
-      document.querySelectorAll('.store-card').forEach(card => {
-        const title = card.getAttribute('data-title');
-        card.style.display = title.includes(q) ? 'flex' : 'none';
-      });
-    }
+        function playAviatorGame() {
+            document.getElementById('aviatorBox').classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        function closeAviator() {
+            document.getElementById('aviatorBox').classList.add('hidden');
+        }
 
-    // In-App Player functions
-    function launchGame(url, title) {
-      const screen = document.getElementById('fullGameScreen');
-      const frame = document.getElementById('activeGameFrame');
-      const titleTag = document.getElementById('activeGameName');
-      const externalLink = document.getElementById('externalOpenBtn');
-      const loader = document.getElementById('frameLoader');
+        let aviatorRunning = false;
+        let currentMultiplier = 1.00;
+        let activeBetAmount = 100;
 
-      titleTag.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${title}`;
-      externalLink.href = url;
-      loader.style.display = 'flex';
-      frame.src = url;
+        function startAviatorBet() {
+            activeBetAmount = parseFloat(document.getElementById('customBetInput').value) || 100;
+            if(balance < activeBetAmount) { alert("পর্যাপ্ত ব্যালেন্স নেই! আপনার ব্যালেন্স চেক করুন।"); return; }
+            balance -= activeBetAmount;
+            updateBal();
 
-      frame.onload = () => { loader.style.display = 'none'; };
-      screen.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
+            currentMultiplier = 1.00;
+            let btn = document.getElementById('aviatorActionBtn');
+            let stat = document.getElementById('aviatorStat');
+            let screen = document.getElementById('aviatorScreen');
+            let subText = document.getElementById('aviatorSubText');
+            let potentialWinDiv = document.getElementById('livePotentialWin');
 
-    function exitGameScreen() {
-      const screen = document.getElementById('fullGameScreen');
-      const frame = document.getElementById('activeGameFrame');
-      frame.src = '';
-      screen.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
+            screen.style.background = "#031510";
+            screen.style.borderColor = "#065f46";
+            stat.className = "text-3xl font-black text-amber-400 font-mono tracking-wider";
+            subText.innerText = "🚁 প্লেন উড়ছে... সময়মতো ক্যাশআউট করুন!";
 
-    window.onload = () => {
-      renderVerifiedGames();
-      loadStoreGames();
-    };
-  </script>
+            btn.innerText = "🎯 ক্যাশআউট করুন!";
+            btn.onclick = cashOutAviator;
+            aviatorRunning = true;
+
+            window.aviTimer = setInterval(() => {
+                if(!aviatorRunning) return;
+                currentMultiplier += 0.08;
+                let formatted = currentMultiplier.toFixed(2) + "x";
+                stat.innerText = formatted;
+                document.getElementById('liveMultiplierTop').innerText = formatted;
+
+                let currentWin = Math.floor(activeBetAmount * currentMultiplier);
+                potentialWinDiv.innerText = `🔥 সম্ভাব্য প্রফিট: ৳${currentWin}`;
+
+                // Crash logic
+                if(Math.random() < 0.05 && currentMultiplier > 1.3) {
+                    clearInterval(window.aviTimer);
+                    aviatorRunning = false;
+
+                    screen.style.background = "linear-gradient(to bottom, #450a0a, #7f1d1d)";
+                    screen.style.borderColor = "#ef4444";
+                    stat.className = "text-2xl font-black text-red-400 font-mono tracking-wider animate-pulse";
+                    stat.innerText = "💥 CRASHED (" + formatted + ")";
+                    subText.innerText = "প্লেন ক্র্যাশ করেছে! আপনি হেরে গেছেন। 😢";
+                    potentialWinDiv.innerText = `লস: -৳${activeBetAmount}`;
+
+                    btn.innerText = "🚀 বেট শুরু করুন";
+                    btn.onclick = startAviatorBet;
+                }
+            }, 200);
+        }
+
+        function cashOutAviator() {
+            if(!aviatorRunning) return;
+            clearInterval(window.aviTimer);
+            aviatorRunning = false;
+
+            let winAmt = Math.floor(activeBetAmount * currentMultiplier);
+            balance += winAmt;
+            updateBal();
+
+            let screen = document.getElementById('aviatorScreen');
+            let stat = document.getElementById('aviatorStat');
+            let subText = document.getElementById('aviatorSubText');
+            let potentialWinDiv = document.getElementById('livePotentialWin');
+            let btn = document.getElementById('aviatorActionBtn');
+
+            screen.style.background = "linear-gradient(to bottom, #064e3b, #022c22)";
+            screen.style.borderColor = "#10b981";
+            stat.className = "text-2xl font-black text-emerald-300 font-mono tracking-wider";
+            stat.innerText = `🎉 WON ৳${winAmt}`;
+            subText.innerText = `সফল ক্যাশআউট!`;
+            potentialWinDiv.innerText = `প্লাস: +৳${winAmt - activeBetAmount}`;
+
+            btn.innerText = "🚀 বেট শুরু করুন";
+            btn.onclick = startAviatorBet;
+        }
+
+        function submitDeposit() {
+            const method = document.getElementById('depMethod').value;
+            const sender = document.getElementById('depSender').value;
+            const amount = parseFloat(document.getElementById('depAmount').value);
+            const trx = document.getElementById('depTrx').value;
+            if(!sender || !amount || !trx) { alert("সব ফিল্ড পূরণ করুন!"); return; }
+
+            let list = JSON.parse(localStorage.getItem('tk_deps') || '[]');
+            list.push({method, sender, amount, trx});
+            localStorage.setItem('tk_deps', JSON.stringify(list));
+            alert("ডিপোজিট রিকোয়েস্ট জমা হয়েছে! ✅");
+        }
+
+        function submitWithdraw() {
+            const num = document.getElementById('wNumber').value;
+            const amt = parseFloat(document.getElementById('wAmount').value);
+            if(!num || !amt) { alert("সব ফিল্ড পূরণ করুন!"); return; }
+            if(amt < 200) { alert("মিনিমাম উইথড্র ২০০ টাকা!"); return; }
+            if(amt > balance) { alert("পর্যাপ্ত ব্যালেন্স নেই!"); return; }
+
+            balance -= amt;
+            updateBal();
+            let list = JSON.parse(localStorage.getItem('tk_wits') || '[]');
+            list.push({num, amt});
+            localStorage.setItem('tk_wits', JSON.stringify(list));
+            alert("উইথড্র রিকোয়েস্ট জমা হয়েছে! 💸");
+        }
+
+        function loadAdminData() {
+            let deps = JSON.parse(localStorage.getItem('tk_deps') || '[]');
+            document.getElementById('adminDeps').innerHTML = deps.length === 0 ? "কোনো ডিপোজিট নেই।" : deps.map((d, i) => `
+                <div class="bg-[#07261e] p-2 rounded flex justify-between items-center text-xs mt-1">
+                    <div><b>${d.method}</b> (${d.sender}) - ৳${d.amount}</div>
+                    <button onclick="approveDep(${i}, ${d.amount})" class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded font-bold">অ্যাপ্রুভ ✅</button>
+                </div>
+            `).join('');
+
+            let wits = JSON.parse(localStorage.getItem('tk_wits') || '[]');
+            document.getElementById('adminWits').innerHTML = wits.length === 0 ? "কোনো উইথড্র নেই।" : wits.map((w, i) => `
+                <div class="bg-[#07261e] p-2 rounded flex justify-between items-center text-xs mt-1">
+                    <div><b>${w.num}</b> - ৳${w.amt}</div>
+                    <button onclick="removeWit(${i})" class="bg-emerald-600 text-slate-950 px-2 py-0.5 rounded font-bold">পেইড ✅</button>
+                </div>
+            `).join('');
+        }
+
+        function approveDep(i, amt) {
+            let deps = JSON.parse(localStorage.getItem('tk_deps') || '[]');
+            balance += amt;
+            updateBal();
+            deps.splice(i, 1);
+            localStorage.setItem('tk_deps', JSON.stringify(deps));
+            loadAdminData();
+            alert("ডিপোজিট অ্যাপ্রুভ হয়েছে!");
+        }
+
+        function removeWit(i) {
+            let wits = JSON.parse(localStorage.getItem('tk_wits') || '[]');
+            wits.splice(i, 1);
+            localStorage.setItem('tk_wits', JSON.stringify(wits));
+            loadAdminData();
+            alert("পেমেন্ট সম্পন্ন হয়েছে!");
+        }
+    </script>
 </body>
 </html>
