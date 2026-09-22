@@ -2,10 +2,10 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemini Arcade | হাজারো গেমের রাজ্য</title>
-  <!-- Google Font & Font Awesome Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Emon Arcade | Pro Gaming Portal</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <style>
@@ -17,59 +17,109 @@
     }
 
     body {
-      background-color: #0b0f19;
+      background-color: #060913;
       color: #fff;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    /* Navbar */
+    /* Ambient Background Glow */
+    .glow-bg {
+      position: fixed;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 8%;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(10px);
+      padding: 15px 6%;
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-box {
+      display: flex;
+      flex-direction: column;
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .dev-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
       color: #38bdf8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .logo span {
-      color: #a855f7;
+    .dev-badge span {
+      background: rgba(56, 189, 248, 0.15);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #7dd3fc;
     }
 
-    nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 70%);
+      padding: 35px 20px 25px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 5px 15px;
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 20px;
+      color: #d8b4fe;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
+      font-size: 2.1rem;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      font-weight: 700;
+      background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 span {
       background: linear-gradient(90deg, #38bdf8, #a855f7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -77,33 +127,34 @@
 
     .hero p {
       color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      font-size: 1.1rem;
-    }
-
-    /* Search & Filter */
-    .search-box {
+      font-size: 0.92rem;
       max-width: 500px;
       margin: 0 auto 25px;
+      line-height: 1.5;
+    }
+
+    /* Search Bar */
+    .search-box {
+      max-width: 480px;
+      margin: 0 auto;
       position: relative;
     }
 
     .search-box input {
       width: 100%;
-      padding: 14px 20px 14px 45px;
+      padding: 13px 20px 13px 45px;
       border-radius: 30px;
-      border: 1px solid #334155;
-      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #111827;
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.95rem;
       outline: none;
       transition: 0.3s;
     }
 
     .search-box input:focus {
       border-color: #38bdf8;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
     }
 
     .search-box i {
@@ -114,304 +165,370 @@
       color: #64748b;
     }
 
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .cat-btn {
-      padding: 8px 18px;
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #cbd5e1;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: 0.3s;
-    }
-
-    .cat-btn:hover, .cat-btn.active {
-      background: #38bdf8;
-      color: #0b0f19;
-      font-weight: 600;
-    }
-
-    /* Games Grid */
+    /* Main Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px 60px;
+      padding: 20px 18px 80px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
     .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 25px;
-      border-left: 4px solid #a855f7;
-      padding-left: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .game-grid {
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: #38bdf8;
+      border-radius: 4px;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+
+    /* Game Hub Grid */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
     }
 
-    .game-card {
-      background: #1e293b;
-      border-radius: 14px;
+    .hub-card {
+      background: linear-gradient(145deg, #131b2e, #0d1322);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 20px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
 
-    .game-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+    .hub-card:hover {
+      transform: translateY(-5px);
       border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.2);
     }
 
-    .game-thumb {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .game-info {
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
-    }
-
-    .game-title {
-      font-size: 1.1rem;
+    .hub-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
       font-weight: 600;
+    }
+
+    .hub-icon {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .hub-title {
+      font-size: 1.15rem;
+      font-weight: 700;
       margin-bottom: 6px;
+      color: #f8fafc;
     }
 
-    .game-meta {
-      display: flex;
-      justify-content: space-between;
+    .hub-desc {
+      font-size: 0.82rem;
       color: #94a3b8;
-      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 18px;
     }
 
-    .play-btn {
-      margin-top: 12px;
+    .play-portal-btn {
       width: 100%;
-      padding: 10px;
+      padding: 11px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
       border: none;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      border-radius: 10px;
       color: #fff;
       font-weight: 600;
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s;
     }
 
-    .play-btn:hover {
-      opacity: 0.9;
+    .play-portal-btn:hover {
+      opacity: 0.92;
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
     }
 
-    /* Game Modal (Iframe Player) */
-    .modal {
+    /* Fullscreen Game Modal */
+    .game-modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .modal-content {
-      background: #0f172a;
-      width: 100%;
-      max-width: 900px;
-      height: 600px;
-      border-radius: 12px;
-      border: 1px solid #334155;
-      display: flex;
+      background: #000;
+      z-index: 9999;
       flex-direction: column;
-      overflow: hidden;
     }
 
-    .modal-header {
+    .modal-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
+      padding: 10px 18px;
+      background: #0b0f19;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .modal-game-name {
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .modal-controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .control-btn {
       background: #1e293b;
-    }
-
-    .close-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 20px;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .game-frame {
+    .control-btn:hover {
+      background: #334155;
+      color: #fff;
+    }
+
+    .close-red {
+      background: #dc2626 !important;
+      color: #fff !important;
+      border: none !important;
+    }
+
+    .iframe-wrapper {
+      flex: 1;
       width: 100%;
-      flex-grow: 1;
+      height: 100%;
+      position: relative;
+    }
+
+    .game-iframe {
+      width: 100%;
+      height: 100%;
       border: none;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 25px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       color: #64748b;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      background: #080c16;
     }
   </style>
 </head>
 <body>
 
+  <div class="glow-bg"></div>
+
   <!-- Header -->
   <header>
-    <div class="logo">GEMINI <span>ARCADE</span></div>
-    <nav>
-      <a href="#games">Games</a>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-    </nav>
+    <div class="brand-box">
+      <div class="logo">EMON ARCADE</div>
+      <div class="dev-badge">
+        <div class="status-dot"></div>
+        <span>Developer: Emon Khan</span>
+      </div>
+    </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>হাজারো ফ্রি গেম এক ক্লিকে</h1>
-    <p>অ্যাকশন, রেসিং, পাজল কিংবা রেট্রো — কোনো ইনস্টলেশন ছাড়াই ব্রাউজারে খেলুন সরাসরি!</p>
+    <div class="hero-tag">🔥 ১ ক্লিকে ১,০০,০০০+ অনলাইন গেমস</div>
+    <h1>হাজারো গেমের রাজ্য <br><span>এক ক্লিকে খেলুন সরাসরি!</span></h1>
+    <p>কোনো ইনস্টল ছাড়া ব্রাউজারের ভেতর সরাসরি বিশ্বের টপ গেমিং সাইটগুলো ওপেন করুন এবং স্মুথলি উপভোগ করুন।</p>
     
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" placeholder="যেকোনো গেম সার্চ করুন..." onkeyup="filterGames()" />
-    </div>
-
-    <div class="categories">
-      <button class="cat-btn active" onclick="filterCategory('all')">All</button>
-      <button class="cat-btn" onclick="filterCategory('action')">Action</button>
-      <button class="cat-btn" onclick="filterCategory('arcade')">Arcade</button>
-      <button class="cat-btn" onclick="filterCategory('puzzle')">Puzzle</button>
-      <button class="cat-btn" onclick="filterCategory('racing')">Racing</button>
+      <input type="text" id="searchInput" placeholder="গেমিং সাইট সার্চ করুন..." onkeyup="filterHubs()" />
     </div>
   </section>
 
-  <!-- Games Section -->
-  <div class="container" id="games">
-    <h2 class="section-title">পপুলার গেমস</h2>
-    <div class="game-grid" id="gameGrid">
-      <!-- Game Card 1 -->
-      <div class="game-card" data-category="arcade" data-title="2048 Classic">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="2048" class="game-thumb" />
-        <div class="game-info">
-          <div>
-            <div class="game-title">2048 Classic</div>
-            <div class="game-meta"><span>Arcade</span><span>⭐ 4.8</span></div>
-          </div>
-          <button class="play-btn" onclick="openGame('https://play2048.co/')">খেলুন</button>
+  <!-- Game Hubs Grid -->
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">পপুলার গেম প্ল্যাটফর্ম ও হাব</h2>
+    </div>
+
+    <div class="grid" id="hubGrid">
+      
+      <!-- Card 1: Poki Games -->
+      <div class="hub-card" data-title="Poki Games 1000+">
+        <span class="hub-badge">পপুলার</span>
+        <div>
+          <div class="hub-icon" style="color: #38bdf8;"><i class="fa-solid fa-gamepad"></i></div>
+          <div class="hub-title">Poki Games Hub</div>
+          <div class="hub-desc">Subway Surfers, Temple Run সহ ২০,০০০+ জনপ্রিয় ট্রেন্ডিং মোবাইল ও পিসি গেম।</div>
         </div>
+        <button class="play-portal-btn" onclick="openGame('https://poki.com', 'Poki Games Hub')">
+          <i class="fa-solid fa-play"></i> হাব ওপেন করুন
+        </button>
       </div>
 
-      <!-- Game Card 2 -->
-      <div class="game-card" data-category="arcade" data-title="Pacman Retro">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&q=80" alt="Pacman" class="game-thumb" />
-        <div class="game-info">
-          <div>
-            <div class="game-title">Pac-Man Retro</div>
-            <div class="game-meta"><span>Arcade</span><span>⭐ 4.9</span></div>
-          </div>
-          <button class="play-btn" onclick="openGame('https://freepacman.org/')">খেলুন</button>
+      <!-- Card 2: CrazyGames -->
+      <div class="hub-card" data-title="Crazy Games 3D">
+        <span class="hub-badge">হাই-গ্রাফিক্স</span>
+        <div>
+          <div class="hub-icon" style="color: #f59e0b;"><i class="fa-solid fa-fire"></i></div>
+          <div class="hub-title">CrazyGames World</div>
+          <div class="hub-desc">সেরা অ্যাকশন, রেসিং, কার শুটিং ও হাই-গ্রাফিক্স ৩ডি মাল্টিপ্লেয়ার গেম কালেকশন।</div>
         </div>
+        <button class="play-portal-btn" onclick="openGame('https://www.crazygames.com', 'CrazyGames World')">
+          <i class="fa-solid fa-play"></i> হাব ওপেন করুন
+        </button>
       </div>
 
-      <!-- Game Card 3 -->
-      <div class="game-card" data-category="action" data-title="Space Invaders">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80" alt="Space" class="game-thumb" />
-        <div class="game-info">
-          <div>
-            <div class="game-title">Space Shooter</div>
-            <div class="game-meta"><span>Action</span><span>⭐ 4.6</span></div>
-          </div>
-          <button class="play-btn" onclick="openGame('https://archive.org/embed/arcade_invaders')">খেলুন</button>
+      <!-- Card 3: GameMonetize -->
+      <div class="hub-card" data-title="GameMonetize Arcade">
+        <span class="hub-badge">HTML5 দ্রুত</span>
+        <div>
+          <div class="hub-icon" style="color: #ec4899;"><i class="fa-solid fa-bolt"></i></div>
+          <div class="hub-title">Arcade Unlimited</div>
+          <div class="hub-desc">হাজার হাজার হালকা ও ফাস্ট লোডিং আর্কেড ও ক্যাজুয়াল গেম এক ছাদের নিচে।</div>
         </div>
+        <button class="play-portal-btn" onclick="openGame('https://gamemonetize.com', 'Arcade Unlimited')">
+          <i class="fa-solid fa-play"></i> হাব ওপেন করুন
+        </button>
       </div>
 
-      <!-- Game Card 4 -->
-      <div class="game-card" data-category="puzzle" data-title="Tic Tac Toe">
-        <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=400&q=80" alt="TicTacToe" class="game-thumb" />
-        <div class="game-info">
-          <div>
-            <div class="game-title">Tic Tac Toe AI</div>
-            <div class="game-meta"><span>Puzzle</span><span>⭐ 4.5</span></div>
-          </div>
-          <button class="play-btn" onclick="openGame('https://playtictactoe.org/')">খেলুন</button>
+      <!-- Card 4: 2048 Classic -->
+      <div class="hub-card" data-title="2048 Classic Puzzle">
+        <span class="hub-badge">পাজল</span>
+        <div>
+          <div class="hub-icon" style="color: #10b981;"><i class="fa-solid fa-puzzle-piece"></i></div>
+          <div class="hub-title">2048 Classic</div>
+          <div class="hub-desc">মাইন্ড রিল্যাক্সিং এবং ব্রেন ট্রেইনিং বিশ্বখ্যাত ক্লাসিক নাম্বার পাজল গেম।</div>
         </div>
+        <button class="play-portal-btn" onclick="openGame('https://play2048.co/', '2048 Classic')">
+          <i class="fa-solid fa-play"></i> খেলুন
+        </button>
       </div>
+
+      <!-- Card 5: FreePacman -->
+      <div class="hub-card" data-title="Pacman Arcade Retro">
+        <span class="hub-badge">রেট্রো নস্টালজিয়া</span>
+        <div>
+          <div class="hub-icon" style="color: #fbbf24;"><i class="fa-solid fa-ghost"></i></div>
+          <div class="hub-title">Pac-Man Classic</div>
+          <div class="hub-desc">৯০-এর দশকের সেই জনপ্রিয় প্যাক-ম্যান রেট্রো আর্কেড গেম ব্রাউজারে খেলুন।</div>
+        </div>
+        <button class="play-portal-btn" onclick="openGame('https://freepacman.org/', 'Pac-Man Classic')">
+          <i class="fa-solid fa-play"></i> খেলুন
+        </button>
+      </div>
+
+      <!-- Card 6: Y8 Games -->
+      <div class="hub-card" data-title="Y8 Games Retro Hub">
+        <span class="hub-badge">অল-টাইম ফেভারিট</span>
+        <div>
+          <div class="hub-icon" style="color: #ef4444;"><i class="fa-solid fa-dice-d20"></i></div>
+          <div class="hub-title">Y8 Retro & Flash</div>
+          <div class="hub-desc">৭০,০০০+ ক্লাসিক ফ্ল্যাশ গেমস, ২-প্লেয়ার মারামারি ও স্পোর্টস গেমের মেগা কালেকশন।</div>
+        </div>
+        <button class="play-portal-btn" onclick="openGame('https://www.y8.com', 'Y8 Games')">
+          <i class="fa-solid fa-play"></i> হাব ওপেন করুন
+        </button>
+      </div>
+
     </div>
   </div>
 
-  <!-- Game Modal (Iframe) -->
-  <div class="modal" id="gameModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span id="modalGameTitle" style="font-weight: 600;">Play Game</span>
-        <button class="close-btn" onclick="closeGame()"><i class="fa-solid fa-xmark"></i></button>
+  <!-- Fullscreen Game Modal -->
+  <div class="game-modal" id="gameModal">
+    <div class="modal-bar">
+      <div class="modal-game-name" id="modalTitle">
+        <i class="fa-solid fa-gamepad"></i> Game Player
       </div>
-      <iframe id="gameIframe" class="game-frame" src=""></iframe>
+      <div class="modal-controls">
+        <button class="control-btn" onclick="toggleFullScreen()"><i class="fa-solid fa-expand"></i> ফুলস্ক্রিন</button>
+        <button class="control-btn close-red" onclick="closeGame()"><i class="fa-solid fa-xmark"></i> বন্ধ করুন</button>
+      </div>
+    </div>
+    <div class="iframe-wrapper">
+      <iframe id="gameIframe" class="game-iframe" src="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"></iframe>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Gemini Arcade Portal. Built for unlimited fun!</p>
+    <p>Crafted with ❤️ by <strong>Developer Emon Khan</strong> | Unlimited Gaming Portal</p>
   </footer>
 
-  <!-- Simple JavaScript for Controls -->
+  <!-- Scripts -->
   <script>
-    function openGame(url) {
+    function openGame(url, name) {
       const modal = document.getElementById('gameModal');
       const iframe = document.getElementById('gameIframe');
+      const title = document.getElementById('modalTitle');
+
+      title.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${name}`;
       iframe.src = url;
       modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
     }
 
     function closeGame() {
       const modal = document.getElementById('gameModal');
       const iframe = document.getElementById('gameIframe');
+
       iframe.src = '';
       modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
 
-    function filterCategory(cat) {
-      const cards = document.querySelectorAll('.game-card');
-      const buttons = document.querySelectorAll('.cat-btn');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      cards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    function toggleFullScreen() {
+      const elem = document.getElementById("gameModal");
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => alert("Fullscreen Error: " + err.message));
+      } else {
+        document.exitFullscreen();
+      }
     }
 
-    function filterGames() {
+    function filterHubs() {
       const query = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.game-card');
+      const cards = document.querySelectorAll('.hub-card');
 
       cards.forEach(card => {
         const title = card.getAttribute('data-title').toLowerCase();
