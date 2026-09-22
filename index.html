@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>EMON ARCADE | Unlimited Games by Emon Khan</title>
+  <title>EMON ARCADE PRO | Cloud Games</title>
   
   <!-- Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -19,8 +19,8 @@
     }
 
     body {
-      background-color: #0b0f19;
-      color: #fff;
+      background-color: #090d16;
+      color: #f8fafc;
       overflow-x: hidden;
       min-height: 100vh;
     }
@@ -30,9 +30,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 6%;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(12px);
+      padding: 14px 6%;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -45,7 +45,7 @@
     }
 
     .logo {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
       color: #38bdf8;
       letter-spacing: 1px;
@@ -63,7 +63,6 @@
       font-size: 0.75rem;
       color: #94a3b8;
       font-weight: 600;
-      margin-top: 2px;
     }
 
     .dev-badge span {
@@ -79,19 +78,21 @@
       height: 7px;
       background: #22c55e;
       border-radius: 50%;
-      box-shadow: 0 0 6px #22c55e;
+      box-shadow: 0 0 8px #22c55e;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 42px 20px 20px;
-      background: radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 70%);
+      padding: 40px 20px 25px;
+      background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 70%);
     }
 
     .hero-badge {
-      display: inline-block;
-      padding: 5px 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
       background: rgba(168, 85, 247, 0.15);
       border: 1px solid rgba(168, 85, 247, 0.35);
       border-radius: 20px;
@@ -103,9 +104,9 @@
 
     .hero h1 {
       font-size: 2.2rem;
-      line-height: 1.3;
+      line-height: 1.25;
       margin-bottom: 10px;
-      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      background: linear-gradient(90deg, #38bdf8, #c084fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
@@ -113,10 +114,9 @@
 
     .hero p {
       color: #94a3b8;
-      max-width: 580px;
-      margin: 0 auto 25px;
+      max-width: 540px;
+      margin: 0 auto 20px;
       font-size: 0.95rem;
-      line-height: 1.5;
     }
 
     /* Search Bar */
@@ -128,7 +128,7 @@
 
     .search-box input {
       width: 100%;
-      padding: 12px 20px 12px 45px;
+      padding: 12px 20px 12px 46px;
       border-radius: 30px;
       border: 1px solid #334155;
       background: #1e293b;
@@ -140,7 +140,7 @@
 
     .search-box input:focus {
       border-color: #38bdf8;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
     }
 
     .search-box i {
@@ -155,13 +155,13 @@
     .categories {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .cat-btn {
-      padding: 7px 18px;
+      padding: 7px 16px;
       background: #1e293b;
       border: 1px solid #334155;
       color: #cbd5e1;
@@ -169,7 +169,7 @@
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 600;
-      transition: 0.3s;
+      transition: 0.2s;
     }
 
     .cat-btn:hover, .cat-btn.active {
@@ -186,9 +186,9 @@
     }
 
     .section-title {
-      font-size: 1.35rem;
-      margin-bottom: 20px;
-      border-left: 4px solid #a855f7;
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+      border-left: 4px solid #38bdf8;
       padding-left: 12px;
       font-weight: 700;
       display: flex;
@@ -207,7 +207,7 @@
 
     .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       gap: 20px;
     }
 
@@ -216,27 +216,27 @@
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
       display: flex;
       flex-direction: column;
     }
 
     .game-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.18);
       border-color: rgba(56, 189, 248, 0.4);
     }
 
     .game-thumb {
       width: 100%;
-      height: 160px;
+      height: 155px;
       object-fit: cover;
       background: #0f172a;
     }
 
     .game-info {
-      padding: 15px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -244,7 +244,7 @@
     }
 
     .game-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 6px;
       white-space: nowrap;
@@ -256,41 +256,32 @@
       display: flex;
       justify-content: space-between;
       color: #94a3b8;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     .play-btn {
       margin-top: 12px;
       width: 100%;
-      padding: 10px;
+      padding: 9px;
       border: none;
       border-radius: 8px;
-      background: linear-gradient(90deg, #38bdf8, #a855f7);
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.92rem;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      color: #0b0f19;
+      font-weight: 700;
+      font-size: 0.9rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 7px;
       transition: 0.2s;
     }
 
     .play-btn:hover {
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
-    /* Loader */
-    .loader-box {
-      text-align: center;
-      grid-column: 1 / -1;
-      padding: 50px 0;
-      color: #38bdf8;
-      font-size: 1.2rem;
-    }
-
-    /* 1-CLICK INSTANT SCREEN PLAYER */
+    /* FULLSCREEN PLAYER OVERLAY */
     #fullGameScreen {
       display: none;
       position: fixed;
@@ -303,64 +294,99 @@
     }
 
     .game-top-bar {
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      right: 15px;
+      height: 52px;
+      background: #0b0f19;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 16px;
+      border-bottom: 1px solid #1e293b;
       z-index: 10;
-      pointer-events: none;
     }
 
     .screen-game-title {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
       color: #38bdf8;
       font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 50%;
     }
 
-    .back-btn {
-      pointer-events: auto;
-      background: rgba(220, 38, 38, 0.9);
+    .game-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-btn {
       border: none;
       color: #fff;
-      padding: 7px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+      gap: 5px;
       transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-external {
+      background: #334155;
+    }
+    .btn-external:hover {
+      background: #475569;
+    }
+
+    .back-btn {
+      background: #dc2626;
     }
 
     .back-btn:hover {
       background: #ef4444;
-      transform: scale(1.05);
+    }
+
+    .iframe-wrapper {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 52px);
+      background: #05070c;
     }
 
     .direct-iframe {
       width: 100%;
       height: 100%;
       border: none;
-      background: #000;
+      display: block;
     }
 
-    /* Footer */
+    /* Iframe Loader Indicator */
+    .frame-loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #0b0f19;
+      gap: 12px;
+      color: #38bdf8;
+      z-index: 5;
+    }
+
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       color: #64748b;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
     }
 
     footer strong {
@@ -370,7 +396,6 @@
 </head>
 <body>
 
-  <!-- Main Website Interface -->
   <div id="mainWebsite">
     <!-- Header -->
     <header>
@@ -385,94 +410,122 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">🔥 লাইভ এপিআই: হাজারো ফ্রি গেম</div>
-      <h1>হাজারো ফ্রি গেম <br>এক ক্লিকে</h1>
-      <p>অ্যাকশন, রেসিং, পাজল কিংবা রেট্রো — কোনো ইনস্টলেশন ছাড়াই ব্রাউজারে খেলুন সরাসরি!</p>
+      <div class="hero-badge"><i class="fa-solid fa-bolt"></i> আনলিমিটেড HTML5 ক্লাউড আর্কেড</div>
+      <h1>ফ্রি অনলাইন গেম <br>সরাসরি ব্রাউজারে</h1>
+      <p>কোনো ইনস্টলেশন ছাড়াই এক ক্লিকে যেকোনো গেম খেলুন মোবাইল বা পিসিতে!</p>
       
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="যেকোনো গেম সার্চ করুন..." onkeyup="filterGames()" />
+        <input type="text" id="searchInput" placeholder="গেমের নাম সার্চ করুন..." onkeyup="filterGames()" />
       </div>
 
       <div class="categories">
         <button class="cat-btn active" onclick="filterCategory('All', event)">All</button>
-        <button class="cat-btn" onclick="filterCategory('Action', event)">Action</button>
         <button class="cat-btn" onclick="filterCategory('Arcade', event)">Arcade</button>
         <button class="cat-btn" onclick="filterCategory('Puzzle', event)">Puzzle</button>
         <button class="cat-btn" onclick="filterCategory('Racing', event)">Racing</button>
-        <button class="cat-btn" onclick="filterCategory('Shooting', event)">Shooting</button>
+        <button class="cat-btn" onclick="filterCategory('Retro', event)">Retro</button>
       </div>
     </section>
 
     <!-- Games Section -->
     <div class="container">
       <div class="section-title">
-        <span>পপুলার গেমস</span>
+        <span>ভেরিফাইড গেমস তালিকা</span>
         <span class="game-count" id="itemCounter">লোড হচ্ছে...</span>
       </div>
 
-      <div class="game-grid" id="gameGrid">
-        <div class="loader-box">
-          <i class="fa-solid fa-spinner fa-spin"></i> লাইভ গেম এপিআই কানেক্ট হচ্ছে...
-        </div>
-      </div>
+      <div class="game-grid" id="gameGrid"></div>
     </div>
 
     <!-- Footer -->
     <footer>
-      <p>Crafted & Developed with ❤️ by <strong>Developer Emon Khan</strong> &copy; 2026</p>
+      <p>Crafted with ❤️ by <strong>Emon Khan</strong> &copy; 2026</p>
     </footer>
   </div>
 
-  <!-- DIRECT 1-CLICK INSTANT PLAYER SCREEN -->
+  <!-- INSTANT DUAL-MODE PLAYER SCREEN -->
   <div id="fullGameScreen">
     <div class="game-top-bar">
       <div class="screen-game-title" id="activeGameName">
-        <i class="fa-solid fa-gamepad"></i> Game Player
+        <i class="fa-solid fa-gamepad"></i> Playing
       </div>
-      <button class="back-btn" onclick="exitGameScreen()">
-        <i class="fa-solid fa-arrow-left"></i> গেম বন্ধ করুন
-      </button>
+      <div class="game-actions">
+        <a id="externalOpenBtn" href="#" target="_blank" class="action-btn btn-external" title="ব্রাউজারের নতুন ট্যাবে ফুলস্ক্রিনে খেলুন">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> New Tab
+        </a>
+        <button class="action-btn back-btn" onclick="exitGameScreen()">
+          <i class="fa-solid fa-xmark"></i> বন্ধ করুন
+        </button>
+      </div>
     </div>
-    <iframe id="activeGameFrame" class="direct-iframe" src="" allowfullscreen="true" allow="autoplay; fullscreen; accelerometer; gyroscope" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"></iframe>
+
+    <div class="iframe-wrapper">
+      <div class="frame-loader" id="frameLoader">
+        <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
+        <span>গেম লোড হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</span>
+      </div>
+      <!-- Note: sandbox attribute removed to prevent security blocking of canvas/audio engines -->
+      <iframe 
+        id="activeGameFrame" 
+        class="direct-iframe" 
+        src="" 
+        allowfullscreen="true" 
+        allow="autoplay; fullscreen; accelerometer; gyroscope; gamepad; payment">
+      </iframe>
+    </div>
   </div>
 
-  <!-- Real API Script -->
   <script>
-    let allGames = [];
-    const API_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://gamemonetize.com/rssfeed.php?format=json&num=100");
-
-    // Fetch official HTML5 games from Free API
-    async function loadLiveGames() {
-      const grid = document.getElementById('gameGrid');
-      const counter = document.getElementById('itemCounter');
-
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-
-        if (Array.isArray(data) && data.length > 0) {
-          allGames = data;
-          renderGameCards(allGames);
-          counter.innerText = `${allGames.length}+ টি গেম সক্রিয়`;
-        } else {
-          loadFallbackVerifiedGames();
-        }
-      } catch (err) {
-        // Fallback in case of CORS or network issue
-        loadFallbackVerifiedGames();
+    // Embeddable and CORS-tested games
+    const verifiedGames = [
+      {
+        title: "2048 Classic Master",
+        category: "Puzzle",
+        thumb: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80",
+        url: "https://play2048.co/"
+      },
+      {
+        title: "Hextris Puzzle Arcade",
+        category: "Arcade",
+        thumb: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80",
+        url: "https://hextris.io/"
+      },
+      {
+        title: "City Car Driver 3D",
+        category: "Racing",
+        thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80",
+        url: "https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com"
+      },
+      {
+        title: "Retro Space Invaders",
+        category: "Retro",
+        thumb: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&q=80",
+        url: "https://archive.org/embed/arcade_invaders"
+      },
+      {
+        title: "Flappy Bird HTML5",
+        category: "Arcade",
+        thumb: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=500&q=80",
+        url: "https://flappybird.io/"
+      },
+      {
+        title: "Pacman Classic Edition",
+        category: "Retro",
+        thumb: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=500&q=80",
+        url: "https://freepacman.org/"
       }
-    }
+    ];
 
-    function renderGameCards(games) {
+    function renderGames(games) {
       const grid = document.getElementById('gameGrid');
       grid.innerHTML = '';
 
       games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'game-card';
-        card.setAttribute('data-category', game.category || 'Arcade');
-        card.setAttribute('data-title', (game.title || '').toLowerCase());
+        card.setAttribute('data-category', game.category);
+        card.setAttribute('data-title', game.title.toLowerCase());
 
         card.innerHTML = `
           <img src="${game.thumb}" alt="${game.title}" class="game-thumb" loading="lazy" />
@@ -480,50 +533,59 @@
             <div>
               <div class="game-title">${game.title}</div>
               <div class="game-meta">
-                <span>${game.category || 'Arcade'}</span>
+                <span><i class="fa-solid fa-gamepad"></i> ${game.category}</span>
                 <span>⭐ 4.9</span>
               </div>
             </div>
-            <button class="play-btn" onclick="playGameDirect('${game.url}', '${game.title.replace(/'/g, "\\'")}')">
+            <button class="play-btn" onclick="launchGame('${game.url}', '${game.title.replace(/'/g, "\\'")}')">
               <i class="fa-solid fa-play"></i> খেলুন
             </button>
           </div>
         `;
         grid.appendChild(card);
       });
+
+      document.getElementById('itemCounter').innerText = `${games.length} টি ভেরিফাইড গেম`;
     }
 
-    // Direct Fullscreen Launcher
-    function playGameDirect(url, title) {
-      const fullScreen = document.getElementById('fullGameScreen');
-      const iframe = document.getElementById('activeGameFrame');
-      const name = document.getElementById('activeGameName');
+    function launchGame(url, title) {
+      const screen = document.getElementById('fullGameScreen');
+      const frame = document.getElementById('activeGameFrame');
+      const titleTag = document.getElementById('activeGameName');
+      const externalLink = document.getElementById('externalOpenBtn');
+      const loader = document.getElementById('frameLoader');
 
-      name.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${title}`;
-      iframe.src = url;
-      fullScreen.style.display = 'flex';
+      titleTag.innerHTML = `<i class="fa-solid fa-gamepad"></i> ${title}`;
+      externalLink.href = url;
+
+      // Loader visibility
+      loader.style.display = 'flex';
+      frame.src = url;
+
+      frame.onload = () => {
+        loader.style.display = 'none';
+      };
+
+      screen.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
 
     function exitGameScreen() {
-      const fullScreen = document.getElementById('fullGameScreen');
-      const iframe = document.getElementById('activeGameFrame');
+      const screen = document.getElementById('fullGameScreen');
+      const frame = document.getElementById('activeGameFrame');
 
-      iframe.src = '';
-      fullScreen.style.display = 'none';
+      frame.src = '';
+      screen.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
 
-    // Filter Logic
     function filterCategory(cat, event) {
-      const buttons = document.querySelectorAll('.cat-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
 
-      const cards = document.querySelectorAll('.game-card');
-      cards.forEach(card => {
+      document.querySelectorAll('.game-card').forEach(card => {
         const itemCat = card.getAttribute('data-category');
-        if (cat === 'All' || itemCat.toLowerCase().includes(cat.toLowerCase())) {
+        if (cat === 'All' || itemCat.toLowerCase() === cat.toLowerCase()) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -533,33 +595,13 @@
 
     function filterGames() {
       const query = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.game-card');
-
-      cards.forEach(card => {
+      document.querySelectorAll('.game-card').forEach(card => {
         const title = card.getAttribute('data-title');
-        if (title.includes(query)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = title.includes(query) ? 'flex' : 'none';
       });
     }
 
-    // Guaranteed Working Games Fallback (No refusal)
-    function loadFallbackVerifiedGames() {
-      const fallback = [
-        { title: "City Car Racer 3D", category: "Racing", thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&q=80", url: "https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com" },
-        { title: "Moto Beach Ride", category: "Action", thumb: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500&q=80", url: "https://html5.gamedistribution.com/64b5840d41eb4e95904d6e902b9e6e89/" },
-        { title: "2048 Master Puzzle", category: "Puzzle", thumb: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80", url: "https://play2048.co/" },
-        { title: "Neon Space Invader", category: "Arcade", thumb: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80", url: "https://archive.org/embed/arcade_invaders" },
-        { title: "Cyber Drift 3D", category: "Racing", thumb: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=500&q=80", url: "https://games.cdn.famobi.com/html5games/c/city-car-racer/v080/?fg_domain=play.famobi.com" }
-      ];
-      renderGameCards(fallback);
-      document.getElementById('itemCounter').innerText = `${fallback.length} টি ভেরিফাইড গেম`;
-    }
-
-    // Initialize API Call
-    window.onload = loadLiveGames;
+    window.onload = () => renderGames(verifiedGames);
   </script>
 </body>
 </html>
